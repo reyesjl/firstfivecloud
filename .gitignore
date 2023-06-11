@@ -1,0 +1,29 @@
+# Django specific files
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# Secret keys
+*.secret
+
+# Media files
+media/
+
+# Static files
+static/
+
+# Database files
+*.sqlite3
+
+# Environment variables
+.env
+
+# Development tools and configurations
+.vscode/
+.idea/
+*.bak
+*.swp
+*.swo
+*~
