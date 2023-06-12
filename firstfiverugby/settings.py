@@ -47,7 +47,7 @@ ROOT_URLCONF = 'firstfiverugby.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': '',
+        'DIRS': '../f5/templates',
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,6 +77,9 @@ DATABASES = {
     }
 }
 
+# Authentication
+# I created this CustomUser Model
+AUTH_USER_MODEL = 'f5.CustomUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
