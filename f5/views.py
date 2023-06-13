@@ -2,31 +2,34 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Article, RugbyCamp
 
+# Example(s)
+# return render(request, "index.html", context)
+# return HttpResponse("Learn more about us and why we started First Five Rugby.")
+
 def index(request):
     '''
     Routes user to the landing view
     '''
-    context = {
-       "message_otd": "welcome to f5 rugby. checkout our catalogs, register for camps, find a quote for your tours, and much more!" 
-    }
-    return render(request, "index.html", context)
-
-def about(request):
-    return HttpResponse("Learn more about us and why we started First Five Rugby.")
+    return render(request, "index.html")
 
 def catalog(request):
-    return HttpResponse("Browse our extensive collection, find something for you.")
+    return render(request, "catalog.html")
 
 def news(request):
-    latest_posts = Article.objects.order_by("")
-    return 
+    latest_posts = Article.objects.order_by("title")
+    return render(request, "news.html")
 
 def camps(request):
+
+    # fetch camps...
     latest_camps = RugbyCamp.objects.order_by("-startdate")
-    return HttpResponse("Grow your rugby skills and make valuable connections.")
+    return render(request, "camps.html")
 
 def tours(request):
-    return HttpResponse("Tours to Ireland are here and you can get a quote too.") 
+    
+    # fetch tours...
 
-def help(request):
-    return HttpResponse("Have a question for our team?")
+    return render(request, "tours.html")
+
+def info(request):
+    return render(request, "info.html")
