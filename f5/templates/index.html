@@ -1,21 +1,28 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block content %}
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-1">First Five Rugby</h1>
+      <p class="lead">A premier portal dedicated to growing and developing the game of rugby in North America.</p>
+      
+      <div class="row mt-5">
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="landingEmail" placeholder="Enter email for updates">
+        </div>
 
-<!-- 
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lixKq29iS1A?controls=0" allowfullscreen></iframe>
-</div>
--->
+        <div class="col-sm-4 mt-3 mt-sm-0">
+          <button type="submit" class="btn btn-primary">Send.</button>
+        </div>
 
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
-      <div class="col-md-5 p-lg-5 mx-auto my-5">
-        <h1 class="display-4 font-weight-normal">First Five Rugby</h1>
-        <p class="lead font-weight-normal">Unleash your rugby spirit; register your email today for a free gift!</p>
-        <input type="text" />
-        <a class="btn btn-outline-primary">Save</a>
+        <hr class="mt-5 mb-5"/>
+
       </div>
-      <div class="product-device box-shadow d-none d-md-block"></div>
-      <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+
     </div>
+  </div>
+
+  <div>
+</div>
 {% endblock %}

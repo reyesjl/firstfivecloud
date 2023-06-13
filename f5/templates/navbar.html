@@ -1,19 +1,20 @@
 {% load static %}
-<nav class="navbar navbar-expand-md">
-    <div class="container">
-        <div class="navbar-nav">
+
+<div class="container">
+<nav class="navbar navbar-expand-md mb-5">
+        <div class="navbar-nav text-center">
           <a class="spin-element">
-            <img src="{% static 'assets/f5.svg' %}" alt="" width="50px" height="auto">
+            <img src="{% static 'assets/f5.svg' %}" alt="" width="60px" height="auto">
           </a>
-          <a href="{% url 'index' %}">Home</a>
-          <a href="{% url 'catalog' %}">Catalog</a>
-          <a href="{% url 'news' %}">News</a>
-          <a href="{% url 'camps' %}">Camps</a>
-          <a href="{% url 'tours' %}">Tours</a>
-          <a href="{% url 'info' %}">Info</a>
+          <a {% if location == 'home' %}class="active"{% endif %} href="{% url 'index' %}">Home</a>
+          <a {% if location == 'catalog' %}class="active"{% endif %} href="{% url 'catalog' %}">Catalog</a>
+          <a {% if location == 'news' %}class="active"{% endif %} href="{% url 'news' %}">News</a>
+          <a {% if location == 'camps' %}class="active"{% endif %} href="{% url 'camps' %}">Camps</a>
+          <a {% if location == 'tours' %}class="active"{% endif %} href="{% url 'tours' %}">Tours</a>
+          <a {% if location == 'info' %}class="active"{% endif %} href="{% url 'info' %}">Info</a>
         </div>
-    </div>
 </nav>
+    </div>
 
 <!-- IF user is logged in -->
 {% if username %}
