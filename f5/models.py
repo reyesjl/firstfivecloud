@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib import admin
 from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
@@ -131,14 +130,3 @@ class MOTD(models.Model):
 
     def __str__(self):
         return self.message
-    
-admin.site.register(CustomUser)
-admin.site.register(RugbyCamp)
-admin.site.register(CampImage)
-admin.site.register(Tour)
-admin.site.register(TourImage)
-admin.site.register(Article)
-admin.site.register(ArticleImage)
-admin.site.register(Tag)
-admin.site.register(ApparelProduct)
-admin.site.register(ProductImage)
