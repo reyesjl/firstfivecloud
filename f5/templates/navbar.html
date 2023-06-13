@@ -1,6 +1,10 @@
+{% load static %}
 <nav class="navbar navbar-expand-md">
     <div class="container">
         <div class="navbar-nav">
+          <a class="spin-element">
+            <img src="{% static 'assets/f5.svg' %}" alt="" width="50px" height="auto">
+          </a>
           <a href="{% url 'index' %}">Home</a>
           <a href="{% url 'catalog' %}">Catalog</a>
           <a href="{% url 'news' %}">News</a>
@@ -29,3 +33,11 @@
   </div>
 </div>
 {% endif %}
+
+<script>
+const spinElement = document.querySelector('.spin-element');
+
+spinElement.addEventListener('click', () => {
+  spinElement.classList.toggle('spin');
+});
+</script>

@@ -1,5 +1,21 @@
 {% extends 'base.html'%}
-{% load static %
+{% load static %}
 {% block content %}
-<img src="{%static 'assets/f5.svg'%}" class="img-fluid" alt="f5 logo">
+
+<!-- 
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lixKq29iS1A?controls=0" allowfullscreen></iframe>
+</div>
+-->
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal">First Five Rugby</h1>
+        <p class="lead font-weight-normal">Unleash your rugby spirit; register your email today for a free gift!</p>
+        <input type="text" />
+        <a class="btn btn-outline-primary">Save</a>
+      </div>
+      <div class="product-device box-shadow d-none d-md-block"></div>
+      <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    </div>
 {% endblock %}
