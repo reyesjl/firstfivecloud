@@ -15,7 +15,7 @@ def index(request):
     Routes user to the landing view
     '''
     context = {
-        "location": "f5 landing page",
+        "location": "home",
         "motd": True,
         "motd_message": "Welcome to F5Rugby.com! Explore our vintage jersey catalog, register for rugby camps, join rugby tours to Ireland, and stay informed with engaging articles. Proudly sponsored by Strong Lads, Canterbury of NZ, and World Rugby Shop."
     }
@@ -27,7 +27,9 @@ def catalog(request):
     '''
     products = ApparelProduct.objects.all()
     context = {
-        "location": "f5/catalog",
+        "location": "catalog",
+        "motd": True,
+        "motd_message": "[Featured Items] : Check out the rugby camps we made for NOVA WRFC & our vintage jersey collection.",
         "products": products,
     }
     return render(request, "catalog.html", context)
@@ -37,7 +39,9 @@ def news(request):
     Renders the news view
     '''
     context = {
-        "location": "f5/news"
+        "location": "news",
+        "motd": True,
+        "motd_message": "[Read More] : People like you are sharing their stories here; stay a while."
     }
     return render(request, "news.html", context)
 
@@ -48,7 +52,7 @@ def camps(request):
     context = {
         "location": "camps",
         "motd": True,
-        "motd_message": "[Featured Camps] : Baltimore All Star Rugby Camp at Loyola Blakefield July 24 - 27, approx 4p - 10p daily."
+        "motd_message": "[Active Camps] : Baltimore All Star Rugby Camp at Loyola Blakefield July 24 - 27, approx 4p - 10p daily."
     }
     return render(request, "camps.html", context)
 
@@ -57,7 +61,9 @@ def tours(request):
     Renders the tours view
     '''
     context = {
-        "location": "f5/tours"
+        "location": "tours",
+        "motd": True,
+        "motd_message": "[Booking Tours] : You must first apply for a quote, and then you move down the process."
     }
     return render(request, "tours.html", context)
 
@@ -66,6 +72,8 @@ def info(request):
     Renders the info view
     '''
     context = {
-        "location": "f5/info"
+        "location": "info",
+        "motd": True,
+        "motd_message": "[Did you know?] : you can save 15% when you bundle you home and auto insurance."
     }
     return render(request, "info.html", context)
