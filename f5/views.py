@@ -1,6 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Article, RugbyCamp
+from .models import (
+    ApparelProduct,
+    ProductImage,
+    MOTD,
+)
 
 # Example(s)
 # return render(request, "index.html", context)
@@ -21,8 +25,10 @@ def catalog(request):
     '''
     Renders the catalog view
     '''
+    collection = ApparelProduct.objects.all()
     context = {
-        "location": "f5/catalog"
+        "location": "f5/catalog",
+        "products": collection,
     }
     return render(request, "catalog.html", context)
 
