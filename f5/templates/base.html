@@ -21,9 +21,17 @@
     <title>F5 Rugby</title>
 </head>
 <body>
+    <!-- navbar -->
     {%include 'navbar.html'%}
+   
+    <!-- message of the day -->
+    {% if motd %}
+    {%include 'motd_component.html'%}
+    {% endif %}
+
+    <!-- content -->
     {% block content %}
-        {{ page_title }}
+
     {% endblock %}
 </body>
 </html>
