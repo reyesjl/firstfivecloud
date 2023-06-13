@@ -25,10 +25,10 @@ def catalog(request):
     '''
     Renders the catalog view
     '''
-    collection = ApparelProduct.objects.all()
+    products = ApparelProduct.objects.all()
     context = {
         "location": "f5/catalog",
-        "products": collection,
+        "products": products,
     }
     return render(request, "catalog.html", context)
 

@@ -6,7 +6,6 @@ class CustomUser(AbstractUser):
     Custom User model with an additional 'role' field.
     Inherits from Django's AbstractUser.
     """
-
     ROLE_CHOICES = [
         ('coach', 'Coach'),
         ('user', 'User'),
@@ -26,7 +25,6 @@ class RugbyCamp(models.Model):
     """
     Represents a rugby camp.
     """
-
     title = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     startdate = models.DateField()
@@ -54,7 +52,6 @@ class Tour(models.Model):
     """
     Represents a tour.
     """
-
     title = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     description = models.TextField()
@@ -65,6 +62,9 @@ class Tour(models.Model):
         return self.title
 
 class TourImage(models.Model):
+    """
+    Represents an image for a tour.
+    """
     image = models.ImageField(upload_to='tour_images')
 
     def __str__(self):
@@ -74,7 +74,6 @@ class Article(models.Model):
     """
     Represents an article.
     """
-
     title = models.CharField(max_length=255)
     small_description = models.TextField()
     body = models.TextField()
@@ -88,7 +87,6 @@ class ArticleImage(models.Model):
     """
     Represents an image for an article.
     """
-
     image = models.ImageField(upload_to='article_images')
 
     def __str__(self):
@@ -98,7 +96,6 @@ class Tag(models.Model):
     """
     Represents a tag for an article.
     """
-
     name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -117,6 +114,9 @@ class ApparelProduct(models.Model):
         return self.title
 
 class ProductImage(models.Model):
+    """
+    Represents an image for a product.
+    """
     image = models.ImageField(upload_to='apparel_images')
 
     def __str__(self):
@@ -126,6 +126,7 @@ class MOTD(models.Model):
     """
     Represents a message of the day!
     """
+    page = models.CharField(max_length=50)
     message = models.TextField()
 
     def __str__(self):
