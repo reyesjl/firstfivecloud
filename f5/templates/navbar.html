@@ -1,8 +1,31 @@
 <nav class="navbar navbar-expand-md">
-    <a href="/">home</a>
-    <a href="about/">about</a>
-    <a href="catalog/">catalog</a>
-    <a href="camps/">camps</a>
-    <a href="tours/">tours</a>
-    <a href="help/">help</a>
+    <div class="container">
+        <div class="navbar-nav">
+          <a href="{% url 'index' %}">Home</a>
+          <a href="{% url 'catalog' %}">Catalog</a>
+          <a href="{% url 'news' %}">News</a>
+          <a href="{% url 'camps' %}">Camps</a>
+          <a href="{% url 'tours' %}">Tours</a>
+          <a href="{% url 'info' %}">Info</a>
+        </div>
+    </div>
 </nav>
+
+<!-- IF user is logged in -->
+{% if username %}
+<div class="container">
+    <hr>
+  <div class="row">
+    <div class="col">
+      <div class="float-start">
+        Welcome {{ username }}
+      </div>
+    </div>
+    <div class="col">
+      <div class="float-end">
+        to First Five Rugby.
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
