@@ -17,7 +17,9 @@ def index(request):
     context = {
         "location": "home",
         "motd": True,
-        "motd_message": "Welcome to F5Rugby.com! Explore our vintage jersey catalog, register for rugby camps, join rugby tours to Ireland, and stay informed with engaging articles. Proudly sponsored by Strong Lads, Canterbury of NZ, and World Rugby Shop."
+        "motd_message": "Welcome to F5Rugby.com! Sign up for Updates, Explore the Catalog, Discover Our Rugby Services, and Share Your Topic Ideas for Our Upcoming Articles!",
+        "pageTitle": "First Five Rugby",
+        "pageSubtitle": "A premier portal dedicated to growing and developing the game of rugby in North America.",
     }
     return render(request, "index.html", context)
 
@@ -29,7 +31,9 @@ def catalog(request):
     context = {
         "location": "catalog",
         "motd": True,
-        "motd_message": "[Featured Items] : Check out the rugby camps we made for NOVA WRFC & our vintage jersey collection.",
+        "motd_message": "such emtpy here -.-",
+        "pageTitle": "Catalog",
+        "pageSubtitle": "Browse our wide range of rugby apparel products.",
         "products": products,
     }
     return render(request, "catalog.html", context)
@@ -41,7 +45,9 @@ def news(request):
     context = {
         "location": "news",
         "motd": True,
-        "motd_message": "[Read More] : People like you are sharing their stories here; stay a while."
+        "motd_message": "such empty here -.-",
+        "pageTitle": "News",
+        "pageSubtitle": "Stay updated with the latest rugby news and stories.",
     }
     return render(request, "news.html", context)
 
@@ -52,7 +58,9 @@ def camps(request):
     context = {
         "location": "camps",
         "motd": True,
-        "motd_message": "[Active Camps] : Baltimore All Star Rugby Camp at Loyola Blakefield July 24 - 27, approx 4p - 10p daily."
+        "motd_message": "such empty here -.-",
+        "pageTitle": "Camps",
+        "pageSubtitle": "Join our rugby camps and enhance your skills.",
     }
     return render(request, "camps.html", context)
 
@@ -63,7 +71,9 @@ def tours(request):
     context = {
         "location": "tours",
         "motd": True,
-        "motd_message": "[Booking Tours] : You must first apply for a quote, and then you move down the process."
+        "motd_message": "such emtpy here -.-",
+        "pageTitle": "Tours",
+        "pageSubtitle": "Explore our exciting rugby tour packages.",
     }
     return render(request, "tours.html", context)
 
@@ -74,6 +84,8 @@ def info(request):
     context = {
         "location": "info",
         "motd": True,
-        "motd_message": "[Did you know?] : you can save 15% when you bundle you home and auto insurance."
+        "motd_message": "such empty here -.-",
+        "pageTitle": "Info",
+        "pageSubtitle": "Get useful information about rugby and related services.",
     }
     return render(request, "info.html", context)

@@ -1,28 +1,10 @@
 {% extends 'base.html'%}
 {% load static %}
-{% block content %}
-<div class="container">
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-1">First Five Rugby</h1>
-      <p class="lead">A premier portal dedicated to growing and developing the game of rugby in North America.</p>
-      
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <input type="email" class="form-control" id="landingEmail" placeholder="Enter email for updates">
-        </div>
 
-        <div class="col-sm-4 mt-3 mt-sm-0">
-          <button type="submit" class="btn btn-primary">Send.</button>
-        </div>
+{% block header %}
+  {% include 'header_component.html' %}
+{% endblock %}
 
-        <hr class="mt-5 mb-5"/>
-
-      </div>
-
-    </div>
-  </div>
-
-  <div>
-</div>
+{% block content %}  
+  <!-- more content here! -->
 {% endblock %}

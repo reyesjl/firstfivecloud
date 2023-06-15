@@ -1,0 +1,12 @@
+{% load static %}
+ 
+<div class="container">
+  <div class="titleSection animate__animated animate__fadeInDown">
+    <h1 class="title">{{ pageTitle }}</h1>
+    <p class="subtitle">{{ pageSubtitle }}</p>
+    <img class="animate__animated animate__flip" style="float: left;" width="99px" src="{% static 'assets/f5logo.png' %}" />
+  </div>
+  {% if motd %}
+  {%include 'motd_component.html'%}
+  {% endif %}
+</div>
