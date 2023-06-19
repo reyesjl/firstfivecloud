@@ -7,4 +7,22 @@
 
 {% block content %}  
   <!-- more content here! -->
+  <div class="container">
+    <div class="products">
+      <div class="product">
+          <img src="" alt="image for product" />
+          <div>
+          <label>Title:</label>
+          <h3>{{ product.title }}</h3>
+          <label>Description:</label>
+          <p>a product with lots of character; lots of life.{{ product.description }}</p>
+          <label>Cost</label>
+          <p>$0.00{{ product.cost }}</p>
+          <p>
+          <a href="#">Buy Now</a>
+          </p>
+          </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
