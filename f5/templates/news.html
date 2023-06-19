@@ -6,22 +6,21 @@
 {% endblock %}
 
 {% block content %}  
-  <div id="mainSection" class="mainSection">
-
     <div class="container articleSection">
       {% for article in articles %}
       <div class="article">
-        <img src="{{ article.images.first.url }}" alt="article.image" />
-        <span>
+        <img src="{% static article.images.first %}" alt="article.image" />
+        
+        <div class="articleInfo">
           <h1>{{ article.title }}</h1>
           <p>{{ article.small_description }}</p>
-        </span>
-        <span>
+        </div>
+
+        <div class=""articleLink>
           <a href="{% url 'article' article.id %}">read >></a>
-        </span>
+        </div>
       </div> 
       {% endfor %}
     </div>
-  </div>
   <!-- more content here! -->
 {% endblock %}
