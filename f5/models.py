@@ -87,7 +87,7 @@ class ArticleImage(models.Model):
     """
     Represents an image for an article.
     """
-    image = models.ImageField(upload_to='static/article_images')
+    image = models.ImageField(upload_to='article_images')
 
     def __str__(self):
         return self.image.name
@@ -117,7 +117,7 @@ class ProductImage(models.Model):
     """
     Represents an image for a product.
     """
-    image = models.ImageField(upload_to='static/apparel_images')
+    image = models.ImageField(upload_to='apparel_images')
 
     def __str__(self):
         return self.image.name
