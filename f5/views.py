@@ -2,8 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import (
     ApparelProduct,
-    ProductImage,
-    MOTD,
+    Article
 )
 
 # Example(s)
@@ -15,6 +14,7 @@ def index(request):
     Routes user to the landing view
     '''
     context = {
+        "nav": True,
         "location": "home",
         "motd": True,
         "motd_message": "Welcome to F5Rugby.com! Sign up for Updates, Explore the Catalog, Discover Our Rugby Services, and Share Your Topic Ideas for Our Upcoming Articles!",
@@ -42,14 +42,32 @@ def news(request):
     '''
     Renders the news view
     '''
+    articles = Article.objects.all()
     context = {
         "location": "news",
         "motd": True,
         "motd_message": "such empty here -.-",
         "pageTitle": "News",
         "pageSubtitle": "Stay updated with the latest rugby news and stories.",
+        "articles":articles,
     }
     return render(request, "news.html", context)
+
+def article(request, id):
+    '''
+    Renders an article view
+    '''
+    article = Article.objects.get(id=id)
+    context = {
+        "nav": False,
+        "location": "news",
+        "motd": True,
+        "motd_message": article.tags,
+        "pageTitle": article.title,
+        "pageSubtitle": article.small_description,
+        "article":article,
+    }
+    return render(request, "article.html", context)
 
 def camps(request):
     '''
