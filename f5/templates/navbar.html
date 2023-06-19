@@ -14,6 +14,16 @@
         <li class="item"><a href="{% url 'tours' %}">tours</a></li>
         <li class="item"><a href="{% url 'info' %}">info</a></li>
       </span>
+      
+      {% if location != "home" %}
+      <span class="btNav animate__animated animate__tada">
+        <li class="item">
+          <a href="#mainSection">
+            <span class="material-symbols-outlined">enable</span>
+          </a>
+        </li>
+      </span>
+      {% endif %}
     </ul>
   </nav>
 </div>
