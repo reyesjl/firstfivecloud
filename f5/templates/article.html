@@ -1,5 +1,6 @@
 {% extends 'base.html'%}
 {% load static %}
+{% load humanize %}
 
 {% block header %}
   {% include 'header_component.html' %}
@@ -8,9 +9,11 @@
 {% block content %}
 
 <div class="container">
-  <div id="mainSection" class="mainSection">
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.body }}</p>
+  <div class="articleSection">
+    <img class="mainImg" src="{% static article.images.first %}" alt="article.image" />
+    <p class="articleBody">
+      {{ article.body|linebreaksbr}}
+    </p>
   </div>
 </div>
   <!-- more content here! -->
