@@ -14,7 +14,6 @@ class Camp(models.Model):
     description = models.TextField()
     cost = models.DecimalField(max_digits=8, decimal_places=2)
     images = models.ManyToManyField('CampImage')
-    attendees = models.ManyToManyField(CustomUser)
 
     def __str__(self):
         return f"{self.title} ({self.location}) - {self.startdate} through {self.enddate} | Coaches: {self.coaches}"
