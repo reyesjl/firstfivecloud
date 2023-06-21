@@ -68,7 +68,7 @@ DATABASES = {
 }
 
 # authentication 
-AUTH_USER_MODEL = 'f5.F5user'
+AUTH_USER_MODEL = 'f5.models.F5user'
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
