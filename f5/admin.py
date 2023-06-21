@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from f5.models import (
+from f5.f5models import (
     Article, ArticleImage, Tag,
     Product, ProductImage,
     Camp, CampImage, 
