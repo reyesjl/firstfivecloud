@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import (
+from .f5models import (
     ApparelProduct,
     Article
 )
