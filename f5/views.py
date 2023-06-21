@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .f5models import (
-    ApparelProduct,
+from .models import (
+    Product,
     Article
 )
 
@@ -27,7 +27,7 @@ def catalog(request):
     '''
     Renders the catalog view
     '''
-    products = ApparelProduct.objects.all()
+    products = Product.objects.all()
     context = {
         "location": "catalog",
         "motd": True,
