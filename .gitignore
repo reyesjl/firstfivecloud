@@ -19,6 +19,7 @@ static*/
 
 # Environment variables
 .env
+.venv
 
 # Development tools and configurations
 .vscode/
