@@ -1,7 +1,6 @@
+from dotenv import load_dotenv 
 from pathlib import Path
-from dotenv import load_dotenv
 import os
-import psycopg2
 
 # Load local environment variables
 load_dotenv()
@@ -10,7 +9,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2kq_wa7u__@44wk4&i#x6wo6*c*6qz$-f%9tfo5=33f9)$5^d('
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['firstfiverugby.com', '127.0.0.1']
 
 
 # project apps
@@ -59,12 +58,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'firstfiverugby.wsgi.application'
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DBNAME'),
+        'USER': os.environ.get('DBUSER'),
+        'PASSWORD': os.environ.get('DBPASS'),
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
