@@ -1,9 +1,9 @@
 # my models imported here
-from .models.f5user import F5user
-from .models.article import Article, ArticleImage, Tag
-from .models.product import Product, ProductImage
-from .models.camp import Camp, CampImage
-from .models.tour import Tour, TourImage
+from .f5models.f5user import F5user
+from .f5models.article import Article, ArticleImage, Tag
+from .f5models.product import Product, ProductImage
+from .f5models.camp import Camp, CampImage
+from .f5models.tour import Tour, TourImage
 
 F5user
 Article, ArticleImage, Tag
