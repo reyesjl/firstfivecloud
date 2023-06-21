@@ -1,19 +1,26 @@
 from django.contrib import admin
 
 from f5.models import (
-    CustomUser, RugbyCamp, CampImage, 
-    Tour, TourImage, Article, ArticleImage, 
-    Tag, ApparelProduct, ProductImage
+    Article, ArticleImage, Tag,
+    Product, ProductImage,
+    Camp, CampImage, 
+    Tour, TourImage,  
 ) 
 
-
-admin.site.register(CustomUser)
-admin.site.register(RugbyCamp)
-admin.site.register(CampImage)
-admin.site.register(Tour)
-admin.site.register(TourImage)
+# register article models
 admin.site.register(Article)
 admin.site.register(ArticleImage)
 admin.site.register(Tag)
-admin.site.register(ApparelProduct)
+
+# register product models
+admin.site.register(Product)
 admin.site.register(ProductImage)
+
+# register camp models
+admin.site.register(Camp)
+admin.site.register(CampImage)
+
+# register tour models
+admin.site.register(Tour)
+admin.site.register(TourImage)
+

@@ -41,7 +41,7 @@ ROOT_URLCONF = 'firstfiverugby.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': '../f5/templates',
+        'DIRS': [os.path.join(BASE_DIR, 'f5','templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,7 +68,7 @@ DATABASES = {
 }
 
 # authentication 
-AUTH_USER_MODEL = 'f5.CustomUser'
+AUTH_USER_MODEL = 'f5.F5user'
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -91,7 +91,7 @@ USE_I18N = True
 USE_TZ = True
 
 # serving static files
-STATIC_URL = os.path.join(BASE_DIR, 'static/')
+STATIC_URL = os.path.join(BASE_DIR, '/static/')
 STATIC_ROOT= 'static/'
 
 STATICFILES_FINDERS = [

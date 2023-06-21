@@ -1,13 +1,12 @@
-from django.db import models
-from django.contrib.auth.models import AbstractUser
-
 # my models imported here
-from models.article import Article, ArticleImage
-from models.product import Product, ProductImage
-from models.camp import Camp, CampImage
-from models.tour import Tour, TourImage
+from .models.f5user import F5user
+from .models.article import Article, ArticleImage, Tag
+from .models.product import Product, ProductImage
+from .models.camp import Camp, CampImage
+from .models.tour import Tour, TourImage
 
-Article, ArticleImage
+F5user
+Article, ArticleImage, Tag
 Product, ProductImage
 Camp, CampImage
 Tour, TourImage
