@@ -8,8 +8,8 @@ load_dotenv()
 # base dir and secrets
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET')
-DEBUG = False
-ALLOWED_HOSTS = ['firstfiverugby.com', '127.0.0.1']
+DEBUG = True
+ALLOWED_HOSTS = ['www.firstfiverugby.com','firstfiverugby.com', '127.0.0.1', 'localhost', 'firstfiverugbycloud']
 
 
 # project apps
