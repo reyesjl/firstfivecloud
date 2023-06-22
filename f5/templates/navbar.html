@@ -5,26 +5,28 @@
     <ul class="list">
 
       <span class="f5Nav">
-        <li class="item"><a href="{% url 'index' %}">home</a></li>
-        <li class="item"><a href="{% url 'catalog' %}">catalog</a></li>
-        <li class="item"><a href="{% url 'news' %}">news</a></li>
+        <li class="item"><a href="{% url 'index' %}">Hall of Fame Caps</a></li>
+        <li class="item"><a href="{% url 'index' %}">custom alumni retros</a></li>
+        <li class="item"><a href="{% url 'index' %}">1-of-1 vintage jerseys</a></li>
       </span>
 
       <span class="slNav">
-        <li class="item"><a href="{% url 'camps' %}">camps</a></li>
-        <li class="item"><a href="{% url 'tours' %}">tours</a></li>
-        <li class="item"><a href="{% url 'info' %}">info</a></li>
+        <li class="item"><a href="{% url 'camps' %}">baltimore summer camp</a></li>
+        <li class="item"><a href="{% url 'index' %}">ireland tours by strong lads</a></li>
+        <li class="item"><a href="{% url 'index' %}">free middle school festivals</a></li>
       </span>
-      
-      {% if location != "home" %}
-      <span class="btNav animate__animated animate__tada">
-        <li class="item">
-          <a href="#mainSection">
-            <span class="material-symbols-outlined">enable</span>
-          </a>
-        </li>
+
+      <span class="slNav">
+        <li class="item"><a href="{% url 'index' %}">club schedules</a></li>
+        <li class="item"><a href="{% url 'index' %}">college schedules</a></li>
+        <li class="item"><a href="{% url 'index' %}">mlr schedules</a></li>
       </span>
-      {% endif %}
+
+      <span class="slNav">
+        <li class="item"><a href="{% url 'index' %}">canterbury CCC</a></li>
+        <li class="item"><a href="{% url 'index' %}">world rugby shop</a></li>
+        <li class="item"><a href="{% url 'index' %}">veo top 5</a></li>
+      </span>
     </ul>
   </nav>
 </div>
