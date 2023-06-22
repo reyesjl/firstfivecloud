@@ -7,8 +7,8 @@ load_dotenv()
 
 # base dir and secrets
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-2kq_wa7u__@44wk4&i#x6wo6*c*6qz$-f%9tfo5=33f9)$5^d('
-DEBUG = True
+SECRET_KEY = os.environ.get('SECRET')
+DEBUG = False
 ALLOWED_HOSTS = ['firstfiverugby.com', '127.0.0.1']
 
 
@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    #'django_extensions',
+    'django_extensions',
     'f5',
 ]
 
@@ -91,7 +91,7 @@ USE_I18N = True
 USE_TZ = True
 
 # serving static files
-STATIC_URL = os.path.join(BASE_DIR, '/static/')
+STATIC_URL = '/static/'
 STATIC_ROOT= 'static/'
 
 STATICFILES_FINDERS = [
