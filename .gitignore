@@ -21,6 +21,9 @@ static*/
 .env
 .venv
 
+# my service files
+systemd/
+
 # Development tools and configurations
 .vscode/
 .idea/
