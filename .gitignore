@@ -23,6 +23,7 @@ static*/
 
 # my service files
 systemd/
+logs/
 
 # Development tools and configurations
 .vscode/
