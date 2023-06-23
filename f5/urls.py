@@ -4,6 +4,9 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
+
+    # Rugby caps
+    path("rugbycaps/", views.rugbycaps, name='rugbycaps'),
     
     # Catalog match
     path("catalog/", views.catalog, name="catalog"),

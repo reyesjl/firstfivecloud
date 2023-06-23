@@ -23,6 +23,20 @@ def index(request):
     }
     return render(request, "index.html", context)
 
+def rugbycaps(request):
+    '''
+    Routes user to the rugbycaps view
+    '''
+
+    context = {
+        "location": "rugbycaps",
+        "motd": True,
+        "motd_message": "Order 50 rugby caps and you get 15% off!",
+        "pageTitle": "Embrace the Legacy",
+        "pageSubtitle": "Symbols awarded to players who represent their national team, embodying honor, achievement, and the rich heritage of the sport.",
+    }
+    return render(request, "rugbycaps/index.html", context)
+
 def catalog(request):
     '''
     Renders the catalog view
