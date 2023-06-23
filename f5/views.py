@@ -17,7 +17,7 @@ def index(request):
         "nav": True,
         "location": "home",
         "motd": True,
-        "motd_message": "Welcome to FirstFiveRugby.com! Sign up for Updates, Explore the Catalog, Discover Our Rugby Services, and Share Your Topic Ideas for Our Upcoming Articles!",
+        "motd_message": "Welcome to www.firstfiverugby.com! Look out for deal of the week $",
         "pageTitle": "First Five Rugby",
         "pageSubtitle": "A premier portal dedicated to growing and developing the game of rugby in North America.",
     }
