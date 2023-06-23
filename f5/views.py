@@ -17,7 +17,7 @@ def index(request):
         "nav": True,
         "location": "home",
         "motd": True,
-        "motd_message": "Welcome to F5Rugby.com! Sign up for Updates, Explore the Catalog, Discover Our Rugby Services, and Share Your Topic Ideas for Our Upcoming Articles!",
+        "motd_message": "Welcome to FirstFiveRugby.com! Sign up for Updates, Explore the Catalog, Discover Our Rugby Services, and Share Your Topic Ideas for Our Upcoming Articles!",
         "pageTitle": "First Five Rugby",
         "pageSubtitle": "A premier portal dedicated to growing and developing the game of rugby in North America.",
     }
@@ -102,7 +102,7 @@ def info(request):
     context = {
         "location": "info",
         "motd": True,
-        "motd_message": "such empty here -.-",
+        "motd_message": "this section is still being built!",
         "pageTitle": "Info",
         "pageSubtitle": "Get useful information about rugby and related services.",
     }

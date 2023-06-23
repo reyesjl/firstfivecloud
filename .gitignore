@@ -19,6 +19,11 @@ static*/
 
 # Environment variables
 .env
+.venv
+
+# my service files
+systemd/
+logs/
 
 # Development tools and configurations
 .vscode/

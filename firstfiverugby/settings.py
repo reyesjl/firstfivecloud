@@ -1,16 +1,15 @@
+from dotenv import load_dotenv 
 from pathlib import Path
-from dotenv import load_dotenv
 import os
-import psycopg2
 
 # Load local environment variables
 load_dotenv()
 
 # base dir and secrets
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-2kq_wa7u__@44wk4&i#x6wo6*c*6qz$-f%9tfo5=33f9)$5^d('
+SECRET_KEY = os.environ.get('SECRET')
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.firstfiverugby.com','firstfiverugby.com', '127.0.0.1', 'localhost', 'firstfiverugbycloud']
 
 
 # project apps
@@ -22,7 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    #'django_extensions',
+    'django_extensions',
     'f5',
 ]
 
@@ -59,12 +58,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'firstfiverugby.wsgi.application'
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DBNAME'),
+        'USER': os.environ.get('DBUSER'),
+        'PASSWORD': os.environ.get('DBPASS'),
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -92,7 +91,7 @@ USE_I18N = True
 USE_TZ = True
 
 # serving static files
-STATIC_URL = os.path.join(BASE_DIR, '/static/')
+STATIC_URL = '/static/'
 STATIC_ROOT= 'static/'
 
 STATICFILES_FINDERS = [
