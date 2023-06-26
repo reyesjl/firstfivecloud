@@ -17,7 +17,7 @@ def index(request):
         "nav": True,
         "location": "home",
         "motd": True,
-        "motd_message": "Welcome to www.firstfiverugby.com! Look out for deal of the week $",
+        "motd_message": "Welcome to www.firstfiverugby.com! Feel free to have a look around :)",
         "pageTitle": "First Five Rugby",
         "pageSubtitle": "A premier portal dedicated to growing and developing the game of rugby in North America.",
     }
@@ -35,7 +35,7 @@ def rugbycaps(request):
         "pageTitle": "Embrace the Legacy",
         "pageSubtitle": "Symbols awarded to players who represent their national team, embodying honor, achievement, and the rich heritage of the sport.",
     }
-    return render(request, "rugbycaps/index.html", context)
+    return render(request, "rugbycaps/index.html", context) 
 
 def catalog(request):
     '''
@@ -90,11 +90,11 @@ def camps(request):
     context = {
         "location": "camps",
         "motd": True,
-        "motd_message": "such empty here -.-",
-        "pageTitle": "Camps",
-        "pageSubtitle": "Join our rugby camps and enhance your skills.",
+        "motd_message": "Upcoming camp in Baltimore on July 24-27th; register now!",
+        "pageTitle": "Building the Grassroots",
+        "pageSubtitle": "Youth rugby camps that track real player progress, nurturing development and fostering excellence. Join us and elevate your game.",
     }
-    return render(request, "camps.html", context)
+    return render(request, "camps/index.html", context)
 
 def tours(request):
     '''
