@@ -1,6 +1,11 @@
 {% extends 'base.html'%}
 {% load static %}
 
+<!-- Insert css file for this template -->
+{% block mycss %}
+<link href="{% static 'css/header.css' %}" rel="stylesheet" />
+{% endblock %}
+
 {% block header %}
   {% include 'header_component.html' %}
 {% endblock %}
@@ -8,10 +13,14 @@
 {% block content %}
 
 <div class="container">
-  <div class="mainSection">
-	  <p>Page building; please try again later.</p>
-	  <p>
-	  <img width="70%" src="https://cdn.dribbble.com/userupload/5006115/file/original-94f304af5ae4767a1366284c37915bf7.gif" alt="loading image" /></p>
+  <div class="section">
+	  <img class="sectionImageLeft" src="{% static 'assets/rugbycaps/wearingCaps.png' %}" alt="nova hall of fame inductees wearing first five rugby caps" />
+    <p class="sectionTextRight">We embrace the legacy created by Nova Women's Rugby and its Hall of Fame induction as we strive to empower players at every level. This celebration intertwines with the philosophy of "first five rugby," emphasizing the importance of skill, strategy, and teamwork. As we look ahead, let us remember the past, celebrate the present, and continue to build a bright future for rugby in America.</p>
+  </div>
+
+  <div class="section">
+    <div class="">
+    </div>
   </div>
 </div>
 {% endblock %}

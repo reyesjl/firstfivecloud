@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% load static %}
+
+<!-- Insert css file for this template -->
+{% block mycss %}
+<link href="{% static 'css/header.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block header %}
+  {% include 'header_component.html' %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="section">
+	<img class="sectionImageLeft" src="{% static 'assets/rugbycaps/wearingCaps.png' %}" alt="youth kids learning in a rugby camp" />
+    <p class="sectionTextRight">Discover why grassroots rugby plays a vital role in shaping future stars and nurturing a profound love for the sport. Join our transformative camps, where your child will embark on an invaluable journey of skill development and personal growth, ensuring a solid foundation for rugby success.</p>
+  </div>
+
+  <div class="section">
+    <div class="">
+    </div>
+  </div>
+</div>
+{% endblock %}

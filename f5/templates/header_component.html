@@ -1,11 +1,18 @@
 {% load static %}
+
+<!-- Insert css file for this template -->
+{% block mycss %}
+<link href="{% static 'css/header.css' %}" rel="stylesheet" />
+<link href="{% static 'css/motd.css' %}" rel="stylesheet" />
+{% endblock %}
  
 <div class="container">
   <div class="titleSection animate__animated animate__fadeInDown">
     <h1 class="title">{{ pageTitle }}</h1>
     <p class="subtitle">{{ pageSubtitle }}</p>
-    <a href="{% url 'index' %}"><img class="animate__animated animate__flip" style="float: left;" width="99px" src="{% static 'assets/f5logo.png' %}" /></a>
-  </div>
+    <p class="centerMe"><a href="{% url 'index' %}"><img class="animate__animated animate__flip" src="{% static 'assets/f5logo.png' %}" /></a></p>
+</div>
+
   {% if motd %}
   {%include 'motd_component.html'%}
   {% endif %}
