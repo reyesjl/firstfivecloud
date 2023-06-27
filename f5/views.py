@@ -14,7 +14,7 @@ def handleHomeRoute(request):
         "motd": True,
         "motd_message": "Welcome to www.firstfiverugby.com! Have a look around for deals, and stay a while :)",
         "pageTitle": "First Five Rugby",
-        "pageSubtitle": "A premier portal dedicated to growing and developing the game of rugby in the North America.",
+        "pageSubtitle": "A premier portal dedicated to growing and developing the game of rugby in North America.",
     }
     return render(request, "index.html", context)
 
@@ -40,14 +40,14 @@ def handleCampsRoute(request):
     camp = {
         "name":"baltimore rugby camp",
         "price":"350.00",
-        "location":"quander, va",
+        "location":"Layola, va",
     }
     context = {
         "location": "camps",
         "motd": True,
-        "motd_message": "20% off all camps at checkout. [camp sale!!!]",
+        "motd_message": "only 10 spots remaining for rugby camp [updated 23mins ago]",
         "pageTitle": "Elevate Your Rugby",
-        "pageSubtitle": "Unlock Your Rugby Potential by Training Like Pro Rugby Player: Empowering Youth, Building Community, and Nurturing Champions.",
+        "pageSubtitle": "Unlock Your Rugby Potential by Training Like a Pro Rugby Player: Empowering Youth, Building Community, and Nurturing Champions.",
         "camp":camp,
     }
     return render(request, "camps/index.html", context)
@@ -57,7 +57,7 @@ def handleToursRoute(request):
     Displays the tours and allows visitors to explore and book them.
     '''
     tour = {
-        "name": "Ireland Rugby Adventure",
+        "name": "Ireland Rugby Tour",
         "price": "Contact us for pricing",
         "location": "Ireland",
     }
