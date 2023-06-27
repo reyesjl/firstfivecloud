@@ -10,10 +10,13 @@
   <div class="titleSection animate__animated animate__fadeInDown">
     <h1 class="title">{{ pageTitle }}</h1>
     <p class="subtitle">{{ pageSubtitle }}</p>
-    <p class="centerMe"><a href="{% url 'index' %}"><img class="animate__animated animate__flip" src="{% static 'assets/f5logo.png' %}" /></a></p>
+
+    {% if nav %}
+      <p class="centerMe"><a href="{% url 'index' %}"><img class="animate__animated animate__flip" src="{% static 'assets/f5logo.png' %}" /></a></p>
+    {% endif %}
 </div>
 
   {% if motd %}
-  {%include 'motd_component.html'%}
+  {%include 'components/motd.html'%}
   {% endif %}
 </div>

@@ -2,122 +2,72 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import (
     Product,
-    Article
 )
 
-# Example(s)
-# return render(request, "index.html", context)
-# return HttpResponse("Learn more about us and why we started First Five Rugby.")
-
-def index(request):
+def handleHomeRoute(request):
     '''
-    Routes user to the landing view
+    Displays firstfiverugby homepage with navigation to our services.
     '''
     context = {
         "nav": True,
         "location": "home",
         "motd": True,
-        "motd_message": "Welcome to www.firstfiverugby.com! Feel free to have a look around :)",
+        "motd_message": "Welcome to www.firstfiverugby.com! Have a look around for deals, and stay a while :)",
         "pageTitle": "First Five Rugby",
-        "pageSubtitle": "A premier portal dedicated to growing and developing the game of rugby in North America.",
+        "pageSubtitle": "A premier portal dedicated to growing and developing the game of rugby in the North America.",
     }
     return render(request, "index.html", context)
 
-def rugbycaps(request):
+def handleCatalogRoute(request):
     '''
-    Routes user to the rugbycaps view
-    '''
-
-    context = {
-        "location": "rugbycaps",
-        "motd": True,
-        "motd_message": "Order 50 rugby caps and you get 15% off!",
-        "pageTitle": "Embrace the Legacy",
-        "pageSubtitle": "Symbols awarded to players who represent their national team, embodying honor, achievement, and the rich heritage of the sport.",
-    }
-    return render(request, "rugbycaps/index.html", context) 
-
-def catalog(request):
-    '''
-    Renders the catalog view
+    Displays the catalog with options to load our rugbycaps, the vintage jerseys, or team gear.
     '''
     products = Product.objects.all()
     context = {
         "location": "catalog",
         "motd": True,
-        "motd_message": "such emtpy here -.-",
-        "pageTitle": "Catalog",
-        "pageSubtitle": "Browse our wide range of rugby apparel products.",
-        "products": products,
+        "motd_message": "any and all team orders will receive a 15% discount!",
+        "pageTitle": "Unleash Your Passion",
+        "pageSubtitle": "Unveiling a World of Authentic Jerseys, Honor Caps, and Exclusive Deals for Rugby Fans",
+        "products":products,
     }
-    return render(request, "catalog.html", context)
+    return render(request, "catalog/index.html", context)
 
-def news(request):
+def handleCampsRoute(request):
     '''
-    Renders the news view
+    Displays the camps and allows visitors to register for them.
     '''
-    articles = Article.objects.all()
-    context = {
-        "location": "news",
-        "motd": True,
-        "motd_message": "such empty here -.-",
-        "pageTitle": "News",
-        "pageSubtitle": "Stay updated with the latest rugby news and stories.",
-        "articles":articles,
+    camp = {
+        "name":"baltimore rugby camp",
+        "price":"350.00",
+        "location":"quander, va",
     }
-    return render(request, "news.html", context)
-
-def article(request, id):
-    '''
-    Renders an article view
-    '''
-    article = Article.objects.get(id=id)
-    context = {
-        "nav": False,
-        "location": "news",
-        "motd": True,
-        "motd_message": article.tags,
-        "pageTitle": article.title,
-        "pageSubtitle": article.small_description,
-        "article":article,
-    }
-    return render(request, "article.html", context)
-
-def camps(request):
-    '''
-    Renders the camps view
-    '''
     context = {
         "location": "camps",
         "motd": True,
-        "motd_message": "Upcoming camp in Baltimore on July 24-27th; register now!",
-        "pageTitle": "Building the Grassroots",
-        "pageSubtitle": "Youth rugby camps that track real player progress, nurturing development and fostering excellence. Join us and elevate your game.",
+        "motd_message": "20% off all camps at checkout. [camp sale!!!]",
+        "pageTitle": "Elevate Your Rugby",
+        "pageSubtitle": "Unlock Your Rugby Potential by Training Like Pro Rugby Player: Empowering Youth, Building Community, and Nurturing Champions.",
+        "camp":camp,
     }
     return render(request, "camps/index.html", context)
 
-def tours(request):
+def handleToursRoute(request):
     '''
-    Renders the tours view
+    Displays the tours and allows visitors to explore and book them.
     '''
+    tour = {
+        "name": "Ireland Rugby Adventure",
+        "price": "Contact us for pricing",
+        "location": "Ireland",
+    }
     context = {
         "location": "tours",
         "motd": True,
-        "motd_message": "such emtpy here -.-",
-        "pageTitle": "Tours",
-        "pageSubtitle": "Explore our exciting rugby tour packages.",
+        "motd_message": "Book now and receive a complimentary Irish rugby jersey! [Limited time offer]",
+        "pageTitle": "The Ultimate Rugby Experience",
+        "pageSubtitle": "Explore Ireland, Play Against Local Teams, and Immerse Yourself in Rugby Culture: Unforgettable Team Tours to Ireland.",
+        "tour": tour,
     }
-    return render(request, "tours.html", context)
+    return render(request, "tours/index.html", context)
 
-def info(request):
-    '''
-    Renders the info view
-    '''
-    context = {
-        "location": "info",
-        "motd": True,
-        "motd_message": "this section is still being built!",
-        "pageTitle": "Info",
-        "pageSubtitle": "Get useful information about rugby and related services.",
-    }
-    return render(request, "info.html", context)

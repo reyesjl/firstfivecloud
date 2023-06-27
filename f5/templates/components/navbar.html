@@ -1,0 +1,12 @@
+{% if nav %}
+<!-- menu -->
+<div class="container">
+  <nav class="navigationBar">
+    <ul class="navigationLinks">
+      <li class="navigationItem"><a href="{% url 'catalog' %}">Hall of Fame Caps</a></li>
+      <li class="navigationItem"><a href="{% url 'camps' %}">Baltimore Rugby Camp</a></li>  
+      <li class="navigationItem"><a href="{% url 'tours' %}">Ireland Team Adventure</a></li>  
+    </ul>
+  </nav>
+</div>
+{% endif %}
