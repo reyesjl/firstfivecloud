@@ -10,27 +10,9 @@
   <div class="titleSection animate__animated animate__fadeInDown">
     <h1 class="title">{{ pageTitle }}</h1>
     <p class="subtitle">{{ pageSubtitle }}</p>
-
-    {% if location == 'home'%}
-    <video width="100%" height="auto" autoplay playsinline controls>
-      <source src="{% static 'assets/home/apiVideo.mov' %}" type="video/mp4" />
-    </video>
-    {% endif %}
-</div>
+  </div>
 
   {% if motd %}
   {%include 'components/motd.html'%}
   {% endif %}
 </div>
-
-<script>
-  var video = document.getElementById('myVideo');
-  video.addEventListener('timeupdate', function() {
-    var currentTime = video.currentTime;
-    var stopTime = 147;
-
-    if (currentTime >= stopTime) {
-      video.pause();
-    }
-  });
-</script>
