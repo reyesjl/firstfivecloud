@@ -27,7 +27,7 @@ def handleCatalogRoute(request):
         "location": "catalog",
         "motd": True,
         "motd_message": "any and all team orders will receive a 15% discount!",
-        "pageTitle": "Unleash Your Passion",
+        "pageTitle": "Our Catalog",
         "pageSubtitle": "Unveiling a World of Authentic Jerseys, Honor Caps, and Exclusive Deals for Rugby Fans",
         "products":products,
     }

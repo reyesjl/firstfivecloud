@@ -1,21 +1,13 @@
 {% extends 'base.html'%}
 {% load static %}
 
-<!-- Insert css file for this template -->
-{% block mycss %}
-<link href="{% static 'css/header.css' %}" rel="stylesheet" />
-{% endblock %}
-
 {% block header %}
   {% include 'components/header.html' %}
 {% endblock %}
 
 {% block content %}
 <div class="container">
-  <div class="section">
-	  <img class="sectionImageLeft" src="{% static 'assets/catalog/wearingCaps.png' %}" alt="nova hall of fame inductees wearing first five rugby caps" />
-    <p class="sectionTextRight">We embrace the legacy created by Nova Women's Rugby and its Hall of Fame induction as we strive to empower players at every level. This celebration intertwines with the philosophy of "first five rugby," emphasizing the importance of skill, strategy, and teamwork. As we look ahead, let us remember the past, celebrate the present, and continue to build a bright future for rugby in America.</p>
-  </div>
+  <img width="100%" src="{% static 'assets/caps/capsbg2.png'%}" /> 
 
   <!-- google form outside of 80% width container -->
   <iframe class="responsive-google-form" src="https://docs.google.com/forms/d/e/1FAIpQLSfG0mkkhXiBiFnAjImC7ZCOrXrjPGr5T2cluKqGUeA2Qp4A9A/viewform" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
