@@ -12,15 +12,57 @@
 
 {% block content %}
 <div class="container">
-  <div class="section">
-	  <img class="sectionImageLeft" src="{% static 'assets/camps/andybg.png' %}" alt="andy skehan" />
-    <p class="sectionTextRight">Join the Baltimore Rugby Camp, led by renowned coach Andy Skehan! Experience 5 days of intensive rugby training, skill development, and expert coaching. Don't miss this incredible opportunity to take your game to new heights! Register now and unlock your rugby potential! </p>
-  </div> 
+  <div class="campInfo">
+    <h3>Baltimore Area All-Star Rugby Skills Camp</h3>
+    <ul>
+      <li>Save the Date: July 24-27</li>
+      <li>Registration for all players opens on May 15</li>
+      <li>All participants receive a CCC tee and are entered to win CCC prizes daily</li>
+    </ul>
+    <h3>Camp Highlights</h3>
+    <ul>
+      <li>Individual coaching on core skills</li>
+      <li>Hundreds of reps with skill-building progression focusing on seeing the entire field, spacing, and timing</li>
+      <li>Feedback and evaluation shared with your team coach</li>
+      <li>Prizes and raffles daily</li>
+    </ul>
+    <h3>Staff</h3>
+    <ul>
+      <li>Andy Skehan (DOR of St Michael's College, former Leinster u18's Head Coach, advisor to national unions)</li>
+      <li>Tim Brown (Strong Lad Rugby, former Operations Manager / Director of Old and Young Glory)</li>
+      <li>Gearoid Dunbar (Leinster Community Rugby, UMW Director of Operations and Coach, Young Glory)</li>
+      <li>Jose Reyes (Old Glory / Young Glory u23)</li>
+      <li>Joseph Ritter (Young Glory u23/MD Exiles)</li>
+      <li>MLR Player TBD</li>
+      <li>MLR Player TBD</li>
+      <li>Numerous local coaches</li>
+    </ul>
+    <h3>Important Notes</h3>
+    <ul>
+      <li>All coaches and boys 14-18 are invited but must sign releases</li>
+      <li>Proof of current insurance is required</li>
+      <li>For any questions, email rugbyvarsity@gmail.com</li>
+    </ul>
+    <h3>Location and Schedule</h3>
+    <ul>
+      <li>Location: Loyola Blakefield</li>
+      <li>Date: Monday, July 24 - Thursday, July 27</li>
+      <li>Time: 4:00 PM - 10:00 PM each day</li>
+    </ul>
+    <h3>Registration</h3>
+    <ul>
+      <li>Registration will open on May 15th with limited spots</li>
+      <li>All releases must be filled out and payment made in full to be registered</li>
+      <li>Cost: $325 for players, $150 for coaches</li>
+    </ul>
+  </div>
+  <div class="campSection">
+    <h2 class="step">Step 1 : complete the payment first.</h3>
+    <a class="camplink" href="https://checkout.stripe.com/c/pay/cs_live_a1fQ9TEx8FIndIL6hyEyFn50PnUnfw4RtkPceVhPqDbmjDwLAZEZwkAJML#fidkdWxOYHwnPyd1blppbHNgWjA0Sz1EZGtDMWpofV03X0YyQkhgcj1hRnBhTmlwTWBhN1JmcHJff1RrVEFKZDdkbEZcS2d2T2hwfGhnbzN8dHRpcm9OcGdvSF9DUH9mcDJUZmFQSm40bzdINTVnTHR0YGpUaicpJ3VpbGtuQH11anZgYUxhJz8nPERUNTQyNENnYnxrMVRqPEREJ3gl" target="_blank">Send Secure Payment via Stripe</a>
+    <h2 class="step2">Step 2 : register with form.</h3>
+  </div>
 
-  <dic id="campsSection" class="section">
-  <a class="campslink" href="https://checkout.stripe.com/c/pay/cs_live_a1fQ9TEx8FIndIL6hyEyFn50PnUnfw4RtkPceVhPqDbmjDwLAZEZwkAJML#fidkdWxOYHwnPyd1blppbHNgWjA0Sz1EZGtDMWpofV03X0YyQkhgcj1hRnBhTmlwTWBhN1JmcHJff1RrVEFKZDdkbEZcS2d2T2hwfGhnbzN8dHRpcm9OcGdvSF9DUH9mcDJUZmFQSm40bzdINTVnTHR0YGpUaicpJ3VpbGtuQH11anZgYUxhJz8nPERUNTQyNENnYnxrMVRqPEREJ3gl" target="_blank">Send Secure Payment via Stripe</a></div>
 </div>
-
 <!-- google form outside of 80% width container -->
 <iframe class="responsive-google-form" src="https://docs.google.com/forms/d/e/1FAIpQLSddTKBlBgTfOoxSfCjuqaWJzcxjwyHeulLcOkULt5iigE_uIQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 {% endblock %}
