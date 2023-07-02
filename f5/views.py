@@ -45,7 +45,7 @@ def handleCampsRoute(request):
     context = {
         "location": "camps",
         "motd": True,
-        "motd_message": "only 10 spots remaining for rugby camp [updated 23mins ago]",
+        "motd_message": "only 7 spots remaining for rugby camp [updated 23mins ago]",
         "pageTitle": "Elevate Your Rugby",
         "pageSubtitle": "Unlock Your Rugby Potential by Training Like a Pro Rugby Player: Empowering Youth, Building Community, and Nurturing Champions.",
         "camp":camp,
@@ -64,7 +64,7 @@ def handleToursRoute(request):
     context = {
         "location": "tours",
         "motd": True,
-        "motd_message": "Book now and receive a complimentary Irish rugby jersey! [Limited time offer]",
+        "motd_message": "our tours typically run 1/2 the price of others with amazing games, training, lodging, and culture",
         "pageTitle": "The Ultimate Rugby Experience",
         "pageSubtitle": "Explore Ireland, Play Against Local Teams, and Immerse Yourself in Rugby Culture: Unforgettable Team Tours to Ireland.",
         "tour": tour,
