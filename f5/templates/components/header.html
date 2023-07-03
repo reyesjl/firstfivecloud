@@ -7,14 +7,16 @@
 <link href="{% static 'css/motd.css' %}" rel="stylesheet" />
 {% endblock %}
 
-<!-- navigation bar -->
-{%include 'components/navbar.html'%}
+
  
 <div class="container">
   <div class="titleSection animate__animated animate__fadeInLeft">
     <h1 class="title">{{ pageTitle }}</h1>
     <p class="subtitle">{{ pageSubtitle }}</p>
   </div>
+
+  <!-- navigation bar -->
+  {%include 'components/navbar.html'%}
 
   {% if motd %}
   {%include 'components/motd.html'%}

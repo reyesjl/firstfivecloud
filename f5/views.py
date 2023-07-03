@@ -26,7 +26,7 @@ def handleAboutRoute(request):
         "motd": True,
         "motd_message": "Did you know that rugby is one of the fastest-growing sports in North America? With a staggering 40% increase in participation over the past five years, the passion for this incredible game is soaring.",
         "pageTitle":"About Us",
-        "pageSubtitle":"Revolutionizing rugby in North America, collaborating with local groups, and driving game growth."
+        "pageSubtitle":"Rugby in North America; collaborating with local groups, and driving game growth."
     }
     return render(request, "about.html", context)
 
@@ -38,9 +38,9 @@ def handleCatalogRoute(request):
     context = {
         "location": "catalog",
         "motd": True,
-        "motd_message": "any and all team orders will receive a 15% discount!",
+        "motd_message": "5% discount on all team order [updated 5mins ago]",
         "pageTitle": "Our Catalog",
-        "pageSubtitle": "Unveiling a World of Authentic Jerseys, Honor Caps, and Exclusive Deals for Rugby Fans",
+        "pageSubtitle": "Unveiling a World of Authentic Jerseys, Honor Caps, and Exclusive Deals for Rugby Fans.",
         "products":products,
     }
     return render(request, "catalog/index.html", context)
@@ -58,7 +58,7 @@ def handleCampsRoute(request):
         "location": "camps",
         "motd": True,
         "motd_message": "only 7 spots remaining for rugby camp [updated 23mins ago]",
-        "pageTitle": "Skills. Skills. Skills.",
+        "pageTitle": "Rugby Skills Camp",
         "pageSubtitle": "Multi-day rugby camp with free kit, top level coaching, full days of rugby and prizes.",
         "camp":camp,
     }
