@@ -2,9 +2,31 @@
 <div class="container">
   <nav class="navigationBar">
     <ul class="navigationLinks">
-      <li class="navigationItem"><a href="{% url 'catalog' %}">Hall of Fame Caps</a></li>
-      <li class="navigationItem"><a href="{% url 'camps' %}">Baltimore Rugby Camp</a></li>  
-      <li class="navigationItem"><a href="{% url 'tours' %}">Ireland Team Tours</a></li>  
+
+      <div class="platformNavSection">   
+        <li class="navigationItem{% if location == 'home' %} activeLink{% endif %}">
+          <a href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="navigationItem{% if location == 'about' %} activeLink{% endif %}">
+          <a href="{% url 'about' %}">About Us</a>
+        </li>
+        <li class="navigationItem{% if location == 'catalog' %} activeLink{% endif %}">
+          <a href="{% url 'catalog' %}">Catalog</a>
+        </li>
+      </div>
+
+      <div class="servicesNavSection">
+        <li class="navigationItem{% if location == 'camps' %} activeLink{% endif %}">
+          <a href="{% url 'camps' %}">Rugby Camps</a>
+        </li>
+        <li class="navigationItem{% if location == 'tours' %} activeLink{% endif %}">
+          <a href="{% url 'tours' %}">Team Tours</a>
+        </li>
+      </div>
+
+      <div class="resourcesNavSection">
+        <li class="navigationItem"><a href="#">Enitor Advising</a></li>
+      </div>
     </ul>
   </nav>
 </div>
