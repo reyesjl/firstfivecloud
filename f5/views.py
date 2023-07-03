@@ -25,7 +25,7 @@ def handleAboutRoute(request):
         "location":"about",
         "motd": True,
         "motd_message": "Did you know that rugby is one of the fastest-growing sports in North America? With a staggering 40% increase in participation over the past five years, the passion for this incredible game is soaring.",
-        "pageTitle":"Learn More About Us",
+        "pageTitle":"About Us",
         "pageSubtitle":"Revolutionizing rugby in North America through innovation, collaboration, and transformative experiences for players, driving game growth."
     }
     return render(request, "about.html", context)
