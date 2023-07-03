@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% load static %}
+<!-- this enables -->
+
+<!-- Insert css file for this template -->
+{% block mycss %}
+<link href="{% static 'css/about.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block header %}
+  {% include 'components/header.html' %}
+{% endblock %}
+
+{% block content %}
+<!-- Navbar -->
+<div class="container">
+  <div class="aboutSection">
+    <h3>Our Mission</h3>
+    <p>As rugby players with a shared passion for the sport, we have embarked on a mission to address the growth of rugby in North America. Our platform, First Five Rugby, is dedicated to developing and advancing rugby at all levels, from grassroots to professional play. We recognize the immense potential for rugby in this region and aim to overcome the challenges it faces through innovation, collaboration, and a deep commitment to the sport.</p>
+
+    <h3>Growth</h3>
+    <p>Rugby has been experiencing remarkable growth in North America, with an increasing number of individuals drawn to the sport's unique blend of physicality, teamwork, and camaraderie. However, with this surge in popularity comes the need for strategic development and support. We are driven by the belief that rugby has the power to transform lives, build character, and create tight-knit communities.</p>
+
+
+    <h3>Rugby Family</h3>
+<p>At First Five Rugby, we believe in the strength of the rugby family. Our platform brings together the diverse and vibrant rugby community, including local artists, members of the rugby community, USMLR players, and players from around the world. By uniting these individuals and groups, we create a space that fosters expression, learning, and community-building for players, coaches, fans, and everyone in the rugby world.</p>
+
+    <h3>You can help.</h3>
+    <p>We invite you to join us on this incredible journey of rugby development. Your support and involvement can make a significant impact on the growth and success of the sport in North America. Here's how you can contribute:</p>
+    <ol>
+      <li>Spread the Word: Share our vision and mission with your friends, family, and fellow rugby enthusiasts. Help us raise awareness about the opportunities and benefits that rugby brings to individuals and communities.</li>
+      <li>Volunteer: We welcome passionate individuals who are willing to lend their time, expertise, and skills to support our initiatives. Whether you have coaching experience, organizational skills, or simply a love for rugby, we would love to have you on our team.</li>
+      <li>Partnerships: We are actively building strong connections with leading rugby experts in the apparel industry and technology sectors. If you represent a company or organization that shares our vision, we would be thrilled to explore potential partnerships that can drive the growth of rugby in North America.</li>
+      <li>Sponsorship: As we work towards establishing a consistent structure for rugby, from grassroots to school boys and girls programs, financial support is crucial. By becoming a sponsor, you can help us provide resources, equipment, and opportunities to young players and aspiring athletes.</li>
+      <li>Engage with Us: Follow our journey on social media, sign up for our newsletters, and participate in our events. We want to create a vibrant community of rugby enthusiasts who are passionate about the growth of the sport.</li>
+    </ol>
+
+    <p>At First Five, we are committed to making a lasting impact on the development of rugby in North America. Together, let's nurture talent, foster inclusivity, and build a strong rugby culture that thrives in our changing environment. Join us today and be a part of this exciting movement. Together, we can shape the future of rugby. We are First Five.</p>
+  </div>
+</div>
+
+{% endblock %}
