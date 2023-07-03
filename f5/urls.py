@@ -6,6 +6,9 @@ urlpatterns = [
     # Root url 
     path("", views.handleHomeRoute, name="index"),
 
+    # About match
+    path("about/", views.handleAboutRoute, name="about"),
+
     # Catalog match
     path("catalog/", views.handleCatalogRoute, name="catalog"),
 
