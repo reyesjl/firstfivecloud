@@ -1,16 +1,21 @@
 {% extends 'base.html'%}
 {% load static %}
 
+<!-- Insert css file for this template -->
+{% block mycss %}
+<link href="{% static 'css/catalog.css' %}" rel="stylesheet" />
+{% endblock %}
+
+
 {% block header %}
   {% include 'components/header.html' %}
 {% endblock %}
 
 {% block content %}
 <div class="container">
-  <img width="100%" src="{% static 'assets/caps/capsbg.png'%}" /> 
-
-  <!-- google form outside of 80% width container -->
-  <iframe class="responsive-google-form" src="https://docs.google.com/forms/d/e/1FAIpQLSfG0mkkhXiBiFnAjImC7ZCOrXrjPGr5T2cluKqGUeA2Qp4A9A/viewform" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-
+  <div class="centered-div">
+    <p style="text-align: center; color: white;">Coming soon. Accounts available [07/06/23]</p>
+    <p><img src="https://i.giphy.com/media/rxmO8DOc3I86s/giphy.webp" alt="spinning rugby player"></p>
+  </div>
 </div>
 {% endblock %}
