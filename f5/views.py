@@ -9,7 +9,6 @@ def handleHomeRoute(request):
     Displays firstfiverugby homepage with navigation to our services.
     '''
     context = {
-        "nav": True,
         "location": "home",
         "motd": True,
         "motd_message": "Welcome to www.firstfiverugby.com! Have a look around for deals, and stay a while :)",
@@ -17,6 +16,19 @@ def handleHomeRoute(request):
         "pageSubtitle": "A premier portal dedicated to growing and developing the game of rugby in North America.",
     }
     return render(request, "index.html", context)
+
+def handleAboutRoute(request):
+    '''
+    Displays firtfiverugby about us page.
+    '''
+    context = {
+        "location":"about",
+        "motd": True,
+        "motd_message": "Did you know that rugby is one of the fastest-growing sports in North America? With a staggering 40% increase in participation over the past five years, the passion for this incredible game is soaring.",
+        "pageTitle":"Learn More About Us",
+        "pageSubtitle":"Revolutionizing rugby in North America through innovation, collaboration, and transformative experiences for players, driving game growth."
+    }
+    return render(request, "about.html", context)
 
 def handleCatalogRoute(request):
     '''
@@ -70,4 +82,3 @@ def handleToursRoute(request):
         "tour": tour,
     }
     return render(request, "tours/index.html", context)
-
