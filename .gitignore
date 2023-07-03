@@ -12,7 +12,7 @@ local_settings.py
 media/
 
 # Static files
-static*/
+static/
 
 # Database files
 *.sqlite3
