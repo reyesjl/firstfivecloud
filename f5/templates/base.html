@@ -1,3 +1,10 @@
+<!--
+  HTML BASE TEMPLATE
+
+  This is the template used by most pages. Provides a header component
+  with section for the content of the particular page using this template.
+  THe header includes the navigation component. 
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +13,15 @@
   <title>firstFIVE</title>
   
   {% load static %}
-  <!-- css source -->
-  <link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" rel="stylesheet" />
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="{% static 'css/base.css' %}" rel="stylesheet" />
   {% block mycss%}{% endblock %} 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,-25" />
   <script type="module" src="https://md-block.verou.me/md-block.js"></script> 
 </head>
 <body animate__animated animate__fadeIn>
-  <!-- Header -->
-  {% block header%}{% endblock %} 
-      
+     
   <!-- Content -->
   {% block content %}{% endblock %}
 
