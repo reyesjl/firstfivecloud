@@ -1,4 +1,4 @@
-# First Five Rugby Django Project
+# First Five Rugby Source
 
 ## Introduction
 Welcome to the First Five Rugby Django project! This platform aims to support the growth and positive development of rugby in North America. As the owner and lead software developer of First Five Rugby, I have been inspired by my experiences and the invaluable lessons learned from rugby experts. This platform is a testament to their wisdom and serves as a hub for students of this amazing game.
