@@ -27,7 +27,7 @@ To get started with the First Five Rugby Django project, follow these steps:
 We appreciate your interest in First Five Rugby and your dedication to the growth of rugby in North America. Let's work together to make a positive impact on the rugby world!
 
 ## License
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the `LICENSE` file for more details.
+All rights reserved. This project and its associated code and resources are the property of First Five Rugby LLC. Unauthorized use, modification, or redistribution of the code or resources is strictly prohibited.
 
 ## Contact
 If you have any questions or suggestions, feel free to reach out to us at [firstfiverugby@gmail.com](firstfiverugby@gmail.com). We are always excited to connect with fellow rugby enthusiasts and community members.
