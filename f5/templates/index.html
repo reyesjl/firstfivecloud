@@ -1,8 +1,6 @@
 {% extends 'base.html'%}
 {% load static %}
-<!-- this enables -->
 
-<!-- Insert css file for this template -->
 {% block mycss %}
 <link href="{% static 'css/landing.css' %}" rel="stylesheet" />
 {% endblock %}
@@ -12,54 +10,4 @@
 {% endblock %}
 
 {% block content %}
-<!-- Navbar -->
-<div class="container">
-  <div class="services">
-    <div class="row">
-
-      <div class="column">
-        <div class="card">
-          <div class="centerMe" style="background-image: url('{% static 'assets/camps/baltimore.png'%}')">
-          </div>
-          <div class="containerMe">
-            <h2>Baltimore Skills Camp</h2>
-            <p class="titleCard">high level training</p>
-            <p>Elevate skills at Baltimore Summer Camp: progressive development, expert feedback, field awareness, and free gifts for growth.</p>
-            <p>Trust the process.</p>
-            <a href="{% url 'camps' %}" class="button">Register</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="card">
-          <div class="centerMe" style="background-image: url('{% static 'assets/tours/busWait.jpg'%}')"></div>
-          <div class="containerMe">
-            <h2>Ireland Team Tours</h2>
-            <p class="titleCard">ultimate rugby experience</p>
-            <p>Experience unforgettable rugby adventures with Ireland Team Tours. Compete, immerse, and create memories. Get a quote today.</p>
-            <p>Choose your destinations.</p>
-            <a href="{% url 'tours' %}" class="button">Read more</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="column">
-        <div class="card">
-          <div class="centerMe" style="background-image: url('{% static 'assets/caps/cap2.png'%}')"></div>
-          <div class="containerMe">
-            <h2>Rugby Honors Caps</h2>
-            <p class="titleCard">exclusive item</p>
-            <p>Customize your team's look with our exclusive Rugby Honors Caps. Celebrate tradition, honor mates, and embrace the spirit of the game.</p>
-            <p>5% off team orders of 30+</p>
-            <a href="{% url 'catalog' %}" class="button">See caps</a>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-     
-  </div>
-</div>
-
 {% endblock %}
