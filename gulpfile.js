@@ -2,9 +2,6 @@ const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const shell = require('gulp-shell');
 
-// Compiles Sass and watches for changes
-gulp.task('default', gulp.series('sass', 'watch'));
-
 // Watches for changes in /static/sass
 gulp.task('watch', function() {
   gulp.watch('f5/static/sass/**/*.scss', gulp.series('sass', 'collectstatic', 'restartserver'));
@@ -18,6 +15,13 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('f5/static/css'));
 });
 
+// Compiles Sass and watches for changes
+gulp.task('default', gulp.series('sass', 'watch'));
+
+// Runs collectstatic to update static files; 
+// Note: always overwrites due to --noinput
+gulp.task('collectstatic', shell.task('python manage.py collectstatic --noinput'));
+
 // Restarts Gunicorn service
 gulp.task('restartgunicorn', shell.task('sudo systemctl restart gunicorn.service'));
 
@@ -26,8 +30,3 @@ gulp.task('restartnginx', shell.task('sudo systemctl restart nginx.service'));
 
 // Task to restart Gunicorn and Nginx services
 gulp.task('restartserver', gulp.series('restartgunicorn', 'restartnginx'));
-
-// Runs collectstatic to update static files; 
-// Note: always overwrites due to --noinput
-gulp.task('collectstatic', shell.task('python manage.py collectstatic --noinput'));
-
