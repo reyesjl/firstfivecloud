@@ -1,14 +1,13 @@
-// Description: Gulp tasks for compiling sass and running django server
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const shell = require('gulp-shell');
 
-// watches for changes in /static/sass
+// Watches for changes in /static/sass
 gulp.task('watch', function() {
-  gulp.watch('f5/static/sass/**/*.scss', gulp.series('sass', 'collectstatic', 'reloadserver'));
+  gulp.watch('f5/static/sass/**/*.scss', gulp.series('sass', 'collectstatic', 'restartserver'));
 });
 
-// compiles sass from /static/sass to /static/css
+// Compiles Sass from /static/sass to /static/css
 gulp.task('sass', function() {
   return gulp
     .src('f5/static/sass/**/*.scss')
@@ -16,12 +15,19 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('f5/static/css'));
 });
 
-// compiles sass and watches for changes
+// Compiles Sass and watches for changes
 gulp.task('default', gulp.series('sass', 'watch'));
 
-// runs django server using shell alias
-gulp.task('reloadserver', shell.task('reloadserver'));
+// Restarts Gunicorn service
+gulp.task('restartgunicorn', shell.task('sudo systemctl restart gunicorn.service'));
 
-// runs collectstatic to update static files; 
-// note: always overwrites due to --noinput
+// Restarts Nginx service
+gulp.task('restartnginx', shell.task('sudo systemctl restart nginx.service'));
+
+// Task to restart Gunicorn and Nginx services
+gulp.task('restartserver', gulp.series('restartgunicorn', 'restartnginx'));
+
+// Runs collectstatic to update static files; 
+// Note: always overwrites due to --noinput
 gulp.task('collectstatic', shell.task('python manage.py collectstatic --noinput'));
+
