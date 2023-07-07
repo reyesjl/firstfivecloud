@@ -1,12 +1,74 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
 
-{% block mycss %}
-{% endblock %}
-
-{% block header %}
-
-{% endblock %}
-
 {% block content %}
+
+<!-- Deal buttons -->
+{%include 'components/livebuttons.html'%}
+
+<div class="grid-container">
+  <!-- Hero section -->
+  <div class="grid-x grid-margin-x grid-margin-y">
+    <div class="cell auto text-center">
+      <h1 class="h1">First Five Rugby</h1>
+      <h2 class="h4 subheader">The only premier platform designed for the rugby community.</h1>
+  
+      <!-- Sporty tagline -->
+      <p class="lead">Find daily deals, book a team tour to Ireland, register for summer camps, or simply the best way to waste your time.</p>
+    </div>
+  </div>
+  
+  <!-- Services section -->
+  <div class="grid-x grid-margin-x grid-margin-y small-up-2 medium-up-3 large-up-4">
+    <!-- First row -->
+    <div class="cell medium-4 small-6">
+      <a href="{% url 'camps' %}" class="button primary">
+        Summer Camps
+      </a>
+    </div>
+    <div class="cell medium-4 small-6">
+      <a href="#" class="button primary">
+        Honor Caps
+      </a>
+    </div>
+    <div class="cell medium-4 small-6">
+      <a href="#" class="button primary">
+        Ireland Tours
+      </a>
+    </div>
+
+    <!-- Second row -->
+    <div class="cell medium-4 small-6">
+      <a href="#" class="button primary">
+        Teams We Sponsor
+      </a>
+    </div>
+    <div class="cell medium-4 small-6">
+      <a href="#" class="button primary">
+        CCC Direct Team Sales
+      </a>
+    </div>
+    <div class="cell medium-4 small-6">
+      <a href="#" class="button primary">
+        Local Schedules
+      </a>
+    </div>
+    <div class="cell medium-4 small-6">
+      <a href="#" class="button primary">
+        Touch Rugby
+      </a>
+    </div>
+    <div class="cell medium-4 small-6">
+      <a href="#" class="button primary">
+        Enitor Resources
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+{% include 'components/footer.html' %}
+
 {% endblock %}
+  
