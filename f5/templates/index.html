@@ -3,18 +3,39 @@
 
 {% block content %}
 
+<div style="top: auto;" class="reveal" id="dealOfDay" data-reveal data-close-on-click="true" data-animation-in="slide-in-down" data-animation-out="slide-out-up">
+  <h1 class="h2">TODAY: <span id="dealdate"></span></h1>
+  <hr />
+  <div class="text-center">
+    <img src="{% static 'assets/catalog/glcr-signedjersey.jpg' %}" alt="CCC Logo">
+  </div>
+  <h3 class="h3">CCC Signed Jersey [test item]</h3>
+  <h4 class="h5 subheader">One of a kind, dont miss out!</h4>
+  <p class="lead">Price: <span class="price">$99.99 [test price]</span></p>
+  <div class="text-center">
+    <a href="{% url 'home' %}" class="button primary">
+      Purchase
+    </a> 
+  </div>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <!-- Deal buttons -->
 {%include 'components/livebuttons.html'%}
 
 <div class="grid-container">
   <!-- Hero section -->
-  <div class="grid-x grid-margin-x grid-margin-y">
-    <div class="cell auto text-center">
-      <h1 class="h1">First Five Rugby</h1>
-      <h2 class="h4 subheader">The only premier platform designed for the rugby community.</h1>
-  
-      <!-- Sporty tagline -->
-      <p class="lead">Find daily deals, book a team tour to Ireland, register for summer camps, or simply the best way to waste your time.</p>
+  <div class="hero">
+    <div class="grid-x grid-margin-x grid-margin-y">
+      <div class="cell auto text-center">
+        <h1 class="h1">First Five Rugby</h1>
+        <h2 class="h4 subheader">The only premier platform designed for the rugby community.</h1>
+    
+        <!-- Sporty tagline -->
+        <p class="lead">Find daily deals, book a team tour to Ireland, register for summer camps, or simply the best way to waste your time.</p>
+      </div>
     </div>
   </div>
   
@@ -69,6 +90,15 @@
 
 <!-- Footer -->
 {% include 'components/footer.html' %}
+
+<script>
+    // Get the current date and format it using the toLocaleDateString() method
+    var currentDate = new Date();
+    var formattedDate = currentDate.toLocaleDateString();
+
+    // Display the formatted date
+    document.getElementById('dealdate').textContent = formattedDate;
+  </script>
 
 {% endblock %}
   
