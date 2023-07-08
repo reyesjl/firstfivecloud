@@ -81,12 +81,14 @@
         <div class="tabs-panel" id="registration">
           <h3>Registration</h3>
           <ul>
+            <li class="alert">Be aware, you will be sent an email with medical forms and payment details.</li>
             <li>Registration is open now with 7 spots left!</li>
             <li>All releases must be filled out and payment made in full to be registered</li>
             <li>Cost: $325 for players, $150 for coaches</li>
           </ul>
 
           <!-- Registration form -->
+          {% if not registered %}
           <form action="#" method="post">
             <div class="grid-x grid-margin-x">
               <div class="cell small-12 medium-4">
@@ -109,6 +111,11 @@
               </div>
             </div>
           </form>
+          {% else %}
+          <div data-toggler data-animate="fade-in fade-out" class="callout warning">
+            <p>Submitted this form. Check email to pay and view medical forms.</p>
+          </div>
+          {% endif %}
         </div>
       
       </div>

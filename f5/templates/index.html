@@ -4,7 +4,7 @@
 {% block content %}
 
 <div style="top: auto;" class="reveal" id="dealOfDay" data-reveal data-close-on-click="true" data-animation-in="slide-in-down" data-animation-out="slide-out-up">
-  <h1 class="h2">TODAY: <span id="dealdate"></span></h1>
+  <h1 class="h2">DEAL: <span id="dealdate"></span></h1>
   <hr />
   <div class="text-center">
     <img src="{% static 'assets/catalog/glcr-signedjersey.jpg' %}" alt="CCC Logo">
@@ -26,16 +26,21 @@
 {%include 'components/livebuttons.html'%}
 
 <div class="grid-container">
-  <!-- Hero section -->
-  <div class="hero">
-    <div class="grid-x grid-margin-x grid-margin-y">
-      <div class="cell auto text-center">
-        <h1 class="h1">First Five Rugby</h1>
-        <h2 class="h4 subheader">The only premier platform designed for the rugby community.</h1>
-    
-        <!-- Sporty tagline -->
-        <p class="lead">Find daily deals, book a team tour to Ireland, register for summer camps, or simply the best way to waste your time.</p>
+  <div class="callout large">
+    <div class="row column text-center">
+      <h1>First Five Rugby</h1>
+      <p class="lead">Our mission is to deliver an enhanced rugby experience, to every player, at every level. We are a community connecting the rugby world.</p>
+      
+      <!-- Call to action buttons -->
+      <div class="grid-x grid-margin-x align-center">
+        <div class="cell small-6 medium-4">
+          <a href="#services" class="button large expanded">Our Services</a>
+        </div>
+        <div class="cell small-6 medium-4">
+          <a href="#about" class="button large hollow expanded">Learn More About Us</a>
+        </div>
       </div>
+
     </div>
   </div>
   

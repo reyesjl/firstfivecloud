@@ -59,6 +59,7 @@ def handleCampsRoute(request):
         return render(request, "camps/success.html", context)
     
     context = {
+        'registered': True,
         "location": "camps",
         "motd": True,
         "motd_message": "only 7 spots remaining for rugby camp [updated 23mins ago]",
