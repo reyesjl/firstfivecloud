@@ -13,7 +13,7 @@ urlpatterns = [
     #path("catalog/", views.handleCatalogRoute, name="catalog"),
 
     # Camps match
-    #path("camps/", views.handleCampsRoute, name="camps"),
+    path("camps/", views.handleCampsRoute, name="camps"),
 
     # Tours match
     #path("tours/", views.handleToursRoute, name="tours"),

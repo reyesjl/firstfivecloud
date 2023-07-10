@@ -1,30 +1,24 @@
-<!--
-  HTML BASE TEMPLATE
-
-  This is the template used by most pages. Provides a header component
-  with section for the content of the particular page using this template.
-  THe header includes the navigation component. 
--->
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>firstFIVE</title>
-  
-  {% load static %}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link href="{% static 'css/base.css' %}" rel="stylesheet" />
-  {% block mycss%}{% endblock %} 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,-25" />
-  <script type="module" src="https://md-block.verou.me/md-block.js"></script> 
-</head>
-<body animate__animated animate__fadeIn>
-     
-  <!-- Content -->
-  {% block content %}{% endblock %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {%include 'components/footer.html'%}
+  <!-- load static context -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
+  <title>firstfiverugby</title>
+</head>
+<body> 
+<!-- Content -->
+{% block content %}{% endblock %}
+
+<!-- Scripts - order matters ofcourse, because why wouldn't it? -->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+<script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>
+
