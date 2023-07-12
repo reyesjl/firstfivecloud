@@ -1,0 +1,30 @@
+{% include 'base.html' %}
+
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- hero image -->
+<div class="hero">
+  <div class="grid-x align-center">
+    <div class="cell text-center small-10 large-8">
+      <h1>Login Page</h1>
+      <p>login form here...</p>
+    </div>
+  </div>
+</div>
+  
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/login.js' %}"></script>
+{% endblock %}
+
+
