@@ -15,7 +15,7 @@ def handleLoginUser(request):
         if user is not None:
             login(request, user)
             messages.success(request, 'Successfully Logged In')
-            return redirect('home', {'user': user}})
+            return redirect('home', {'user': user})
         else:
             messages.error(request, 'Invalid Credentials, Please try again')
             return redirect('login')
