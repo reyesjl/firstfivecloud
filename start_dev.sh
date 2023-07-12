@@ -19,10 +19,13 @@ esac
 done
 
 echo "Stopping previous Sass watcher..."
-pkill -9 -f "sass --watch /home/django/firstfiverugby/f5/static/scss:/home/django/firstfiverugby/f5/static/css"
+pkill -9 -f sass
 
-echo "Starting new Sass watcher..."
+echo "Starting new Sass watcher F5 ROOT ..."
 sass --watch /home/django/firstfiverugby/f5/static/scss:/home/django/firstfiverugby/f5/static/css &
+
+echo "Starting new Sass watcher MEMBERS ..."
+sass --watch /home/django/firstfiverugby/members/static/scss:/home/django/firstfiverugby/members/static/css &
 
 echo "Collecting static files..."
 python manage.py collectstatic --noinput
