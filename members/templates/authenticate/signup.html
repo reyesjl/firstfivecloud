@@ -17,7 +17,7 @@
   </div>
   <div class="grid-x align-center">
     <div class="cell text-center small-auto">
-      <h1 class="hero-text">Log On</h1>
+      <h1 class="hero-text">Sign Up</h1>
     </div>
   </div>
 </div>
@@ -36,17 +36,34 @@
             <input type="password" placeholder="gab123*">
           </label>
         </div>
+        <div class="small-12">
+          <label>Re-enter Password
+            <input type="password" placeholder="******">
+          </label>
+        </div>
+
+        <div class="small-12">
+          <label>Email
+            <input type="email" placeholder="richiemaccaw@allblacks.com">
+          </label>
+        </div>
+
+        <div class="small-12">
+          <label>Cell Number
+            <input type="password" placeholder="******">
+          </label>
+        </div>
+
         <!-- create an account -->
-        <a href="{% url 'signup' %}" class="small-12">Create an account.</a>
+        <a href="{% url 'login' %}" class="small-12">Already registered?</a>
       </div>
     </form>
   </div>
 </div>
-  
 {% endblock %}
+
+
 
 {% block customjs %}
-  <script src="{% static 'js/login.js' %}"></script>
+  <script src="{% static 'js/signup.js' %}"></script>
 {% endblock %}
-
-
