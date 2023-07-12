@@ -1,99 +1,31 @@
 {% extends 'base.html' %}
+
 {% load static %}
+
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+{% endblock %}
 
 {% block content %}
 
-<div style="top: auto;" class="reveal" id="dealOfDay" data-reveal data-close-on-click="true" data-animation-in="slide-in-down" data-animation-out="slide-out-up">
-  <h1 class="h2">DEAL: <span id="dealdate"></span></h1>
-  <hr />
-  <div class="text-center">
-    <img src="{% static 'assets/catalog/glcr-signedjersey.jpg' %}" alt="CCC Logo">
+<div style="background-image: url('{% static 'images/wise.jpg' %}');" class="bgimg">
+  <div class="overlay">
+  <div class="topleft">
+    <p>WELCOME TO FIRSTFIVERUGBY.COM</p>
   </div>
-  <h3 class="h3">CCC Signed Jersey [test item]</h3>
-  <h4 class="h5 subheader">One of a kind, dont miss out!</h4>
-  <p class="lead">Price: <span class="price">$99.99 [test price]</span></p>
-  <div class="text-center">
-    <a href="{% url 'home' %}" class="button primary">
-      Purchase
-    </a> 
+  <div class="middle">
+    <h1>COMING SOON</h1>
+    <hr>
+    <p id="demo" style="font-size:30px"></p>
   </div>
-  <button class="close-button" data-close aria-label="Close reveal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
+  <div class="bottomleft">
+    <p>ALL RIGHT RESERVED 2023</p>
+  </div>
 </div>
-
-<!-- Deal buttons -->
-{%include 'components/livebuttons.html'%}
-
-<div class="grid-container">
-  <div class="callout large">
-    <div class="row column text-center">
-      <h1>First Five Rugby</h1>
-      <p class="lead">Our mission is to deliver an enhanced rugby experience, to every player, at every level. We are a community connecting the rugby world.</p>
-      
-      <!-- Call to action buttons -->
-      <div class="grid-x grid-margin-x align-center">
-        <div class="cell small-6 medium-4">
-          <a href="#services" class="button large expanded">Services</a>
-        </div>
-        <div class="cell small-6 medium-4">
-          <a href="#about" class="button large hollow expanded">About Us</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  
-<div class="grid-x grid-padding-x">
-        <div class="large-8 medium-8 cell">
-            <h5>Explore Our Services</h5>
-            <!-- Grid Example -->
-            <div class="grid-x grid-padding-x">
-                <div class="large-6 medium-6 cell">
-                    <div class="callout">
-                        <h6>Summer Camps</h6>
-                        <p>Experience rugby like never before at our summer camps.</p>
-                        <a href="{% url 'camps'%}" class="button primary">Learn More</a>
-                    </div>
-                </div>
-                <div class="large-6 medium-6 cell">
-                    <div class="callout">
-                        <h6>Honor Caps</h6>
-                        <p>Get recognized for your achievements with our Honor Caps.</p>
-                        <a href="#" class="button primary">Learn More</a>
-                    </div>
-                </div>
-                <div class="large-6 medium-6 cell">
-                    <div class="callout">
-                        <h6>Ireland Tours</h6>
-                        <p>Join us for unforgettable Ireland Tours.</p>
-                        <a href="#" class="button primary">Learn More</a>
-                    </div>
-                </div>
-                <!-- Add more as needed -->
-            </div>
-        </div>
-
-        <div class="large-4 medium-4 cell">
-            <h5>Get In Touch</h5>
-            <p>Have any questions or concerns? We'd love to hear from you.</p>
-            <a href="#" class="button">Contact Us</a>
-        </div>
-    </div>
-
 </div>
-
-<!-- Footer -->
-{% include 'components/footer.html' %}
-
-<script>
-    // Get the current date and format it using the toLocaleDateString() method
-    var currentDate = new Date();
-    var formattedDate = currentDate.toLocaleDateString();
-
-    // Display the formatted date
-    document.getElementById('dealdate').textContent = formattedDate;
-  </script>
 
 {% endblock %}
-  
+
+{% block customjs %}
+  <script src="{% static 'js/landing.js' %}"></script>
+{% endblock %}

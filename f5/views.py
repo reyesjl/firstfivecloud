@@ -10,9 +10,7 @@ def handleHomeRoute(request):
     Displays firstfiverugby homepage with navigation to our services.
     '''
     context = {
-        "location": "home",
-        "motd": True,
-        "motd_message": "Welcome to www.firstfiverugby.com! Enjoy your favorite place to spend time off the pitch or at work! [24/7 access]",
+        "activelink": "home",
     }
     return render(request, "index.html", context)
 
@@ -21,11 +19,9 @@ def handleAboutRoute(request):
     Displays firtfiverugby about us page.
     '''
     context = {
-        "location":"about",
-        "motd": True,
-        "motd_message": "Did you know that rugby is one of the fastest-growing sports in North America? With a staggering 40% increase in participation over the past five years, the passion for this incredible game is soaring.",
+        "activelink":"home",
     }
-    return render(request, "about.html", context)
+    return render(request, "index-copy.html", context)
 
 def handleCatalogRoute(request):
     '''
@@ -33,9 +29,7 @@ def handleCatalogRoute(request):
     '''
     products = Product.objects.all()
     context = {
-        "location": "catalog",
-        "motd": True,
-        "motd_message": "5% discount on all team order [updated 5mins ago]",
+        "activelink":"catalog",
         "products":products,
     }
     return render(request, "catalog/index.html", context)
@@ -59,10 +53,8 @@ def handleCampsRoute(request):
         return render(request, "camps/success.html", context)
     
     context = {
+        "activelink":"camps",
         'registered': True,
-        "location": "camps",
-        "motd": True,
-        "motd_message": "only 7 spots remaining for rugby camp [updated 23mins ago]",
     }
     
     return render(request, "camps/index.html", context)
@@ -77,9 +69,7 @@ def handleToursRoute(request):
         "location": "Ireland",
     }
     context = {
-        "location": "tours",
-        "motd": True,
-        "motd_message": "our tours typically run 1/2 the price of others with amazing games, training, lodging, and culture",
+        "activelink":"tours",
         "tour": tour,
     }
     return render(request, "tours/index.html", context)

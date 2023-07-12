@@ -7,7 +7,7 @@ urlpatterns = [
     path("", views.handleHomeRoute, name="home"),
 
     # About match
-    #path("about/", views.handleAboutRoute, name="about"),
+    path("about/", views.handleAboutRoute, name="about"),
 
     # Catalog match
     #path("catalog/", views.handleCatalogRoute, name="catalog"),
@@ -16,6 +16,6 @@ urlpatterns = [
     path("camps/", views.handleCampsRoute, name="camps"),
 
     # Tours match
-    #path("tours/", views.handleToursRoute, name="tours"),
+    path("tours/", views.handleToursRoute, name="tours"),
 ]
     
