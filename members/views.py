@@ -7,3 +7,9 @@ def handleLoginUser(request):
     This view handles the login form.
     '''
     return render(request, 'authenticate/login.html', {})
+
+def handleSignupUser(request):
+    '''
+    This view handles the signup form.
+    '''
+    return render(request, 'authenticate/signup.html', {})
