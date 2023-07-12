@@ -21,13 +21,26 @@
           <li><a class="{% if activelink == 'rugbyiq' %}active{% endif %}" href="#0">RugbyIQ</a></li>
         </ul>
       </li>
-      
     </ul>
   </div>
+
   <div class="top-bar-right">
-    <ul class="menu">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="has-submenu">
+        <a href="#0">User</a>
+        <ul class="submenu menu vertical" data-submenu>
+          <li><a class="{% if activelink == 'login' %}active{% endif %}" href="{% url 'login' %}">Login</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="top-bar-right">
+    <ul class="dropdown menu" data-dropdown-menu>
       <li><input type="search" placeholder="Search"></li>
       <li><button type="button" class="button">Search</button></li>
     </ul>
   </div>
+  
+
 </div>
