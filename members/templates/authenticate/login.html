@@ -1,0 +1,53 @@
+{% include 'base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+  <div class="grid-x align-center">
+    <div class="cell text-center small-10 medium-4"> 
+      <img src="{% static 'images/logon.gif'%}" alt="hero image" class="hero-image">
+    </div>
+  </div>
+  <div class="grid-x align-center">
+    <div class="cell text-center small-auto">
+      <h1 class="hero-text">Log On</h1>
+    </div>
+  </div>
+</div>
+
+<div class="authforms">
+  <div class="grid-x align-center">
+    <form>
+      <div class="formfields grid-y align-center">
+        <div class="small-12">
+          <label>Username
+            <input type="text" placeholder="richie_mccaw07">
+          </label>
+        </div>
+        <div class="small-12">
+          <label>Password
+            <input type="password" placeholder="gab123*">
+          </label>
+          <a class="button" href="#">Validate</a>
+        </div>
+        <!-- create an account -->
+        <a href="{% url 'signup' %}" class="small-12">Create an account.</a>
+      </div>
+    </form>
+  </div>
+</div>
+  
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/login.js' %}"></script>
+{% endblock %}
+
+

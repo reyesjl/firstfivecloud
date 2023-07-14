@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_libsass',
     'f5',
+    'members',
 ]
 
 # routing middleware
