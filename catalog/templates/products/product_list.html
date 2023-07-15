@@ -9,62 +9,29 @@
 {% endblock %}
 
 {% block content %}
-
 <section class="hero-section">
     <div class="grid-container">
       <h1>Catalog</h1>
       <p>Win vintage items at auction, purchase direct team orders from CCC, and see daily deals from WorldRugbyShop.</p>
     </div>
-  </section>
-
-  <section class="product-grid">
+  </section>  <section class="product-grid">
     <div class="grid-container">
       <div class="grid-x grid-margin-x small-2 medium-up-3">
-
-        <!-- Repeat this block for each product -->
+        {% for product in products %}
         <div class="cell">
           <div class="card product-card">
             <div class="card-divider">
-             	Hurricanes
+              {{ product.name }}
             </div>
-            <img src="https://classicshirts.co.za/cdn/shop/products/image_c319a9d3-bc58-483a-82d8-e3eea1c3e3a5.jpg?v=1664014243" alt="Product Image">
+            <img src="{% static product.image.url %}" alt="{{product.name}}">
             <div class="card-section">
-              <p>Experience the thrill of the game with this authentic Hurricanes jersey. Its vibrant design captures the spirit of the team, making you feel part of the action whether you're in the stands or on the street.</p>
-              <p>Price: $100</p>
+              <p>{{ product.description }}</p>
+              <p>Price: ${{ product.price }}</p>
               <a href="#" class="button">Purchase</a>
             </div>
           </div>
         </div>
-        <!-- End of product block -->
-
-				<div class="cell">
-          <div class="card product-card">
-            <div class="card-divider">
-             	Hurricanes
-            </div>
-            <img src="https://classicshirts.co.za/cdn/shop/products/image_c319a9d3-bc58-483a-82d8-e3eea1c3e3a5.jpg?v=1664014243" alt="Product Image">
-            <div class="card-section">
-              <p>Experience the thrill of the game with this authentic Hurricanes jersey. Its vibrant design captures the spirit of the team, making you feel part of the action whether you're in the stands or on the street.</p>
-              <p>Price: $100</p>
-              <a href="#" class="button">Purchase</a>
-            </div>
-          </div>
-        </div>
-
-				<div class="cell">
-          <div class="card product-card">
-            <div class="card-divider">
-             	Hurricanes
-            </div>
-            <img src="https://classicshirts.co.za/cdn/shop/products/image_c319a9d3-bc58-483a-82d8-e3eea1c3e3a5.jpg?v=1664014243" alt="Product Image">
-            <div class="card-section">
-              <p>Experience the thrill of the game with this authentic Hurricanes jersey. Its vibrant design captures the spirit of the team, making you feel part of the action whether you're in the stands or on the street.</p>
-              <p>Price: $100</p>
-              <a href="#" class="button">Purchase</a>
-            </div>
-          </div>
-        </div>
-
+        {% endfor %}
       </div>
     </div>
   </section>
