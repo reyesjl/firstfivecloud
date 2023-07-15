@@ -9,32 +9,69 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-                ('description', models.TextField()),
-                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='product_images/')),
-                ('inventory', models.IntegerField(default=0)),
-                ('sku', models.CharField(default=catalog.models.generate_sku, max_length=200, unique=True)),
-                ('is_active', models.BooleanField(default=True)),
-                ('date_added', models.DateTimeField(auto_now_add=True)),
-                ('brand', models.CharField(blank=True, max_length=200, null=True)),
-                ('weight', models.DecimalField(blank=True, decimal_places=2, max_digits=5, null=True)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='products', to='catalog.category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                ("price", models.DecimalField(decimal_places=2, max_digits=10)),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="product_images/"
+                    ),
+                ),
+                ("inventory", models.IntegerField(default=0)),
+                (
+                    "sku",
+                    models.CharField(
+                        default=catalog.models.generate_sku, max_length=200, unique=True
+                    ),
+                ),
+                ("is_active", models.BooleanField(default=True)),
+                ("date_added", models.DateTimeField(auto_now_add=True)),
+                ("brand", models.CharField(blank=True, max_length=200, null=True)),
+                (
+                    "weight",
+                    models.DecimalField(
+                        blank=True, decimal_places=2, max_digits=5, null=True
+                    ),
+                ),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="products",
+                        to="catalog.category",
+                    ),
+                ),
             ],
         ),
     ]
