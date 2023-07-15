@@ -30,7 +30,8 @@
       <li class="has-submenu">
         <a href="#0">User</a>
         <ul class="submenu menu vertical" data-submenu>
-          <li><a class="{% if activelink == 'login' %}active{% endif %}" href="{% url 'login' %}">Logon</a></li>
+          <li><a class="{% if activelink == 'login' %}active{% endif %}" href="{% url 'login' %}">Log On</a></li>
+          <li><a class="{% if activelink == 'signup' %}active{% endif %}" href="{% url 'signup' %}">Sign Up</a></li>
         </ul>
       </li>
     </ul>
