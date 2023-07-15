@@ -1,31 +1,42 @@
 {% extends 'base.html' %}
 
+<!-- load static -->
 {% load static %}
 
+<!-- stylehseet for this page -->
 {% block customcss %}
-  <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div style="background-image: url('{% static 'images/wise.jpg' %}');" class="bgimg">
-  <div class="overlay">
-  <div class="topleft">
-    <p>WELCOME TO FIRSTFIVERUGBY.COM</p>
+<!-- hero image -->
+<div class="hero">
+    <div class="grid-x align-center">
+    
+      <div class="cell text-center small-10 large-8">
+        <div class="hero-title">
+          <img src="{% static 'images/firstfivelogo-white.png' %}" alt="First Five Rugby Logo">
+        </div>
+      </div>
+    
+      <div class="cell text-center small-12 medium-8 large-6">
+        <div class="hero-subtitle">
+          <p>Clarity <span class="splitter">|</span> 
+            Purpose <span class="splitter">|</span>
+            Intensity <span class="splitter">|</span>
+            Trust <span class="splitter">|</span>
+            Confidence</p>
+        </div>
+      </div>
+    
+    </div>
   </div>
-  <div class="middle">
-    <h1>COMING SOON</h1>
-    <hr>
-    <p id="demo" style="font-size:30px"></p>
-  </div>
-  <div class="bottomleft">
-    <p>ALL RIGHT RESERVED 2023</p>
-  </div>
+  
 </div>
-</div>
-
 {% endblock %}
 
 {% block customjs %}
-  <script src="{% static 'js/landing.js' %}"></script>
+  <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}
+

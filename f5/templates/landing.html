@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div style="background-image: url('{% static 'images/wise.jpg' %}');" class="bgimg">
+  <div class="overlay">
+  <div class="topleft">
+    <p>WELCOME TO FIRSTFIVERUGBY.COM</p>
+  </div>
+  <div class="middle">
+    <h1>COMING SOON</h1>
+    <hr>
+    <p id="demo" style="font-size:30px"></p>
+  </div>
+  <div class="bottomleft">
+    <p>ALL RIGHT RESERVED 2023</p>
+  </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/landing.js' %}"></script>
+{% endblock %}
