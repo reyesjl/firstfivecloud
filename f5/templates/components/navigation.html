@@ -11,9 +11,7 @@
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text">First Five Rugby</li>
       <li><a class="{% if activelink == 'home' %}active{% endif %}" href="{% url 'about' %}">Home</a></li>
-      <li><a class="{% if activelink == 'camps' %}active{% endif %}" href="{% url 'camps' %}">Camps</a></li>
-      <li><a class="{% if activelink == 'tours' %}active{% endif %}" href="{% url 'tours' %}">Tours</a></li>
-      <li><a class="{% if activelink == 'catalog' %}active{% endif %}" href="{% url 'about' %}">Catalog</a></li>
+      <li><a class="{% if activelink == 'catalog' %}active{% endif %}" href="{% url 'catalog' %}">Catalog</a></li>
       <li class="has-submenu">
         <a href="#0">Resources</a>
         <ul class="submenu menu vertical" data-submenu>
@@ -44,3 +42,6 @@
   
 
 </div>
+
+
+
