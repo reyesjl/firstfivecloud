@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+ <div class="grid-container">
+    <div class="grid-x grid-margin-x align-middle">
+      <div class="cell small-12">
+        <h1 class="h2">Add Product</h1>
+        <p>Fill the form below to add a new product.</p>
+      </div>
+    </div>
+
+    <div class="grid-x grid-margin-x align-middle">
+      <div class="cell small-12">
+        <form action="{% url 'add_product' %}" method="post">
+          {% csrf_token %}
+          <label for="productName">Product Name:</label><br>
+          <input type="text" id="productName" name="productName"><br>
+          <label for="productPrice">Product Price:</label><br>
+          <input type="text" id="productPrice" name="productPrice"><br>
+          <a class="button" href="#">Add Product</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
