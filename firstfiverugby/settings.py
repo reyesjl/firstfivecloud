@@ -9,8 +9,8 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET')
 DEBUG = True
-ALLOWED_HOSTS = ['www.firstfiverugby.com','firstfiverugby.com', '127.0.0.1', 'localhost', 'firstfiverugbycloud']
-
+ALLOWED_HOSTS = ['www.firstfiverugby.com','firstfiverugby.com']
+CSRF_TRUSTED_ORIGINS = ['https://www.firstfiverugby.com','https://firstfiverugby.com']
 
 # project apps
 INSTALLED_APPS = [
