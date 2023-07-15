@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 def generate_sku():
     return str(uuid.uuid4())[:8]  # Adjust as needed
