@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "f5",
     "members",
     "catalog",
+    "camps"
 ]
 
 # routing middleware
