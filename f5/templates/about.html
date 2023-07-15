@@ -1,57 +1,26 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
+
+<!-- load static -->
 {% load static %}
-<!-- this enables -->
 
-<!-- Insert css file for this template -->
-{% block mycss %}
-<link href="{% static 'css/about.css' %}" rel="stylesheet" />
-{% endblock %}
-
-{% block header %}
-  {% include 'components/header.html' %}
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/about.css' %}">
 {% endblock %}
 
 {% block content %}
-<!-- Navbar -->
-<div class="container">
-  <div class="aboutSection">
-    <h2>Welcome to First Five Rugby!</h2>
-
-    <section id="vision">
-      <h2>Our Vision</h2>
-      <p>At First Five Rugby, we are passionate about revolutionizing the rugby landscape in North America. Our vision is to see rugby thriving in schools across the continent, with grassroots levels becoming the breeding ground for young talents who understand the nuances and dynamics of the game. With a deep-rooted commitment to fostering the growth of rugby, we aim to establish a strong foundation that mirrors the success seen in other countries.</p>
-    </section>
-
-    <section id="platform">
-      <h2>Our Platform</h2>
-      <p>Our platform is designed to provide a comprehensive and professional resource for all things rugby. With extensive research and an in-depth understanding of grassroots rugby, we pride ourselves on being a trusted source of information. Whether you're a player, coach, fan, or family member, we are here to cater to your every rugby need.</p>
-    </section>
-
-    <section id="features">
-      <h2>Features and Services</h2>
-      <ul>
-        <li>Home: Start your journey with us on our homepage, where you'll discover the latest news, updates, and highlights from the world of rugby.</li>
-        <li>About Us: Learn more about our mission, values, and the team behind First Five Rugby. We are driven by our dedication to the rugby community and strive to give back in meaningful ways.</li>
-        <li>Catalog: Explore our extensive catalog of rugby gear and apparel. We curate a selection of high-quality products to ensure you're equipped for the game, both on and off the field.</li>
-        <li>Rugby Camps: Discover a range of rugby camps and clinics tailored to players of all ages and skill levels. Our camps provide an opportunity to enhance your skills, connect with like-minded individuals, and learn from experienced coaches.</li>
-        <li>Team Tours: Embark on an unforgettable rugby tour experience with your team. We offer meticulously organized tours to destinations such as Ireland, facilitated by our trusted partners at Strong Lad, who have 20 years of expertise in this field.</li>
-        <li>All Schedules: Stay up to date with the latest fixtures, matches, and tournaments happening in the rugby world. Our comprehensive schedule ensures you never miss a game.</li>
-        <li>World Rugby Shop: Shop with confidence at our World Rugby Shop, where you'll find a wide range of merchandise, equipment, and accessories. We strive to provide everything you need to support your passion for the game.</li>
-        <li>Canterbury Kit: Explore our partnership with Canterbury, a renowned brand that offers top-quality rugby kits and apparel. Together, we are dedicated to providing you with the best rugby experience.</li>
-        <li>Enitor Advising: Our commitment goes beyond the game itself. Enitor Advising offers valuable guidance on various aspects of life, including resume building and other skills that can benefit players both on and off the field.</li>
-      </ul>
-    </section>
-
-    <section id="community">
-      <h2>Building a Rugby Community</h2>
-      <p>At First Five Rugby, we believe in connecting players to opportunities, fostering skill development, and building a vibrant rugby community. We are grateful for the chance to give back and look forward to the day when we can create custom apparel that represents the rugby community as a whole in North America.</p>
-    </section>
-
-    <section id="join-us">
-      <h2>Join Us</h2>
-      <p>Join us on this extraordinary journey as we transform the rugby landscape. We invite you to explore our platform, make the most of the resources we provide, and become a part of the First Five Rugby family. Together, let's take rugby in North America to new heights.</p>
-    </section>
-  </div>
+<div class="grid-container">
+	<div class="grid-x grid-padding-x">
+		<div class="large-12 cell">
+			<section>
+				<h1>About Us</h1>
+				<p class="subtitle">We're more than just a business, we're a family.</p>
+			</section>
+		</div>
+	</div>
 </div>
+{% endblock %}
 
+{% block customjs %}
+  <script src="{% static 'js/about.js' %}"></script>
 {% endblock %}
