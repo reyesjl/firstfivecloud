@@ -11,7 +11,7 @@
 {% block content %}
 
 <!-- hero image -->
-<div class="hero">
+  <div class="hero">
     <div class="grid-x align-center">
     
       <div class="cell text-center small-10 large-8">
@@ -28,12 +28,48 @@
             Trust <span class="splitter">|</span>
             Confidence</p>
         </div>
-      </div>
-    
+      </div> 
+
     </div>
   </div>
-  
-</div>
+
+  <!-- About Section -->
+  <div class="common-section about">
+    <div class="grid-container">
+      <div class="grid-x">
+        <div class="cell">
+          <h2 class="h2 text-center section-title">Get to Know Us</h2>
+        </div>
+      </div>
+
+      <div class="grid-x">
+        <div class="cell medium-6">
+          <img src="{% static 'images/about-us.svg' %}" alt="First Five Rugby Logo">
+        </div>
+        <div class="cell medium-6 cell-wrapper">
+          <div class="grid-y align-middle">
+            <div class="cell">
+              <p>The all-in-one platform for rugby passion and development. We cater to players, coaches, fans, and enthusiasts, offering a plethora of services designed to enhance your rugby experience. From expert-led Rugby Skills Camps, immersive Ireland Team Tours, a curated catalog of unique rugby items, to valuable life skills, we've got you covered.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- services Section -->
+  <div class="common-section services">
+    <div class="grid-container">
+      <div class="grid-x">
+        <div class="cell">
+          <h2 class="h2 text-center section-title">Discover our Services</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+
 {% endblock %}
 
 {% block customjs %}
