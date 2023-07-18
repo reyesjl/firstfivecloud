@@ -27,6 +27,9 @@ sass --watch /home/django/firstfiverugby/f5/static/scss:/home/django/firstfiveru
 echo "Starting new Sass watcher MEMBERS ..."
 sass --watch /home/django/firstfiverugby/members/static/scss:/home/django/firstfiverugby/members/static/css &
 
+echo "Starting new Sass watcher CATALOG ..."
+sass --watch /home/django/firstfiverugby/catalog/static/scss:/home/django/firstfiverugby/catalog/static/css &
+
 echo "Collecting static files..."
 python manage.py collectstatic --noinput
 
