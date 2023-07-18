@@ -42,21 +42,27 @@
         </div>
       </div>
 
-      <div class="grid-x">
-        <div class="cell medium-6">
+      <div class="grid-x grid-padding-x align-center">
+        <div class="cell medium-6 text-center">
           <img src="{% static 'images/about-us.svg' %}" alt="First Five Rugby Logo">
         </div>
-        <div class="cell medium-6 cell-wrapper">
-          <div class="grid-y align-middle">
+        <div class="cell cell-wrapper">
+          <div class="grid-y align-center">
             <div class="cell">
               <p>The all-in-one platform for rugby passion and development. We cater to players, coaches, fans, and enthusiasts, offering a plethora of services designed to enhance your rugby experience. From expert-led Rugby Skills Camps, immersive Ireland Team Tours, a curated catalog of unique rugby items, to valuable life skills, we've got you covered.</p>
             </div>
+            <div class="cell about-button">
+              <a href="{% url 'about' %}" class="button">Learn More</a> 
+            </div>
           </div>
+        </div>
+        
       </div>
-    </div>
-  </div>
 
-   <!-- services Section -->
+    </div> <!-- end grid-container -->
+  </div> <!-- end about section -->
+
+  <!-- services Section -->
   <div class="common-section services">
     <div class="grid-container">
       <div class="grid-x">

@@ -5,36 +5,11 @@
 
 <!-- stylehseet for this page -->
 {% block customcss %}
-  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
 {% endblock %}
 
 {% block content %}
-<section class="hero-section">
-    <div class="grid-container">
-      <h1>Catalog</h1>
-      <p>Win vintage items at auction, purchase direct team orders from CCC, and see daily deals from WorldRugbyShop.</p>
-    </div>
-  </section>  <section class="product-grid">
-    <div class="grid-container">
-      <div class="grid-x grid-margin-x small-2 medium-up-3">
-        {% for product in products %}
-        <div class="cell">
-          <div class="card product-card">
-            <div class="card-divider">
-              {{ product.name }}
-            </div>
-            <img src="{% static product.image.url %}" alt="{{product.name}}">
-            <div class="card-section">
-              <p>{{ product.description }}</p>
-              <p>Price: ${{ product.price }}</p>
-              <a href="#" class="button">Purchase</a>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
+
 {% endblock %}
 
 {% block customjs %}
