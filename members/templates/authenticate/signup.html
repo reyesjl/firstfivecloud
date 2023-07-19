@@ -23,21 +23,17 @@
 <div class="grid-container">
   <div class="grid-x align-center authgrid">
     <div class="cell small-10 medium-8 large-6 align-center">
-      <form method="post">
+      <form method="post" action="{% url 'signup' %}">
         {% csrf_token %}
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br>
-        <label for="password2">Re-Enter Password:</label>
-        <input type="password" id="password2" name="password2"><br>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email"><br>
-        <label for="cell">Cell:</label>
-        <input type="text" id="cell" name="cell"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
 
         <a class="formlink" href="{% url 'login' %}">Already created account?</a><br>
-        <a class="button" href="#">Initialize</a>
+        <button type="submit" class="button">Initialize</button>
       </form>
     </div>
   </div>
