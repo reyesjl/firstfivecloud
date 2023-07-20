@@ -62,62 +62,72 @@
     </div> <!-- end grid-container -->
   </div> <!-- end about section -->
   
-  <hr />
-  
   <!-- services Section -->
   <div class="common-section services">
     <div class="grid-container">
       <div class="grid-x">
         <div class="cell">
-          <h2 class="h2 section-title">Services We Provide</h2>
+          <h2 class="h2 section-title">Action Menu</h2>
+          <br />
           <div class="grid-container">
             <div class="grid-x grid-margin-x">
-              <div class="cell small-4">
+              <div class="cell small-6 medium-4">
                 <div class="card">
-                  <img src="https://placehold.co/400x200">
-                  <div class="card-section">
-                    <p>Camps</p>
-                  </div>
+                  <a href="{% url 'camps'%}">
+                    <img src="{% static 'images/button.gif' %}">
+                    <div class="card-section">
+                      <p>Camps</p>
+                    </div>
+                  </a>
                 </div>
               </div>
-              <div class="cell small-4">
+              <div class="cell small-6 medium-4">
                 <div class="card">
-                  <img src="https://placehold.co/400x200">
+                 <a href="{% url 'tours' %}"> 
+                  <img src="{% static 'images/longroad.gif' %}">
                   <div class="card-section">
                     <p>Tours</p>
                   </div>
+                </a>
                 </div>
               </div>
-              <div class="cell small-4">
+              <div class="cell small-6 medium-4">
                 <div class="card">
-                  <img src="https://placehold.co/400x200">
+                  <a href="{% url 'home' %}">
+                  <img src="{% static 'images/colorsquare.gif' %}">
                   <div class="card-section">
                     <p>Festivals</p>
                   </div>
+                </a>
                 </div>
               </div>
 
-              <div class="cell small-4">
+              <div class="cell small-6 medium-4">
                 <div class="card">
-                  <img src="https://placehold.co/400x200">
+                  <a href="{% url 'catalog'%}">
+                  <img src="{% static 'images/arrows.gif' %}">
                   <div class="card-section">
                     <p>Honor Caps</p>
                   </div>
+                </a>
                 </div>
               </div>
-              <div class="cell small-4">
+              <div class="cell small-6 medium-4">
                 <div class="card">
-                  <img src="https://placehold.co/400x200">
+                  <a href="{% url 'catalog'%}">
+                  <img src="{% static 'images/back&forth.gif' %}">
                   <div class="card-section">
                     <p>Direct Team Sales</p>
                   </div>
+                </a>
                 </div>
               </div>
-              <div class="cell small-4">
+              <div class="cell small-6 medium-4">
                 <div class="card">
-                  <img src="https://placehold.co/400x200">
+                  <a href="{% url 'home'%}">
+                  <img src="{% static 'images/bubbles.gif' %}">
                   <div class="card-section">
-                    <p>Enitor</p>
+                    <p>Schedules</p>
                   </div>
                 </div>
               </div>
