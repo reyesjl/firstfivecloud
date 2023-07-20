@@ -36,23 +36,11 @@
   <!-- About Section -->
   <div class="common-section about">
     <div class="grid-container">
-      <div class="grid-x">
-        <div class="cell">
-          <h2 class="h2 section-title">Get To Know Us</h2>
-        </div>
-      </div>
-
       <div class="grid-x grid-padding-x">
-        <div class="cell medium-6">
-          <img src="{% static 'images/about-us.svg' %}" alt="First Five Rugby Logo">
-        </div>
         <div class="cell cell-wrapper">
           <div class="grid-y align-center">
             <div class="cell">
               <p>The all-in-one platform for rugby passion and development. We cater to players, coaches, fans, and enthusiasts, offering a plethora of services designed to enhance your rugby experience. From expert-led Rugby Skills Camps, immersive Ireland Team Tours, a curated catalog of unique rugby items, to valuable life skills, we've got you covered.</p>
-            </div>
-            <div class="cell about-button">
-              <a href="{% url 'about' %}" class="button">Learn More</a> 
             </div>
           </div>
         </div>
@@ -70,8 +58,8 @@
           <h2 class="h2 section-title">Action Menu</h2>
           <br />
           <div class="grid-container">
-            <div class="grid-x grid-margin-x">
-              <div class="cell small-6 medium-4">
+            <div class="grid-x grid-margin-x grid-margin-y">
+              <div class="cell small-6 medium-3 large-4">
                 <div class="card">
                   <a href="{% url 'camps'%}">
                     <img src="{% static 'images/button.gif' %}">
@@ -81,7 +69,7 @@
                   </a>
                 </div>
               </div>
-              <div class="cell small-6 medium-4">
+              <div class="cell small-6 medium-3 large-4">
                 <div class="card">
                  <a href="{% url 'tours' %}"> 
                   <img src="{% static 'images/longroad.gif' %}">
@@ -91,7 +79,7 @@
                 </a>
                 </div>
               </div>
-              <div class="cell small-6 medium-4">
+              <div class="cell small-6 medium-3 large-4">
                 <div class="card">
                   <a href="{% url 'home' %}">
                   <img src="{% static 'images/colorsquare.gif' %}">
@@ -117,7 +105,7 @@
                   <a href="{% url 'catalog'%}">
                   <img src="{% static 'images/back&forth.gif' %}">
                   <div class="card-section">
-                    <p>Direct Team Sales</p>
+                    <p>Team Sales</p>
                   </div>
                 </a>
                 </div>
