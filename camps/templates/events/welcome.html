@@ -133,8 +133,9 @@
       </ul>
       
       <!-- Registration form -->
-      {% if not registered %}
-      <form action="#" method="post">
+      {% if not user.is_authenticated %}
+      <form method="post" action="{% url 'camps' %}">
+        {% csrf_token %}
         <div class="grid-x grid-margin-x">
           <div class="cell small-12 medium-4">
             <label for="name">Name</label>
@@ -149,7 +150,7 @@
             <input type="text" id="phone" name="phone" required>
           </div>
         </div>
-
+        <input type="hidden" name="event_id" value="{{ event.id }}">
         <div class="grid-x grid-margin-x">
           <div class="cell small-12">
             <button type="submit" class="button">Submit</button>
@@ -158,7 +159,12 @@
       </form>
       {% else %}
       <div data-toggler data-animate="fade-in fade-out" class="callout warning">
-        <p>You have submitted this form. Thank you!</p>
+        <p>{{ user.username }}, you can synchronize your account to camps you would like to attend.</p>
+        <p>1. Synchronizing signs you up to receive all the intake forms and the payment link.</p> 
+        <p>2. Check your email and complete the intake forms and medical forms.</p> 
+        <p>3. Check your email and send secure payment via the stripe link sent to you.</p>
+        <p>4. Return to this page or your profile to see your completed registration.</p>
+        <p>Stuck? - no worries. <a href="mailto:letusknow@firstfiverugby.com">letusknow@firstfiverugby.com</a></p>
       </div>
       {% endif %}
     </div> <!-- End of cell -->
