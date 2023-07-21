@@ -7,127 +7,157 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="grid-x align-center hero-accordion">
-  <div class="cell small-12 medium-10 large-8">
-    <ul class="accordion" data-responsive-accordion-tabs="accordion medium-tabs large-accordion">
-      <li class="accordion-item is-active" data-accordion-item>
-        <a href="#" class="accordion-title">Ireland Tour Highlights</a>
-        <div class="accordion-content" data-tab-content>
-          <h3>Ireland Tour Highlights:</h3>
-          <ul>
-            <li>6-8 day / 5-7 night tours</li>
-            <li>Always try to center around Pro 14 game and AIL club game</li>
-            <li>2 games for tour team</li>
-            <li>2-3 coaching / skills sessions with Irish Pro coaches / AIL coaches</li>
-            <li>Typically one educational event minimum each day</li>
-            <li>One team building challenge course type event early in tour</li>
-            <li>Focus on Western and Southern Ireland, typically stay away from Dublin</li>
-            <li>All players and coaches get tour jersey (polo available for additional low charge)</li>
-            <li>Tour price is actual price plus <strong>$250</strong></li>
-            <li>Includes bus, games, tips to clubs, lodging, banquet at end, match tickets, training sessions</li>
-            <li>Meals for students typically run <strong>$12-15</strong> per meal</li>
-            <li>Breakfast included in lodging</li>
-            <li>We shop prices hard to deliver tour for <strong>$1700 to $2300</strong></li>
-          </ul>
+  <div class="grid-container">
+    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+      <div class="orbit-wrapper">
+        <div class="orbit-controls">
+          <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+          <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
         </div>
-      </li>
+        <ul class="orbit-container">
+          <li class="is-active orbit-slide">
+            <figure class="orbit-figure">
+              <img class="orbit-image" src="https://placehold.it/1200x600/999?text=Slide-1" alt="Space">
+              <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+            </figure>
+          </li>
+          <li class="orbit-slide">
+            <figure class="orbit-figure">
+              <img class="orbit-image" src="https://placehold.it/1200x600/888?text=Slide-2" alt="Space">
+              <figcaption class="orbit-caption">Lets Rocket!</figcaption>
+            </figure>
+          </li>
+          <li class="orbit-slide">
+            <figure class="orbit-figure">
+              <img class="orbit-image" src="https://placehold.it/1200x600/777?text=Slide-3" alt="Space">
+              <figcaption class="orbit-caption">Encapsulating</figcaption>
+            </figure>
+          </li>
+          <li class="orbit-slide">
+            <figure class="orbit-figure">
+              <img class="orbit-image" src="https://placehold.it/1200x600/666&text=Slide-4" alt="Space">
+              <figcaption class="orbit-caption">Outta This World</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+      <nav class="orbit-bullets">
+        <button class="is-active" data-slide="0">
+          <span class="show-for-sr">First slide details.</span>
+          <span class="show-for-sr" data-slide-active-label>Current Slide</span>
+        </button>
+        <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+        <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+        <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+      </nav>
+    </div>
 
-      <li class="accordion-item" data-accordion-item>
-        <a href="#" class="accordion-title">Tour Stops / Games / Activities</a>
-        <div class="accordion-content" data-tab-content>
-          <h3>Tour Stops / Games / Activities have included:</h3>
-          <ul>
-            <li>Munster Pro 14 games / behind the scenes tour</li>
-            <li>Connacht Pro 14 games / behind the scenes tour</li>
-            <li>Connacht staff-led coaching sessions</li>
-            <li>Fixtures have included games vs Shannon, NUIG, UCC, Pres Cork, Cork Con, Rockwell College, St Michael’s, Connemara Blacks, Rockwell College, and Old Wesley</li>
-            <li>Historical Sites often visited include Blarney Castle, Connemara Region, Connemara National Park, Cliffs of Moher, the Burren, Diamond Hill, Kylemoor Abbey</li>
-            <li>We have the BEST bus drivers that also are history teachers - we only use luxury motor coaches of the best standard - leather seats, bathrooms and wifi on all coaches</li>
-            <li>We have used the same drivers for over 20 years!</li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="accordion-item" data-accordion-item>
-        <a href="#" class="accordion-title">What we Take Care of</a>
-        <div class="accordion-content" data-tab-content>
-          <h3>We take care of:</h3>
-          <ul>
-            <li>Negotiating airfare</li>
-            <li>Negotiating trip insurance</li>
-            <li>Reserving rooms</li>
-            <li>Setting up games</li>
-            <li>Setting up training</li>
-            <li>Tour clearances from USA Rugby and IRFU</li>
-            <li>Bus / coach reservations</li>
-            <li>Overall tour schedule planned hour by hour</li>
-            <li>Tour kit and crest design</li>
-            <li>1000+ other little things as we "ride along"</li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="accordion-item" data-accordion-item>
-        <a href="#" class="accordion-title">Overnight Stays</a>
-        <div class="accordion-content" data-tab-content>
-          <h3>Overnight Stays with breakfast meals</h3>
-          <ul>
-            <li>Galway City center</li>
-            <li>Clifden</li>
-            <li>Cork City center</li>
-            <li>Kilkenny</li>
-            <li>Kerry</li>
-            <li>Dublin</li>
-          </ul>
-        </div>
-      </li>
-
-      <li class="accordion-item" data-accordion-item>
-        <a href="#" class="accordion-title">Inquiry Form</a>
-        <div class="accordion-content" data-tab-content>
-          <h3>Inquiry Form</h3>
-          <ul>
-            <li class="alert">Be aware, you will be sent an email to arrange a virtual meeting.</li>
-            <li class="alert">This is not connfirming you are purchasing a tour service, or registering for one.</li>
-            <li class="alert">Registration is open all year round. College teams, high schools, etc</li>
-          </ul>
-
-          <!-- Registration form -->
-          {% if not registered %}
-          <form action="#" method="post">
-            <div class="grid-x grid-margin-x">
-              <div class="cell small-12 medium-4">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div class="cell small-12 medium-4">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              <div class="cell small-12 medium-4">
-                <label for="phone">Phone</label>
-                <input type="text" id="phone" name="phone" required>
-              </div>
+    <div class="grid-x">
+      <div class="cell large-8">
+        <h2 class="h2 section-title">Ireland Tour Highlights</h2>
+        <ul>
+          <li>6-8 day / 5-7 night tours</li>
+          <li>Always try to center around Pro 14 game and AIL club game</li>
+          <li>2 games for tour team</li>
+          <li>2-3 coaching / skills sessions with Irish Pro coaches / AIL coaches</li>
+          <li>Typically one educational event minimum each day</li>
+          <li>One team building challenge course type event early in tour</li>
+          <li>Focus on Western and Southern Ireland, typically stay away from Dublin</li>
+          <li>All players and coaches get tour jersey (polo available for additional low charge)</li>
+          <li>Tour price is actual price plus $250</li>
+          <li>Includes bus, games, tips to clubs, lodging, banquet at end, match tickets, training sessions</li>
+          <li>Meals for students typically run $12-15 per meal</li>
+          <li>Breakfast included in lodging</li>
+          <li>We shop prices hard to deliver tour for $1700 to $2300</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="grid-x">
+      <div class="cell large-8">
+        <h2 class="h2 section-title">Tour Stops / Games / Activities</h2>
+        <ul>
+          <li>Munster Pro 14 games / behind the scenes tour</li>
+          <li>Connacht Pro 14 games / behind the scenes tour</li>
+          <li>Connacht staff-led coaching sessions</li>
+          <li>Fixtures have included games vs Shannon, NUIG, UCC, Pres Cork, Cork Con, Rockwell College, St Michael’s, Connemara Blacks, Rockwell College, and Old Wesley</li>
+          <li>Historical Sites often visited include Blarney Castle, Connemara Region, Connemara National Park, Cliffs of Moher, the Burren, Diamond Hill, Kylemoor Abbey</li>
+          <li>We have the BEST bus drivers that also are history teachers - we only use luxury motor coaches of the best standard - leather seats, bathrooms and wifi on all coaches</li>
+          <li>We have used the same drivers for over 20 years!</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="grid-x">
+      <div class="cell large-8">
+        <h2 class="h2 section-title">What we Take Care of</h2>
+        <ul>
+          <li>Negotiating airfare</li>
+          <li>Negotiating trip insurance</li>
+          <li>Reserving rooms</li>
+          <li>Setting up games</li>
+          <li>Setting up training</li>
+          <li>Tour clearances from USA Rugby and IRFU</li>
+          <li>Bus / coach reservations</li>
+          <li>Overall tour schedule planned hour by hour</li>
+          <li>Tour kit and crest design</li>
+          <li>1000+ other little things as we "ride along"</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="grid-x">
+      <div class="cell large-8">
+        <h2 class="h2 section-title">Overnight Stays</h2>
+        <ul>
+          <li>Galway City center</li>
+          <li>Clifden</li>
+          <li>Cork City center</li>
+          <li>Kilkenny</li>
+          <li>Kerry</li>
+          <li>Dublin</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="grid-x">
+      <div class="cell large-8">
+        <h2 class="h2 section-title">Inquiry Form</h2>
+        <ul>
+          <li class="alert">Be aware, you will be sent an email to arrange a virtual meeting.</li>
+          <li class="alert">This is not confirming you are purchasing a tour service, or registering for one.</li>
+          <li class="alert">Registration is open all year round. College teams, high schools, etc</li>
+        </ul>
+        
+        <!-- Registration form -->
+        {% if not registered %}
+        <form action="#" method="post">
+          <div class="grid-x grid-margin-x">
+            <div class="cell small-12 medium-4">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
             </div>
-
-            <div class="grid-x grid-margin-x">
-              <div class="cell small-12">
-                <button type="submit" class="button">Submit</button>
-              </div>
+            <div class="cell small-12 medium-4">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
             </div>
-          </form>
-          {% else %}
-          <div data-toggler data-animate="fade-in fade-out" class="callout warning">
-            <p>Already submitted inquery for this tour. Thank you!</p>
+            <div class="cell small-12 medium-4">
+              <label for="phone">Phone</label>
+              <input type="text" id="phone" name="phone" required>
+            </div>
           </div>
-          {% endif %}
+          <div class="grid-x grid-margin-x">
+            <div class="cell small-12">
+              <button type="submit" class="button">Submit</button>
+            </div>
+          </div>
+        </form>
+        {% else %}
+        <div data-toggler data-animate="fade-in fade-out" class="callout warning">
+          <p>Already submitted inquiry for this tour. Thank you!</p>
         </div>
-      </li>
-    </ul>
-  </div>
-</div>
-<!-- Insert footer -->
-{% include 'components/footer.html' %}
+        {% endif %}
+      </div>
 
+  </div>
 {% endblock %}
