@@ -30,6 +30,12 @@ sass --watch /home/django/firstfiverugby/members/static/scss:/home/django/firstf
 echo "Starting new Sass watcher CATALOG ..."
 sass --watch /home/django/firstfiverugby/catalog/static/scss:/home/django/firstfiverugby/catalog/static/css &
 
+echo "Starting new Sass watcher CAMPS ..."
+sass --watch /home/django/firstfiverugby/camps/static/scss:/home/django/firstfiverugby/camps/static/css &
+
+echo "Starting new Sass watcher TOURS ..."
+sass --watch /home/django/firstfiverugby/tours/static/scss:/home/django/firstfiverugby/tours/static/css &
+
 echo "Collecting static files..."
 python manage.py collectstatic --noinput
 
