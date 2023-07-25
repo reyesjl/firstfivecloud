@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Event, EventInqueries
 
+
 def handleWelcome(request):
     """
     Displays tours landing page and handles registration for camp event.
