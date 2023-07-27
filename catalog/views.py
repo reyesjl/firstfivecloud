@@ -1,11 +1,29 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Product, Category
+from .models import Product, Category, WRSInqueries
+from django.core.mail import send_mail
 
 def handleFetchHome(request):
     return render(request, "catalog.html")
 
 def handleFetchWrs(request):
+    if request.method == "POST":
+        # Get form data
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        message = request.POST.get("message")
+
+        # create the wrs catalog inquery
+        wrs_inquery = WRSInqueries(name=name, email=email, phone=phone, message=message)
+        wrs_inquery.save()
+
+        # Send email to this user and to admins
+        # .... coming soon .... 5v.0.1
+        
+        # Redirect to success page
+        return redirect("home")
+    context = {"activelink": "catalog"}
     return render(request, "products/wrs_products.html")
 
 def handleFetchProducts(request):
@@ -16,7 +34,6 @@ def handleFetchProducts(request):
         "products/product_list.html",
         {"products": products, "categories": categories},
     )
-
 
 def handleAddProduct(request):
     if request.method == "POST":

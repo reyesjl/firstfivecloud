@@ -30,3 +30,15 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class WRSInqueries(models.Model):
+    """Model for WRS inqueries"""
+
+    email = models.EmailField()
+    name = models.CharField(max_length=200)
+    phone = models.CharField(max_length=15)
+    message = models.TextField(null=True)
+
+    def __str__(self):
+        return self.name
