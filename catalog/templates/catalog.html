@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- page stylesheet -->
+{% block customcss %}
+{% endblock %}
+
+<!-- page content -->
+{% block content %}
+
+<div class="grid-container">
+  <div class="grid-x align-center">
+    <div class="cell">
+      <h1>Catalog</h1>
+      <h3>For all your needs & for all your wants.</h3>
+    </div>
+  </div>
+  
+  <div class="grid-x">
+    <div class="cell">
+      <p>Options</p>
+      <ul>
+        <li><a href="{% url 'wrs_catalog' %}">Direct Team Sales</a></li>
+        <li>Vintage Jersey Auction</li>
+        <li>Custom Rugby Caps</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+<!-- page javascript -->
+{% block customjs %}
+{% endblock %}
+
+
+

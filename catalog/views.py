@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Product, Category
 
+def handleFetchHome(request):
+    return render(request, "catalog.html")
+
+def handleFetchWrs(request):
+    return render(request, "products/wrs_products.html")
 
 def handleFetchProducts(request):
     categories = Category.objects.all()

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- page stylesheet -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+{% endblock %}
+
+<!-- page content -->
+{% block content %}
+<div class="grid-container">
+  <div class="grid-x">
+    <div class="cell">
+      <h1>Direct Team Sales</h1>
+      <h3>World Rugby Shop Kit Options 2023</h3>
+    </div>
+  </div>
+
+  <br />
+  <hr /> 
+  <div class="mto_section grid-x">
+    <div class="cell">
+      <h3>Game day <span class="keyword">MTO</span> Jerseys</h3>
+      <p>[6-8 weeks for world rugby shop orders]</p>
+      <img src="{% static 'product_images/mto_jerseys.jpg'%}" />
+    </div>
+  </div> <!-- grid-x end -->
+
+  <br />
+  <hr /> 
+  <div class="mto_section grid-x">
+    <div class="cell">
+      <h3>Game day <span class="keyword">STOCK</span> Jerseys</h3>
+      <p>[2 weeks for world rugby shop orders]</p>
+      <img src="{% static 'product_images/stock_jerseys.png'%}" />
+    </div>
+  </div> <!-- grid-x end -->
+
+  <br />
+  <hr /> 
+  <div class="mto_section grid-x">
+    <div class="cell">
+      <h3>Our <span class="keyword">PARTNER</span> Jersey Gallery</h3>
+      <img src="{% static 'product_images/partners1.png'%}" />
+    </div>
+  </div> <!-- grid-x end -->
+
+  
+
+</div> <!-- grid-continer end -->
+{% endblock %}
+
+<!-- page javascript -->
+{% block customjs %}
+{% endblock %}
