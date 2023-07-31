@@ -6,84 +6,16 @@
 <!-- stylehseet for this page -->
 {% block customcss %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}" />
-{% endblock %} {% block content %}
-<div class="common-section about">
-  <div class="grid-container">
-    <div class="grid-x">
-      <div class="cell">
-        <h2 class="h2 section-title">About Our Platform</h2>
-      </div>
-    </div>
+{% endblock %} 
 
-    <div class="grid-x">
-      <div class="cell large-8">
-        <p>
-          The all-in-one platform for rugby passion and development. We cater to
-          players, coaches, fans, and enthusiasts, offering a plethora of
-          services designed to enhance your rugby experience. From expert-led
-          Rugby Skills Camps, immersive Ireland Team Tours, a curated catalog of
-          unique rugby items, to valuable life skills, we've got you covered.
-        </p>
-      </div>
-    </div>
-
-    <div class="grid-x grid-margin-x">
-      <div class="cell">
-        <h2 class="h2 section-title">Staff</h2>
-      </div>
-
-      <div class="cell small-12">
-        <div class="card">
-          <img src="{% static "images/timbo.jpg" %}" class="card-divider" />
-          <div class="card-section">
-            <h4>Tim Brown</h4>
-            <p>
-              Has played, coached and served as an administrator for rugby clubs
-              both domestically and internationally for the last 30 years. He
-              has worked with multiple unions, many universities, Old Glory DC,
-              the Leicester Tigers and others on player recruitment, camps and
-              tours. First Five will be the premier portal to make it easy for
-              players, coaches and fans to get the resources they want and need
-              to grow the game.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="cell small-12">
-        <div class="card">
-          <img src="{% static "images/joe.jpg" %}" class="card-divider" />
-          <div class="card-section">
-            <h4>Joseph Ritter</h4>
-            <p>
-              Graduated from the University of Mary Washington and still plays
-              competitively today. Ritter works as a Project Manager for his
-              family’s company, Cedar Shakes and Shingles. First Five Rugby will
-              promote grass roots rugby by providing accessibility to knowledge,
-              equipment, and education.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="cell small-12">
-        <div class="card">
-          <img src="{% static "images/eddie2.png" %}" class="card-divider" />
-          <div class="card-section">
-            <h4>Jose Reyes</h4>
-            <p>
-              Studied Computer Science and Cyber Security at the University of
-              Mary Washington. Plays professional rugby in the MLR and works as
-              a full time software engineer. First Five Rugby will support the
-              community by helping players gain a natural understanding of the
-              core skills required to perform at a high level. It will highlight
-              the cultural makeup of rugby in North America and celebrate what
-              makes it unique.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+{% block content %}
+<div class="grid-container">
+  <div class="cell">
+    <h2>About Our Platform</h2>
   </div>
-</div>
-{% endblock %} {% block customjs %}
+</div>  
+{% endblock %} 
+
+{% block customjs %}
 <script src="{% static 'js/about.js' %}"></script>
 {% endblock %}

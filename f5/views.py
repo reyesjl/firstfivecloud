@@ -27,3 +27,12 @@ def handleAboutRoute(request):
         "activelink": "about",
     }
     return render(request, "about.html", context)
+
+def handleDownRoute(request):
+    """
+    Displays down page for the platform.
+    """
+    context = {
+        "banner": "Exclusive direct team deals on all WRS catalog items for games, traning, events, and even travel gear."
+    }
+    return render(request, "down.html", context)

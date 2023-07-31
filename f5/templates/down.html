@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="grid-x align-center">
+  <div class="header cell text-center">
+    <img class="header-img hidden" src="https://media4.giphy.com/media/1itbX540F6EWDG8cQb/giphy.gif" />
+    <h1 class="h1 hidden">First Five Rugby</h1>
+    <p class="hidden">Read more about the road ahead <a id="header-link" href="#links">here.</a></p>
+  </div>
+</div>
+
+<div class="grix-x">
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+

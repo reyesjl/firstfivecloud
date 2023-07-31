@@ -12,13 +12,9 @@
       <li class="menu-text">First Five Rugby</li>
       <li><a class="nav-link {% if activelink == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a></li>
       <li><a class="nav-link {% if activelink == 'about' %}active{% endif %}" href="{% url 'about' %}">About</a></li>
-      <li><a class="nav-link {% if activelink == 'camps' %}active{% endif %}" href="{% url 'camps' %}">Camps</a></li>
-      <li><a class="nav-link {% if activelink == 'tours' %}active{% endif %}" href="{% url 'tours' %}">Tours</a></li>
-      <li><a class="nav-link {% if activelink == 'catalog' %}active{% endif %}" href="{% url 'catalog' %}">Catalog</a></li>
       <li class="has-submenu">
         <a class="nav-link" href="#0">Resources</a>
         <ul class="submenu menu vertical" data-submenu>
-          <li><a class="nav-link {% if activelink == 'enitor' %}active{% endif %}" href="#0">Enitor</a></li>
           <li><a class="nav-link {% if activelink == 'rugbyiq' %}active{% endif %}" href="#0">RugbyIQ</a></li>
         </ul>
       </li>
