@@ -10,18 +10,87 @@
 
 {% block content %}
 
-<div class="grid-x align-center">
-  <div class="header cell text-center">
-    <img class="header-img hidden" src="{% static 'images/crest.gif' %}" />
-    <h1 class="h1 hidden">First Five Rugby</h1>
-    <p class="hidden">Read more about the road ahead <a id="header-link" href="#links">here.</a></p>
+<!-- Top Message Bar -->
+<div class="message-cell grid-x align-center">
+  <div class="cell text-center">
+    <p class="message">Catalog now featuring WRS team orders, custom caps, & vintage alumni jerseys.<sup>f5</sup>
+      <a id="message-link" href="#">Shop Items →</a>
+    </p>
   </div>
 </div>
 
-<div class="grid-container">
-  <div class="cell">
-    <h2 class="h2 hidden">Catalog. <span class="subtitle">We Know the Details Matter.</span></h2>
+<!-- Hero / Title -->
+<div class="grid-x align-center">
+  <div class="header cell text-center">
+    <img class="header-img hidden pre-top" src="{% static 'images/crest.gif' %}" />
+    <h1 class="cell-title h1 hidden pre-top">First Five Rugby</h1>
+    <p class="hidden pre-top">Read more about <a id="header-link" href="#links">the road ahead.</a> → </p>
   </div>
+</div>
+
+<!-- Catalog Section -->
+<div class="asection grid-container">
+  <!-- catalog title -->
+  <div class="grid-x">
+    <div class="cell small-8 large-6">
+      <h2 id="catalog-title" class="h2 cell-title hidden pre-left delaymelonger">Catalog. <span class="subtitle">For all your rugby needs.</span></h2>
+    </div>
+  </div>
+  <!-- catalog product grid -->
+  <div class="grid-x">
+    <div class="hidden pre-left wait acell product cell medium-4 text-center">
+      <h4 class="option-title">Team Sales</h4>
+      <img class="option-img" src="{% static 'images/canterbury.svg' %}" />
+      <p class="option-desc">
+      </p>
+      <a class="option-link hidden delayme" href="#">See catalog →</a>
+    </div>
+    <div class="hidden pre-left wait acell product cell medium-4 text-center">
+      <h4 class="option-title">Jersey Auctions</h4>
+      <img class="option-img" src="{% static 'images/jersey.svg' %}" />
+      <p class="option-desc"></p>
+      <a class="option-link hidden delaymelonger" href="#">See auction →</a>
+    </div>
+    <div class="hidden pre-left wait acell product cell medium-4 text-center">
+      <h4 class="option-title">Custom Caps</h4>
+      <img class="option-img" src="{% static 'images/cap.svg' %}" />
+      <p class="option-desc"></p>
+      <a class="option-link hidden delaymelongest" href="#">See caps →</a>
+    </div>
+  </div>    
+</div>
+
+<!-- Services Section -->
+<div class="asection grid-container">
+  <!-- services title -->
+  <div class="grid-x">
+    <div class="cell small-8 large-6">
+      <h2 id="catalog-title" class="h2 cell-title hidden delayme">Services. <span class="subtitle">Experience rugby like never before.</span></h2>
+    </div>
+  </div>
+
+  <!-- services grid -->
+  <div class="grid-x">
+    <div class="hidden pre-left wait acell service cell medium-4 text-center">
+      <h4 class="option-title">Rugby Camps</h4>
+      <img class="option-img" src="{% static 'images/plan.svg' %}" />
+      <p class="option-desc"></p>
+      <a class="option-link hidden" href="#">See camps →</a>
+    </div>
+    <div class="hidden pre-left wait acell service cell medium-4 text-center">
+      <h4 class="option-title">Ireland Tours</h4>
+      <img class="option-img" src="{% static 'images/irfu.svg' %}" />
+      <p class="option-desc"></p>
+      <a class="option-link hidden" href="#">See tours →</a>
+    </div>
+    <div class="hidden pre-left wait acell service cell medium-4 text-center">
+      <h4 class="option-title">Free Events</h4>
+      <img class="option-img" src="{% static 'images/free.svg' %}" />
+      <p class="option-desc"></p>
+      <a class="option-link hidden" href="#">See catalog →</a>
+    </div>
+  </div>    
+</div>
 </div>
 {% endblock %}
 
