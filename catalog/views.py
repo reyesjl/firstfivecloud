@@ -3,8 +3,12 @@ from django.contrib import messages
 from .models import Product, Category, WRSInqueries
 from django.core.mail import send_mail
 
-def handleFetchHome(request):
-    return render(request, "catalog.html")
+def handleCatalogRoute(request):
+    """
+    Display the catalog
+    """
+    context = { "activelink":"catalog" }
+    return render(request, "catalog.html", context)
 
 def handleFetchWrs(request):
     if request.method == "POST":

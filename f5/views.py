@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-
 def handleLandingPage(request):
     """
     Displays firstfiverugby landing page. Countdown.
@@ -36,3 +35,11 @@ def handleDownRoute(request):
         "banner": "Exclusive direct team deals on all WRS catalog items for games, traning, events, and even travel gear."
     }
     return render(request, "down.html", context)
+
+def handleHelpRoute(request):
+    """
+    Displays our help page.
+    """
+    context = {
+        "activelink": "catalog"
+    }

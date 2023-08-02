@@ -14,7 +14,7 @@
 <div class="message-cell grid-x align-center">
   <div class="cell text-center">
     <p class="message">Catalog now featuring WRS team orders, custom caps, & vintage alumni jerseys.<sup>f5</sup>
-      <a id="message-link" href="#">Shop Items →</a>
+      <a id="message-link" href="{% url 'catalog' %}">Shop Items →</a>
     </p>
   </div>
 </div>
@@ -43,19 +43,19 @@
       <img class="option-img" src="{% static 'images/canterbury.svg' %}" />
       <p class="option-desc">
       </p>
-      <a class="option-link hidden delayme" href="#">See catalog →</a>
+      <a class="option-link hidden delayme" href="{% url 'catalog' %}">See catalog →</a>
     </div>
     <div class="hidden pre-left wait acell product cell medium-4 text-center">
       <h4 class="option-title">Jersey Auctions</h4>
       <img class="option-img" src="{% static 'images/jersey.svg' %}" />
       <p class="option-desc"></p>
-      <a class="option-link hidden delaymelonger" href="#">See auction →</a>
+      <a class="option-link hidden delaymelonger" href="{% url 'catalog' %}">See auction →</a>
     </div>
     <div class="hidden pre-left wait acell product cell medium-4 text-center">
       <h4 class="option-title">Custom Caps</h4>
       <img class="option-img" src="{% static 'images/cap.svg' %}" />
       <p class="option-desc"></p>
-      <a class="option-link hidden delaymelongest" href="#">See caps →</a>
+      <a class="option-link hidden delaymelongest" href="{% url 'catalog' %}">See caps →</a>
     </div>
   </div>    
 </div>
@@ -75,19 +75,19 @@
       <h4 class="option-title">Rugby Camps</h4>
       <img class="option-img" src="{% static 'images/plan.svg' %}" />
       <p class="option-desc"></p>
-      <a class="option-link hidden" href="#">See camps →</a>
+      <a class="option-link hidden" href="{% url 'camps' %}">See camps →</a>
     </div>
     <div class="hidden pre-left wait acell service cell medium-4 text-center">
       <h4 class="option-title">Ireland Tours</h4>
       <img class="option-img" src="{% static 'images/irfu.svg' %}" />
       <p class="option-desc"></p>
-      <a class="option-link hidden" href="#">See tours →</a>
+      <a class="option-link hidden" href="{% url 'tours' %}">See tours →</a>
     </div>
     <div class="hidden pre-left wait acell service cell medium-4 text-center">
       <h4 class="option-title">Free Events</h4>
       <img class="option-img" src="{% static 'images/free.svg' %}" />
       <p class="option-desc"></p>
-      <a class="option-link hidden" href="#">See catalog →</a>
+      <a class="option-link hidden" href="{% url 'camps' %}">See events →</a>
     </div>
   </div>    
 </div>
