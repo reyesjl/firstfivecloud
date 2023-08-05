@@ -2,7 +2,6 @@
 {% load static %}
 <nav id="menu" class="menu">
   <ul class="list">
-    <li><img id="menu-logo" src="{% static 'images/firstfive_logo.png'%}"></li>
     <li class="item"><a class="item-link" href="{% url 'home' %}">home</a></li>
     <li class="item"><a class="item-link" href="{% url 'catalog' %}">store</a></li>
     <li class="item"><a class="item-link" href="{% url 'catalog' %}">schedules</a></li>
@@ -12,5 +11,5 @@
 </nav>
 
 <div class="menu-button">
-  <p id="menu-button">Menu ⌘</p>
+  <p id="menu-button">Menu <span id="menu-icon">⌘</span></p>
 </div>
