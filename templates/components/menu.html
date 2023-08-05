@@ -1,0 +1,16 @@
+<!-- load static context -->
+{% load static %}
+<nav id="menu" class="menu">
+  <ul class="list">
+    <li><img id="menu-logo" src="{% static 'images/firstfive_logo.png'%}"></li>
+    <li class="item"><a class="item-link" href="{% url 'home' %}">home</a></li>
+    <li class="item"><a class="item-link" href="{% url 'catalog' %}">store</a></li>
+    <li class="item"><a class="item-link" href="{% url 'catalog' %}">schedules</a></li>
+    <li class="item"><a class="item-link" href="{% url 'camps' %}">camps</a></li>
+    <li class="item"><a class="item-link" href="{% url 'tours' %}">tours</a></li>
+  </ul>
+</nav>
+
+<div class="menu-button">
+  <p id="menu-button">Menu ⌘</p>
+</div>
