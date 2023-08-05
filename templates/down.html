@@ -10,6 +10,26 @@
 
 {% block content %}
 
+<div class="container">
+
+  <div class="jumbotron">
+    <div class="left">
+      <h1>Jersey Auction</h1>
+      <a href="{% url 'catalog' %}">
+        <img src="{% static 'images/hurricanes_jersey.png' %}">
+      </a>
+    </div>
+    
+    <div class="right">
+      <h1>Deal of The Day</h1>
+      <a href="{% url 'catalog' %}">
+        <img src="{% static 'images/womens_sa_jersey_21.png' %}">
+      </a>
+    </div>
+  </div>
+
+</div>
+
 {% endblock %}
 
 {% block customjs %}
