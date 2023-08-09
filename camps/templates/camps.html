@@ -2,133 +2,56 @@
 {% load static %}
 
 <!-- Insert css file for this template -->
-{% block mycss %}
+{% block customcss %}
 <link href="{% static 'css/camps.css' %}" rel="stylesheet" />
 {% endblock %}
 
 {% block content %}
-<!-- Top Message Bar -->
-<div class="message-cell grid-x align-center">
-  <div class="cell text-center">
-    <p class="message">Our platform will track and ID players to enhance learning.<sup>f5</sup>
-    </p>
+
+<div class="container">
+  <div class="camps-banner">
+    <div class="camp-title">
+      <h1>Rugby Camps</h1>
+      <p>Elevate your skills.</p>
+    </div>
   </div>
-</div>
-<div class="grid-container">
-  <div class="grid-x">
-    <div class="tournav cell medium-2 hide-for-small-only">
-      <!-- Sidenav for user to click on the sections -->
-      <div class="grid-y">
-        <div class="cell">
-          <a class="sidenav-link" href="#overview">Overview</a>
-        </div>
-        <div class="cell">
-          <a class="sidenav-link" href="#highlights">Camp Highlights</a>
-        </div>
-        <div class="cell">
-          <a class="sidenav-link" href="#staff">Our Esteemed Staff</a>
-        </div>
-        <div class="cell">
-          <a class="sidenav-link" href="#info">Important Information</a>
-        </div>
-        <div class="cell">
-          <a class="sidenav-link" href="#location">Location and Schedule</a>
-        </div>
-        <div class="cell">
-          <a class="sidenav-link" href="#registration">Registration</a>
-        </div>
-        <div class="cell">
-          <a class="sidenav-link" href="#cost">Cost</a>
-        </div>
-        <div class="cell">
-          <a class="sidenav-link" href="#campcontact">Contact Us</a>
-        </div>
+
+  <div class="upcoming-section">
+    <h3>Upcoming Camps</h3>
+
+    <div class="camp-card current">
+      <div class="camp-info">
+        <h3>Fall Rugby Camps</h3>
+        <p>Date: Semptember, 24th</p>
+        <p>Time: 4pm - 10pm</p>
+        <p>Location: West Potomac</p>
+      </div>
+      <div class="image">
+        <img src="https://place-hold.it/100x100/fff/000" />
       </div>
     </div>
-    <div class="cell medium-10">
-      <!-- Content with camps info sections -->
-      <div id="overview" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Overview. <span class="subtitle">Rugby Skills Camps</span></h4>
-            <p class="camp-image hidden delaymelongest pre-left">
-              <img  src="{% static 'images/youth_tiny.png'%}">
-            </p>
-            <p>Join our Rugby Skills Camps held throughout the year. Each camp is designed to provide individual coaching on core skills, with hundreds of reps and skill-building progression focusing on field vision, spacing, and timing. All participants will receive a CCC tee and be entered to win CCC prizes daily.</p>
-          </div>
-        </div>
-      <div id="highlights" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Camp Highlights. <span class="subtitle">What to expect.</span></h4>
-          <p class="camp-image hidden delaymelongest pre-left">
-            <img  src="{% static 'images/players_tiny.png'%}">
-          </p>
-          <ul>
-            <li>Individual coaching on core skills</li>
-            <li>Skill-building progression focusing on field vision, spacing, and timing</li>
-            <li>Feedback and evaluation shared with your team coach</li>
-            <li>Prizes and raffles daily</li>
-          </ul>
-        </div>
+
+  </div>
+
+  <div class="upcoming-section">
+    <h3>Past Camps</h3>
+
+    <div class="camp-card expired">
+      <div class="camp-info">
+        <h3>Baltimore Rugby Camp</h3>
+        <p>Date: tbd</p>
+        <p>Time: tbd</p>
+        <p>Location: tbd</p>
       </div>
-      <div id="staff" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Our Esteemed Staff. <span class="subtitle">Meet our team.</span></h4>
-          <p class="camp-image hidden delaymelongest pre-left">
-          </p>
-          <p>Our camps are run by a team of experienced and dedicated rugby professionals, including Directors of Rugby, Community Rugby experts, operations managers, and MLR players. Our staff have experience at all levels of the game and are passionate about helping players improve.</p>
-        </div>
-      </div>
-      <div id="info" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Important Information. <span class="subtitle">Need-to-knows.</span></h4>
-          <p class="camp-image hidden delaymelongest pre-left">
-            <img  src="{% static 'images/ospreys_tiny.png'%}">
-          </p>
-          <ul>
-            <li>Camps are open to all coaches and boys aged 14-18 (specific camps for women's rugby coming soon)</li>
-            <li>Proof of current insurance is required</li>
-            <li>For any questions, please email rugbyvarsity@gmail.com</li>
-          </ul>
-        </div>
-      </div>
-      <div id="location" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Location and Schedule. <span class="subtitle">When and where.</span></h4>
-          <p class="camp-image hidden delaymelongest pre-left">
-            <img  src="{% static 'images/banf.png'%}">
-          </p>
-          <p>Our camps are held at different times throughout the year at various locations. Each camp typically runs for several days, with intensive training sessions held each day.</p>
-        </div>
-      </div>
-      <div id="registration" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Registration. <span class="subtitle">Reserve your spot.</span></h4>
-          <ul>
-            <li>Registration is typically limited, so be sure to secure your spot early!</li>
-            <li>Upon registration, you will be sent an email with medical forms and payment details.</li>
-            <li>Please note that all releases must be filled out and payment made in full to be registered.</li>
-          </ul>
-        </div>
-      </div>
-      <div id="cost" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Cost. <span class="subtitle">Invest in your skills.</span></h4>
-          <p>The cost for players and coaches varies per camp. Please refer to specific camp details for pricing.</p>
-        </div>
-      </div>
-      <div id="tourquote" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Contact Us. <span class="subtitle">Ready when you are.</span></h4>
-          <ul>
-            <li>Joseph Ritter</li>
-            <li>jritter@firstfiverugby.com</li>
-            <li>703-965-9055</li>
-          </ul>
-        </div>
+      <div class="image">
+        <img src="https://place-hold.it/100x100/fff/000" />
       </div>
     </div>
   </div>
+  
 </div>
+
+
 {% endblock %}
 
 {% block customjs %}

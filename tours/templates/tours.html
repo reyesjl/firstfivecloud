@@ -2,133 +2,27 @@
 {% load static %}
 
 <!-- Insert css file for this template -->
-{% block mycss %}
+{% block customcss %}
 <link href="{% static 'css/tours.css' %}" rel="stylesheet" />
 {% endblock %}
 
 {% block content %}
-<!-- Top Message Bar -->
-<div class="message-cell grid-x align-center">
-  <div class="cell text-center">
-    <p class="message">Experience Ireland like never before.<sup>f5</sup>
-      <a id="message-link" href="#tourquote">Free Quote</a> →
-    </p>
+
+<div class="container">
+  <div class="camps-banner">
+    <div class="camp-title">
+      <h1>Ireland Team Tours</h1>
+      <p>Experience the Culture.</p>
+    </div>
+  </div>
+
+  <div class="upcoming-section">
+    <h3>Upcoming Tours</h3>
+
+    
   </div>
 </div>
 
-<div class="grid-container">
-  <div class="grid-x">
-    <div class="tournav cell medium-2 hide-for-small-only">
-      <!-- Sidenav for user to click on the sections -->
-      <div class="grid-y">
-        <div class="cell">
-          <a href="#overview">Overview</a>
-        </div>
-        <div class="cell">
-          <a href="#logistics">Logistics</a>
-        </div>
-        <div class="cell">
-          <a href="#activities">Activities & Stops</a>
-        </div>
-        <div class="cell">
-          <a href="#overnight">Overnight Stays</a>
-        </div>
-        <div class="cell">
-          <a href="#tourquote">Free Quote</a>
-        </div>
-      </div>
-    </div>
-    <div class="cell medium-10">
-      <!-- Content with tour info sections -->
-      <div id="overview" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Overview. <span class="subtitle">Ireland at a glance.</span></h4>
-            <p class="tour-image hidden delaymelongest pre-left">
-              <img style="width: 50%;" src="{% static 'images/cliffs_tiny.png'%}">
-            </p>
-            <ul>
-              <li>6-8 day / 5-7 night tours</li>
-              <li>Always try to center around Pro 14 game and AIL club game</li>
-              <li>2 games for tour team</li>
-              <li>2-3 coaching / skills sessions with Irish Pro coaches / AIL coaches</li>
-              <li>Typically one educational event minimum each day</li>
-              <li>One team building challenge course type event early in tour</li>
-              <li>Focus on Western and Southern Ireland, typically stay away from Dublin</li>
-              <li>All players and coaches get tour jersey (polo available for additional low charge)</li>
-              <li>Tour price is actual price plus $250</li>
-              <li>Includes bus, games, tips to clubs, lodging, banquet at end, match tickets, training sessions</li>
-              <li>Meals for students typically run $12-15 per meal</li>
-              <li>Breakfast included in lodging</li>
-              <li>We shop prices hard to deliver tour for $1700 to $2300</li>
-            </ul>
-          </div>
-        </div>
-        <div id="logistics" class="grid-x">
-          <div class="cell hidden pre-left">
-            <h4 class="h4">Logistics. <span class="subtitle">Let us handle the hard stuff.</span></h4>
-            <p class="tour-image hidden delaymelongest pre-left">
-              <img style="width: 50%;" src="{% static 'images/blarney.png'%}">
-            </p>
-            <ul>
-              <li>Negotiating airfare</li>
-              <li>Negotiating trip insurance</li>
-              <li>Reserving rooms</li>
-              <li>Setting up games</li>
-              <li>Setting up training</li>
-              <li>Tour clearances from USA Rugby and IRFU</li>
-              <li>Bus or coach reservations</li>
-              <li>Overall tour schedule planned hour by hour</li>
-              <li>Tour kit and crest design</li>
-              <li>1000+ other little things as we "ride along"</li>
-            </ul>
-          </div>
-        </div>
-      <div id="activities" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Tour Stops. <span class="subtitle">Don't miss out.</span></h4>
-          <p class="tour-image hidden delaymelongest pre-left">
-            <img style="width: 50%;" src="{% static 'images/stadium_tiny.png'%}">
-          </p>
-          <ul>
-            <li>Munster Pro 14 games / behind the scenes tour</li>
-            <li>Connacht Pro 14 games / behind the scenes tour</li>
-            <li>Connacht staff-led coaching sessions</li>
-            <li>Fixtures have included games vs Shannon, NUIG, UCC, Pres Cork, Cork Con, Rockwell College, St Michael’s, Connemara Blacks, Rockwell College, and Old Wesley</li>
-            <li>Historical Sites often visited include Blarney Castle, Connemara Region, Connemara National Park, Cliffs of Moher, the Burren, Diamond Hill, Kylemoor Abbey</li>
-            <li>We have the BEST bus drivers that also are history teachers - we only use luxury motor coaches of the best standard - leather seats, bathrooms and wifi on all coaches</li>
-            <li>We have used the same drivers for over 20 years!</li>
-          </ul>
-        </div>
-      </div>
-      <div id="overnight" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Overnight. <span class="subtitle">Unique and memorable stays.</span></h4>
-          <p class="tour-image hidden delaymelongest pre-left">
-            <img style="width: 50%;" src="{% static 'images/galway.png'%}">
-          </p>
-          <ul>
-            <li>Galway City center</li>
-            <li>Clifden</li>
-            <li>Cork City center</li>
-            <li>Kilkenny</li>
-            <li>Kerry</li>
-            <li>Dublin</li>
-          </ul>
-        </div>
-      </div>
-      <div id="tourquote" class="grid-x">
-        <div class="cell hidden pre-left">
-          <h4 class="h4">Free Quote. <span class="subtitle">Plan your very own adventure.</span></h4>
-          <ul>
-            <li>Ireland Tour Services</li>
-            <li>rugbyvarsity@gmail.com</li>
-            <li>202-503-6415</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}
 
 {% block customjs %}
