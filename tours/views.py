@@ -7,7 +7,7 @@ def handleToursRoute(request):
     Displays tours landing page and handles registration for camp event.
     """
     if request.method == "POST":
-        ''' inquery request
+        """inquery request
         # Get form data
         name = request.POST.get("name")
         email = request.POST.get("email")
@@ -26,7 +26,7 @@ def handleToursRoute(request):
         event_inqueries = EventInqueries(name=name, email=email, phone=phone)
         event_inqueries.save()
         event_inqueries.events.add(event)
-        '''
+        """
 
         # Redirect to success page
         return redirect("home")

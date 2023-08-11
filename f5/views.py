@@ -1,13 +1,5 @@
 from django.shortcuts import render
 
-def handleLandingPage(request):
-    """
-    Displays firstfiverugby landing page. Countdown.
-    """
-    context = {"activelink": "home"}
-    return render(request, "landing.html", context)
-
-
 def handleHomeRoute(request):
     """
     Displays firstfiverugby homepage with navigation to our services.
@@ -15,8 +7,7 @@ def handleHomeRoute(request):
     context = {
         "activelink": "home",
     }
-    return render(request, "index.html", context)
-
+    return render(request, "home.html", context)
 
 def handleAboutRoute(request):
     """
@@ -26,20 +17,3 @@ def handleAboutRoute(request):
         "activelink": "about",
     }
     return render(request, "about.html", context)
-
-def handleDownRoute(request):
-    """
-    Displays down page for the platform.
-    """
-    context = {
-        "banner": "Exclusive direct team deals on all WRS catalog items for games, traning, events, and even travel gear."
-    }
-    return render(request, "down.html", context)
-
-def handleHelpRoute(request):
-    """
-    Displays our help page.
-    """
-    context = {
-        "activelink": "catalog"
-    }

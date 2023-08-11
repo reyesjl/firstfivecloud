@@ -9,9 +9,7 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="container">
-
   <div class="jumbotron">
     <div class="left">
       <h1>Jersey Auction</h1>
@@ -33,6 +31,11 @@
       </a>
     </div>
   </div>
+</div>
+
+<div class="break-banner">
+  <h2>Our Services. <span class="subtitle">Explore our newest offers.</span></h2>
+</div>
 
   <div class="gallery top-gal">
     <div class="card">
@@ -49,7 +52,7 @@
     <div class="card">
         <div class="card-content">
            <div class="card-blob">
-            <a href="{% url 'home' %}">
+            <a href="{% url 'caps' %}">
               <img src="{% static 'images/sam_underhill.png'%}" alt="Sam Underhill with Rugby Cap">
               <h3>Honor Caps</h3>
               <p>Embrace Tradition.</p>
@@ -71,7 +74,7 @@
     </div>
   </div>
 
-   <div class="gallery low-gal">
+  <div class="gallery low-gal">
     <div class="card">
         <div class="card-content">
            <div class="card-blob">
@@ -86,8 +89,8 @@
     <div class="card">
         <div class="card-content">
            <div class="card-blob">
-            <a href="{% url 'home' %}">
-              <img src="{% static 'images/canterbury.png'%}" alt="wellington girls example photo">
+            <a href="{% url 'catalog' %}">
+              <img src="{% static 'images/canterbury.png'%}" alt="canterbury example photo">
               <h3>CCC Team Sales</h3>
               <p>Direct orders.</p>
               </a>
@@ -105,18 +108,7 @@
            </div>
         </div>
     </div>
-  </div>
-
-  <!-- bottom banner -->
-  <div class="bottom-banner">
-    <h3>Custom Team Kit</h3>
-    <p>Any design. Any color. Call now!</p>
-    <button>Free Quote</button>
-  </div>
-  
-  
-</div>
-
+  </div>  
 {% endblock %}
 
 {% block customjs %}

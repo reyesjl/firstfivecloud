@@ -3,12 +3,14 @@ from django.contrib import messages
 from .models import Product, Category, WRSInqueries
 from django.core.mail import send_mail
 
+
 def handleCatalogRoute(request):
     """
     Display the catalog
     """
-    context = { "activelink":"catalog" }
+    context = {"activelink": "catalog"}
     return render(request, "catalog.html", context)
+
 
 def handleFetchWrs(request):
     if request.method == "POST":
@@ -24,11 +26,12 @@ def handleFetchWrs(request):
 
         # Send email to this user and to admins
         # .... coming soon .... 5v.0.1
-        
+
         # Redirect to success page
         return redirect("home")
     context = {"activelink": "catalog"}
     return render(request, "products/wrs_products.html")
+
 
 def handleFetchProducts(request):
     categories = Category.objects.all()
@@ -38,6 +41,7 @@ def handleFetchProducts(request):
         "products/product_list.html",
         {"products": products, "categories": categories},
     )
+
 
 def handleAddProduct(request):
     if request.method == "POST":
@@ -59,3 +63,7 @@ def handleAddProduct(request):
 
     # GET request
     return render(request, "products/add_product.html")
+
+
+def handleCaps(request):
+    return render(request, "caps.html")

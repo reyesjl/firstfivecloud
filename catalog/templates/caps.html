@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- page stylesheet -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+{% endblock %}
+
+<!-- page content -->
+{% block content %}
+
+<div class="header">
+  <h1 class="page-title">Honor Caps</h1>
+</div>
+ 
+<div class="padded-block">
+    <h2 class="sub-title">Customize Your Caps Today</h2>
+    <div id="cap-front-back-container">
+    </div>
+
+    <h2 class="cap-list-title">Fill out the form below to get a free quote.</h2>
+    <div id="form-block">
+        <div class="text">
+            <h3 class="cap-list-title">Customize:</h3>
+            <ul class="cap-list">
+                <li>Logo</li>
+                <li>Color Base and Trim</li>
+                <li>Text</li>
+            </ul>
+        </div>
+
+        <div class="family-cap-section">
+        </div>
+    </div>
+    
+    <div class="form-link">
+        <a href="https://www.google.com/forms/about/">Fill out a form today!</a>
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- page javascript -->
+{% block customjs %}
+ <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+
+
+

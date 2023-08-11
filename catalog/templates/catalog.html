@@ -10,7 +10,7 @@
 {% block content %}
 
 <!-- Top Message Bar -->
-<div class="message-cell grid-x align-center">
+{% comment %} <div class="message-cell grid-x align-center">
   <div class="cell text-center">
     <p class="message">Create a custom kit package with gameday gear, training options, and travel essentials.<sup>f5</sup>
     </p>
@@ -23,9 +23,47 @@
       <h2 id="catalog-title" class="h3 cell-title hidden pre-left delaymelonger from-left-or-right">The Latest. <span class="subtitle">Take a look at what's new right now.</span></h2>
       <a id="catalog-link" href="{% static 'catalog/wrs_catalog_tiny.pdf' %}" download>Download Offline Catalog</a> ↓
     </div>
-  </div>
+  </div> {% endcomment %}
 
-  <div class="asection grid-x grid-margin-x grid-margin-y">
+<div class="header">
+  <h1 class="page-title">CCC Catalog</h1>
+</div>
+ 
+<div class="padded-block">
+  <div class="gameday-header">
+    <h2 class="sub-title">Gameday Jersey</h2>
+    <ul class="horizontal-list">
+      <li class="horizontal-item">
+        <img class="jersey-image" src="{% static 'catalog/products/papare_jersey.png' %}" />
+      </li>
+      <li class="horizontal-item">
+        <img class="jersey-image" src="{% static 'catalog/products/raiona_jersey.png' %}" />
+      </li>
+      <li class="horizontal-item">
+        <img class="jersey-image" src="{% static 'catalog/products/maka_jersey.png' %}" />
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="padded-block">
+  <div class="warmup-header">
+    <h2 class="sub-title">Warmup T-Shirts</h2>
+    <ul class="horizontal-list">
+      <li class="horizontal-item">
+        <img class="jersey-image" src="{% static 'catalog/products/papare_jersey.png' %}" />
+      </li>
+      <li class="horizontal-item">
+        <img class="jersey-image" src="{% static 'catalog/products/raiona_jersey.png' %}" />
+      </li>
+      <li class="horizontal-item">
+        <img class="jersey-image" src="{% static 'catalog/products/maka_jersey.png' %}" />
+      </li>
+    </ul>
+  </div>
+</div>
+
+  {% comment %} <div class="asection grid-x grid-margin-x grid-margin-y">
     <div class="cell medium-4 large-3 hidden pre-left">
       <div class="product-card text-center">
         <h4 class="product-title">Papare</h4>
@@ -79,7 +117,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> {% endcomment %}
 
 {% endblock %}
 
