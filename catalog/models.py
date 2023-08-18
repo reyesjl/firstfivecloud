@@ -1,17 +1,14 @@
 from django.db import models
 import uuid
 
-
 def generate_sku():
     return str(uuid.uuid4())[:8]  # Adjust as needed
-
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self):
         return self.name
-
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
@@ -44,3 +41,8 @@ class WRSInqueries(models.Model):
 
     def __str__(self):
         return self.name
+    
+class HonorCapsInqueries(models.Model):
+    email = models.EmailField(max_length=200)
+    name = models.CharField(max_length=200)
+    phone = models.CharField(max_length=15)
