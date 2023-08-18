@@ -17,3 +17,12 @@ def handleAboutRoute(request):
         "activelink": "about",
     }
     return render(request, "about.html", context)
+
+def handleSuccessRoute(request):
+    """
+    Show success message for the user.
+    """
+    context = {
+        "activelink": "success",
+    }
+    return render(request, "success.html", context)

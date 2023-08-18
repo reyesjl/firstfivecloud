@@ -26,6 +26,6 @@ def handleCapsRoute(request):
         # .... coming soon .... 5v.0.1
 
         # Redirect to success page
-        return redirect("home")
+        return redirect("success")
     context = {"activelink": "catalog"}
     return render(request, "caps.html", context)

@@ -27,6 +27,9 @@
   <!-- Page content inserted here -->
   {% block content %}{% endblock %}
 
+   <!-- Navigation bar -->
+  {% include 'components/footer.html' %}
+
   <!-- JS scripts for individual page requirements -->
   {% block customjs %}<script src="{% static 'js/index.js' %}"></script>{% endblock %}
 </body>

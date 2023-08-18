@@ -20,7 +20,7 @@ def handleToursRoute(request):
         # .... coming soon .... 5v.0.1
 
         # Redirect to success page
-        return redirect("home")
+        return redirect("success")
 
     context = {"activelink": "tours"}
     return render(request, "tours.html", context)
