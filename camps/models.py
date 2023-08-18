@@ -8,6 +8,10 @@ class Event(models.Model):
 
     name = models.CharField(max_length=200)
     description = models.TextField()
+    image = models.ImageField(
+        upload_to="images", blank=True, null=True,
+        default='static/images/baltimore.png',
+    )
     location = models.CharField(max_length=200)
     cost = models.DecimalField(max_digits=6, decimal_places=2)
     start_date = models.DateField()

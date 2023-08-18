@@ -15,37 +15,56 @@
     </div>
   </div>
 
-  <div class="upcoming-section">
+  <div class="skyline">
+    <img src="{% static 'images/youth-rugby.jpg' %}" />
+  </div>
+
+  <div class="camp-section">
     <h3>Upcoming Camps</h3>
 
-    <div class="camp-card current">
-      <div class="camp-info">
-        <h3>Fall Rugby Camps</h3>
-        <p>Date: Semptember, 24th</p>
-        <p>Time: 4pm - 10pm</p>
-        <p>Location: West Potomac</p>
+    {% if upcoming_camps %}
+      {% for camp in upcoming_camps %}
+      <div class="camp-card current">
+        <div class="camp-info">
+          <h3>{{camp.name}}</h3>
+          <p>Date: {{camp.start_date}} - {{camp.end_date}}</p>
+          <p>Time: {{camp.start_time}} - {{camp.end_time}}</p>
+          <p>Location: {{camp.location}}</p>
+          <p>Capacity: {{camp.capacity}}</p>
+          <a role="link" aria-disabled="true">Registration Available Soon *</a>
+        </div>
+        <div class="camp-image">
+          <img src="{% if camp.image %}{{ camp.image.url }}{% else %}{% static 'images/tryrugby.jpg' %}{% endif %}" />
+        </div>
       </div>
-      <div class="image">
-        <img src="https://place-hold.it/100x100/fff/000" />
-      </div>
-    </div>
+      {% endfor %}
+    {%else%}
+      <p>Check back another time. As camps are organized, they will appear here!</p>
+    {% endif %}
 
   </div>
 
-  <div class="upcoming-section">
+  <div class="camp-section">
     <h3>Past Camps</h3>
 
-    <div class="camp-card expired">
-      <div class="camp-info">
-        <h3>Baltimore Rugby Camp</h3>
-        <p>Date: tbd</p>
-        <p>Time: tbd</p>
-        <p>Location: tbd</p>
+    {% if expired_camps %}
+      {% for camp in expired_camps %}
+      <div class="camp-card expired">
+        <div class="camp-info">
+          <h3>{{camp.name}}</h3>
+          <p><a href="#">View Photo Gallery </a></p>
+          <p><a href="#">View Testimonials </a></p>
+          <p>Date: {{camp.start_date}} - {{camp.end_date}}</p>
+          <p>Location: {{camp.location}}</p>
+        </div>
+        <div class="camp-image">
+          <img src="{% if camp.image %}{{ camp.image.url }}{% else %}{% static 'images/tryrugby.jpg' %}{% endif %}" />
+        </div>
       </div>
-      <div class="image">
-        <img src="https://place-hold.it/100x100/fff/000" />
-      </div>
-    </div>
+      {% endfor %}
+    {%else%}
+      <p>No camps were found.</p>
+    {% endif %}
   </div>
   
 </div>
