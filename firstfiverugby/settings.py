@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "catalog",
     "camps",
     "tours",
+    "schedules",
 ]
 
 # routing middleware

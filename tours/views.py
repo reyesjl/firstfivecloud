@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import ToursInqueries
-
+from . models import ToursInqueries
 
 def handleToursRoute(request):
     """
