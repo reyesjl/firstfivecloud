@@ -24,3 +24,10 @@ def handleToursRoute(request):
 
     context = {"activelink": "tours"}
     return render(request, "tours.html", context)
+
+def handleInsuranceRoute(request):
+    """
+    Display insurance page. Globetrotter insurance.
+    """
+    context = {"activelink": "tours"}
+    return render(request, "globetrotter.html", context)

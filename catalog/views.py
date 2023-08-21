@@ -29,3 +29,7 @@ def handleCapsRoute(request):
         return redirect("success")
     context = {"activelink": "catalog"}
     return render(request, "caps.html", context)
+
+def handleAuctionRoute(request):
+    context = {"activelink": "catalog"}
+    return render(request, "auction.html", context)

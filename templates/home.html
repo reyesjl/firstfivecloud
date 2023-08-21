@@ -13,7 +13,7 @@
   <div class="jumbotron">
     <div class="left">
       <h1>Jersey Auction</h1>
-      <a href="https://www.ebay.com/usr/firstfiverugby">
+      <a href="{% url 'auction' %}">
         <img src="{% static 'images/hurricanes_jersey_click.png' %}">
       </a>
     </div>
@@ -109,6 +109,25 @@
         </div>
     </div>
   </div>  
+
+  <div class="sponsors-section">
+    
+    <div class="sponsor-title">
+      <h2>Partners. <span class="subtitle">Team is Everything.</span></h2>
+    </div>
+
+    <div class="sponsor-gallery">
+      <div class="sponsor">
+        <img height="100px" src="{% static 'images/wrs-logo.jpg' %}" />
+        <h3><a href="https://www.worldrugbyshop.com/">World Rugby Shop</a></h3>
+      </div>
+      <div class="sponsor">
+        <img height="100px" src="{% static 'images/globetrotter_logo.jpg' %}" />
+        <h3><a href="https://www.globetrotter.ch/">Globetrotter Insurance</a></h3>
+      </div>
+    </div>
+  
+  </div>
 {% endblock %}
 
 {% block customjs %}
