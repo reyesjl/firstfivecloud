@@ -1,0 +1,89 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/preview.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="navigation">
+  <div class="brand">
+    <h1 class="title"><span id="left"><em>FIRSTFIVE</em></span> RUGBY</h1>
+  </div>
+
+  <ul class="menu">
+    <li><a {% if activelink == 0 %} class="active" {%endif %} href="#">Home</a></li>
+    <li><a {% if activelink == 1 %} class="active" {%endif %} href="#">Players</a></li>
+    <li><a {% if activelink == 2 %} class="active" {%endif %} href="#">Teams</a></li>
+    <li><a {% if activelink == 3 %} class="active" {%endif %} href="#">Schedules</a></li>
+    <li><a {% if activelink == 4 %} class="active" {%endif %} href="#">Store</a></li>
+    <li><a {% if activelink == 5 %} class="active" {%endif %} href="#">Archives</a></li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="banner">
+    <div class="advertisement">
+      <button>Advertisment</button>
+    </div>
+    <div class="banner-title">
+      <h2 class="callout">Insert Banner Content Here.</h2>
+      <p class="subtitle">[new arrivals, jerseys, tours, events, etc]</p>
+    </div>
+    <div class="dealDay"> 
+      <button>Daily Deal!</button>
+    </div>
+  </div>
+</div>
+
+<div class="content red">
+  <div class="players">
+    <h3>Player Services</h3>
+    <p>Build connections with top level coaches. Learn the training systems used by world class 
+    players. Join the player pathways and acheive your professional dreams on and off the 
+    pitch.</p>
+    <div class="buttons">
+      <button>RUGBY NEAR ME</button>
+      <button>PLAYER PATHWAYS</button>
+      <button>SKILLS TRAINING</button>
+    </div>
+  </div>
+</div>
+
+<div class="huddle-banner">
+  <img src="{% static 'images/banner-pitch.jpg'%}" />
+</div>
+
+<div class="content redToBlack">
+  <h3 class="teamcoaching-title">Team & Coaching</h3>
+  <div class="teamcoaching">
+    <div class="left">
+      <p>Delivery of rugby material is very important. Get certified to coach or learn about the game. 
+      Find easy to follow training plans for every level of play. Get an opportunity to travel and 
+      meet professional coaches.</p>
+      </div>
+      <div class="buttons">
+        <button>CERTIFICATIONS</button>
+        <button>CREATE A CLUB</button>
+        <button>TRAINING PLANS</button>
+      </div>
+  </div>
+</div>
+
+<div class="content pitch-banner">
+<p>Build your own rugby club from the ground up. Expand your current club by tapping into our 
+resources and facilities. Leave a long lasting legacy and provide opportunity for your players. </p>
+  <div class="pitch-buttons">
+    <button>RUGBY NEAR ME</button>
+    <button>PLAYER PATHWAYS</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+

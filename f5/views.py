@@ -9,6 +9,15 @@ def handleHomeRoute(request):
     }
     return render(request, "home.html", context)
 
+def handlePreviewRoute(request, param):
+    """
+    Displays a preview route for devs to see new content. 
+    """
+    context = {
+        "activelink": param,
+    }
+    return render(request, "preview.html", context)
+
 def handleAboutRoute(request):
     """
     Displays firtfiverugby about us page.
