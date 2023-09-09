@@ -1,8 +1,5 @@
 from django.db import models
 
-from django.db import models
-
-
 class Event(models.Model):
     """Model for events"""
 

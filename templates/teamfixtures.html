@@ -1,0 +1,68 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/preview.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="navigation">
+  <div class="brand">
+    <h1 class="title"><span id="left"><em>FIRSTFIVE</em></span> RUGBY</h1>
+  </div>
+
+  <ul class="menu">
+    <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Home</a></li>
+    <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'preview' %}>Players</a></li>
+    <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
+    <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'preview' %}>Schedules</a></li>
+    <li><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'preview' %}>Store</a></li>
+    <li><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'preview' %}>Archives</a></li>
+  </ul>
+</div>
+
+<div class="section fullheight">
+  <div class="teams content">
+    <div class="description">
+      <h3>{{ team.name }}</h3>
+      <p><em>Collegiate</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="clubs">Fixtures Table</p>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+          <tr>
+              <th>Home</th>
+              <th>Away</th>
+              <th>Score</th>
+              <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fixture in fixtures %}
+            <tr>
+              <td>{{ fixture.team_1.name }}</td>
+              <td>{{ fixture.team_2.name }}</td>
+              <td>{{ fixture.score_team_1 }} : {{fixture.score_team_2}}</td>
+              <td>{{ fixture.date_played }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  <p>
+    <a href = "mailto: letusknow@firstfiverugby.com">letusknow@firstfiverugby.com</a>
+  </p>
+  <p>First Five Rugby LLC</p>
+</div>
+{% endblock %}

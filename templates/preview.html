@@ -15,16 +15,16 @@
   </div>
 
   <ul class="menu">
-    <li><a {% if activelink == 0 %} class="active" {%endif %} href="#">Home</a></li>
-    <li><a {% if activelink == 1 %} class="active" {%endif %} href="#">Players</a></li>
-    <li><a {% if activelink == 2 %} class="active" {%endif %} href="#">Teams</a></li>
-    <li><a {% if activelink == 3 %} class="active" {%endif %} href="#">Schedules</a></li>
-    <li><a {% if activelink == 4 %} class="active" {%endif %} href="#">Store</a></li>
-    <li><a {% if activelink == 5 %} class="active" {%endif %} href="#">Archives</a></li>
+    <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Home</a></li>
+    <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'home' %}>Players</a></li>
+    <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
+    <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'home' %}>Schedules</a></li>
+    <li><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'home' %}>Store</a></li>
+    <li><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'home' %}>Archives</a></li>
   </ul>
 </div>
 
-<div class="section">
+<div class="section jumbotron">
   <div class="banner">
     <div class="advertisement">
       <button>Advertisment</button>
@@ -39,47 +39,97 @@
   </div>
 </div>
 
-<div class="content red">
-  <div class="players">
-    <h3>Player Services</h3>
-    <p>Build connections with top level coaches. Learn the training systems used by world class 
-    players. Join the player pathways and acheive your professional dreams on and off the 
-    pitch.</p>
-    <div class="buttons">
-      <button>RUGBY NEAR ME</button>
-      <button>PLAYER PATHWAYS</button>
-      <button>SKILLS TRAINING</button>
+<div class="section fullheight">
+  <div class="players content">
+    <div class="description">
+      <h3>Player Services</h3>
+      <p>Build connections with top level coaches. Learn the training systems used by world class 
+      players. Join the player pathways and acheive your professional dreams on and off the 
+      pitch.</p>
+    </div>
+    <div class="options">
+      <div class="card">
+        <div class="card-desc">
+          <p>
+            Find rugby in your area and learn the basics in a team setting. 
+          </p>
+        </div>
+        <div class="card-link">
+          <a href="{% url 'teams' %}">RUGBY NEAR ME<a/>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-desc">
+          <p>
+            Discover the next steps in your professional journey. On the pitch and off the pitch.
+          </p>
+        </div>
+        <div class="card-link">
+          <a href="{% url 'teams' %}">PLAYER PATHWAYS<a/>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-desc">
+          <p>
+            Know about upcoming camps to improve your rugby IQ and skills.
+          </p>
+        </div>
+        <div class="card-link">
+          <a href="{% url 'teams' %}">SKILLS TRAINING<a/>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="huddle-banner">
-  <img src="{% static 'images/banner-pitch.jpg'%}" />
-</div>
-
-<div class="content redToBlack">
-  <h3 class="teamcoaching-title">Team & Coaching</h3>
-  <div class="teamcoaching">
-    <div class="left">
+<div class="section fullheight">
+  <div class="players content">
+    <div class="description">
+      <h3>Team & Coaching</h3>
       <p>Delivery of rugby material is very important. Get certified to coach or learn about the game. 
       Find easy to follow training plans for every level of play. Get an opportunity to travel and 
       meet professional coaches.</p>
+    </div>
+    <div class="options">
+      <div class="card">
+        <div class="card-desc">
+          <p>
+            Explore courses and opportunities to learn about rugby.
+          </p>
+        </div>
+        <div class="card-link">
+          <a href="{% url 'teams' %}">CERTIFICATIONS<a/>
+        </div>
       </div>
-      <div class="buttons">
-        <button>CERTIFICATIONS</button>
-        <button>CREATE A CLUB</button>
-        <button>TRAINING PLANS</button>
+      <div class="card">
+        <div class="card-desc">
+          <p>
+            Top to bottom, we have you covered. Start your club today.
+          </p>
+        </div>
+        <div class="card-link">
+          <a href="{% url 'teams' %}">CREATE A CLUB<a/>
+        </div>
       </div>
+      <div class="card">
+        <div class="card-desc">
+          <p>
+            Get high standard training plans for every level of play.
+          </p>
+        </div>
+        <div class="card-link">
+          <a href="{% url 'teams' %}">TRAINING PLANS<a/>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="content pitch-banner">
-<p>Build your own rugby club from the ground up. Expand your current club by tapping into our 
-resources and facilities. Leave a long lasting legacy and provide opportunity for your players. </p>
-  <div class="pitch-buttons">
-    <button>RUGBY NEAR ME</button>
-    <button>PLAYER PATHWAYS</button>
-  </div>
+<div class="footer">
+  <p>
+    <a href = "mailto: letusknow@firstfiverugby.com">letusknow@firstfiverugby.com</a>
+  </p>
+  <p>First Five Rugby LLC</p>
 </div>
 {% endblock %}
 

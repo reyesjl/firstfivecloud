@@ -1,0 +1,88 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/preview.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="navigation">
+  <div class="brand">
+    <h1 class="title"><span id="left"><em>FIRSTFIVE</em></span> RUGBY</h1>
+  </div>
+
+  <ul class="menu">
+    <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Home</a></li>
+    <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'preview' %}>Players</a></li>
+    <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
+    <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'preview' %}>Schedules</a></li>
+    <li><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'preview' %}>Store</a></li>
+    <li><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'preview' %}>Archives</a></li>
+  </ul>
+</div>
+
+<div class="banner-image">
+  <h1>Sponsored Teams</h1>
+</div>
+
+<div class="section fullheight">
+  <div class="teams content">
+    <div class="description">
+      <p>See all team events and live scores. Make it easy for players to register and find your club. Watch the competition.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+
+  <div class="filter-container">
+    <h4 class="clubs">Find a Club</h4>
+    <div class="fields">
+      <label for="club-name-filter">Club Name:</label>
+      <input type="text" id="club-name-filter" placeholder="Search by name">
+      <label for="club-zipcode-filter">Zipcode:</label>
+      <input type="text" id="club-zipcode-filter" placeholder="Search by zipcode">
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="table" cellpadding=10 cellspacing=0>
+      <thead>
+          <tr>
+              <th>Club Name</th>
+              <th>Coach</th>
+              <th>Division</th>
+              <th>Schedule</th>
+              <th>Zipcode</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for team in teams %}
+            <tr>
+                <td><a href="{% url 'teamdetails' team.id %}">{{ team.name }}</a></td>
+                <td>{{ team.coach }}</td>
+                <td>{{ team.division }}</td>
+                <td><a href="{% url 'teamfixtures' team.id %}">plan</a></td>
+                <td>{{ team.zipcode }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  <p>
+    <a href = "mailto: letusknow@firstfiverugby.com">letusknow@firstfiverugby.com</a>
+  </p>
+  <p>First Five Rugby LLC</p>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/filter.js' %}"></script>
+{% endblock %}

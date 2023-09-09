@@ -1,0 +1,59 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/preview.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="navigation">
+  <div class="brand">
+    <h1 class="title"><span id="left"><em>FIRSTFIVE</em></span> RUGBY</h1>
+  </div>
+
+  <ul class="menu">
+    <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Home</a></li>
+    <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'preview' %}>Players</a></li>
+    <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
+    <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'preview' %}>Schedules</a></li>
+    <li><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'preview' %}>Store</a></li>
+    <li><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'preview' %}>Archives</a></li>
+  </ul>
+</div>
+
+<div class="banner-image">
+  <img src="https://shorturl.at/krW01" />
+  <h1>{{ team.name }}</h1>
+</div>
+
+<div class="section fullheight">
+  <div class="teamdetails content">
+    <div class="description">
+      <h4>Register & View Schedule</h4>
+      <ul>
+        <li><a class="fixtures-link" href="{{ team.register_url }}">Register to Play Here</a></li>
+        <li><a class="fixtures-link" href="{% url 'teamfixtures' team.id %}">See Game Fixtures Here</a></li>
+      </ul>
+
+      <h4>Club History</h4>
+      <p>{{ team.history }}</p>
+
+      <h4>Contact details</h4>
+      <p>{{ team.coach }}</p>
+      <p>{{ team.contact_email }}</p>
+      
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>
+    <a href = "mailto: letusknow@firstfiverugby.com">letusknow@firstfiverugby.com</a>
+  </p>
+  <p>First Five Rugby LLC</p>
+</div>
+
+{% endblock %}
