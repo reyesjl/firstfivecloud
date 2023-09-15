@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 class Team(models.Model):
   """
@@ -9,7 +10,7 @@ class Team(models.Model):
   coach = models.CharField(max_length=100)
   contact_email = models.EmailField()
   division = models.CharField(default="open", max_length=100)
-  image_url = models.CharField(default="https://place-hold.it/1200x500", max_length=100)
+  image_url = models.CharField(default="https://shorturl.at/krW01", max_length=100)
   logo_url = models.CharField(default="https://place-hold.it/250x250", max_length=100)
   register_url = models.CharField(default="usarugby.com", max_length=100);
   region = models.CharField(default="usa", max_length=100)
@@ -30,3 +31,33 @@ class Fixture(models.Model):
 
   def __str__(self):
     return f"{self.team_1.name} vs. {self.team_2.name} | {self.score_team_1}-{self.score_team_2} | {self.date_played}"
+
+class Category(models.Model):
+  name = models.CharField(max_length=200)
+
+  def __str__(self):
+      return self.name
+  
+class Product(models.Model):
+  """
+    Record of a product from the store.
+  """
+
+  # Generate product number
+  def generate_sku():
+    return str(uuid.uuid4())[:8]  # Adjust as needed
+
+  name = models.CharField(max_length=200)
+  description = models.TextField()
+  image_url = models.CharField(default="https://place-hold.it/500", max_length=200)
+  category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, related_name="products"
+    )
+  price = models.DecimalField(max_digits=10, decimal_places=2)
+  inventory = models.IntegerField(default=0)
+  sku = models.CharField(max_length=200, default=generate_sku, unique=True)
+  is_active = models.BooleanField(default=True)
+  size = models.CharField(default="M", max_length=10)
+  
+  def __str__(self):
+    return self.name

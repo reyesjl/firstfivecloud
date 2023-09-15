@@ -1,0 +1,38 @@
+{% extends 'preview_base.html' %}
+{% load static %}
+
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/store.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner-image">
+  <h1>Store</h1>
+</div>
+
+<div class="section pitch">
+  <h1 class="section-title">Catalog</h1>
+  <p class="section-desc">Find your team needs. Find gear for you or shop fan merch for the family.</p>
+  <div class="products">
+    {%for product in products %}
+      <div class="product-meta">
+        <div class="product-image">
+          <a href="#"><img src="{{ product.image_url }}" /></a>
+        </div>
+        <div class="product-details">
+            <p>{{ product.name }}</p>
+            <p>${{product.price}}</p>
+        </div>
+      </div>
+    {% empty %}
+        <em>No Products Found.</em>
+    {% endfor %}
+      </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

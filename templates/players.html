@@ -1,0 +1,26 @@
+{% extends 'preview_base.html' %}
+{% load static %}
+
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/players.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner-image">
+  <h1>Player Services</h1>
+</div>
+<div class="section pitch">
+  <h2 class="section-title">Upcoming services</h2>
+  <p class="section-desc">Players are our priority and we aim to provide high quality programs.</p>
+  <ul>
+    <li>Player Pathways</li>
+    <li>Strength & Conditioning</li>
+    <li>Skills & Training</li>
+    <li>Enitor Program</li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

@@ -9,29 +9,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="navigation">
-  <div class="brand">
-    <h1 class="title"><span id="left"><em>FIRSTFIVE</em></span> RUGBY</h1>
-  </div>
-
-  <ul class="menu">
-    <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Home</a></li>
-    <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'home' %}>Players</a></li>
-    <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
-    <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'home' %}>Schedules</a></li>
-    <li><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'home' %}>Store</a></li>
-    <li><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'home' %}>Archives</a></li>
-  </ul>
-</div>
-
 <div class="section jumbotron">
   <div class="banner">
     <div class="advertisement">
       <button>Advertisment</button>
     </div>
     <div class="banner-title">
-      <h2 class="callout">Insert Banner Content Here.</h2>
-      <p class="subtitle">[new arrivals, jerseys, tours, events, etc]</p>
+      <h2 class="callout">News & Updates</h2>
+      <p class="subtitle">Online rugby platform for information, apparel, and training.</p>
     </div>
     <div class="dealDay"> 
       <button>Daily Deal!</button>
@@ -39,11 +24,11 @@
   </div>
 </div>
 
-<div class="section fullheight">
+<div class="section">
   <div class="players content">
-    <div class="description">
-      <h3>Player Services</h3>
-      <p>Build connections with top level coaches. Learn the training systems used by world class 
+    <div class="section-text">
+      <h3 class="section-title">Player Services</h3>
+      <p class="section-desc">Build connections with top level coaches. Learn the training systems used by world class 
       players. Join the player pathways and acheive your professional dreams on and off the 
       pitch.</p>
     </div>
@@ -55,7 +40,7 @@
           </p>
         </div>
         <div class="card-link">
-          <a href="{% url 'teams' %}">RUGBY NEAR ME<a/>
+          <a href="{% url 'teams' %}">RUGBY NEAR ME</a>
         </div>
       </div>
       <div class="card">
@@ -65,7 +50,7 @@
           </p>
         </div>
         <div class="card-link">
-          <a href="{% url 'teams' %}">PLAYER PATHWAYS<a/>
+          <a href="{% url 'teams' %}">PLAYER PATHWAYS</a>
         </div>
       </div>
       <div class="card">
@@ -75,18 +60,18 @@
           </p>
         </div>
         <div class="card-link">
-          <a href="{% url 'teams' %}">SKILLS TRAINING<a/>
+          <a href="{% url 'teams' %}">SKILLS TRAINING</a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="section fullheight">
+<div class="section">
   <div class="players content">
-    <div class="description">
-      <h3>Team & Coaching</h3>
-      <p>Delivery of rugby material is very important. Get certified to coach or learn about the game. 
+    <div class="section-text">
+      <h3 class="section-title">Team & Coaching</h3>
+      <p class="section-desc">Delivery of rugby material is very important. Get certified to coach or learn about the game. 
       Find easy to follow training plans for every level of play. Get an opportunity to travel and 
       meet professional coaches.</p>
     </div>
@@ -98,7 +83,7 @@
           </p>
         </div>
         <div class="card-link">
-          <a href="{% url 'teams' %}">CERTIFICATIONS<a/>
+          <a href="{% url 'coaches' %}">CERTIFICATIONS</a>
         </div>
       </div>
       <div class="card">
@@ -108,7 +93,7 @@
           </p>
         </div>
         <div class="card-link">
-          <a href="{% url 'teams' %}">CREATE A CLUB<a/>
+          <a href="{% url 'teams' %}">CREATE A CLUB</a>
         </div>
       </div>
       <div class="card">
@@ -118,18 +103,11 @@
           </p>
         </div>
         <div class="card-link">
-          <a href="{% url 'teams' %}">TRAINING PLANS<a/>
+          <a href="{% url 'teams' %}">TRAINING PLANS</a>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="footer">
-  <p>
-    <a href = "mailto: letusknow@firstfiverugby.com">letusknow@firstfiverugby.com</a>
-  </p>
-  <p>First Five Rugby LLC</p>
 </div>
 {% endblock %}
 

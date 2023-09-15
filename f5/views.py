@@ -1,6 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
-from .models import Team, Fixture
+from .models import Team, Fixture, Product
+from django.http import JsonResponse
+import os, requests
+from dotenv import load_dotenv
+
+# Load env file terminology
+load_dotenv()
 
 def handleHomeRoute(request):
     """
@@ -10,15 +16,6 @@ def handleHomeRoute(request):
         "activelink": "home",
     }
     return render(request, "home.html", context)
-
-def handlePreviewRoute(request):
-    """
-    Displays a preview route for devs to see new content. 
-    """
-    context = {
-        "activelink": 0,
-    }
-    return render(request, "preview.html", context)
 
 def handleAboutRoute(request):
     """
@@ -37,6 +34,37 @@ def handleSuccessRoute(request):
         "activelink": "success",
     }
     return render(request, "success.html", context)
+
+"""
+**** SINCE PREVIEW UPDATES 9/12/2023 ****
+"""
+
+def handlePreviewRoute(request):
+    """
+    Displays a preview route for devs to see new content. 
+    """
+    context = {
+        "activelink": 0,
+    }
+    return render(request, "preview.html", context)
+
+def handlePlayersRoute(request):
+    """
+    Show the players page.
+    """
+    context = {
+        "activelink": 1,
+    }
+    return render(request, "players.html", context)
+
+def handleCoachesRoute(request):
+    """
+    Show coaches page.
+    """
+    context = {
+        "activelink": 4
+    }
+    return render(request, "coaches.html", context)
 
 def handleTeamsRoute(request):
     """
@@ -72,5 +100,25 @@ def handleFetchTeamFixturesRoute(request, id):
         "team": team,
         "fixtures": fixtures,
     }
-
     return render(request, 'teamfixtures.html', context)
+
+def handleSchedulesRoute(request):
+    """
+    Show the schedules page.
+    """
+    context = {
+        "activelink": 5,
+    }
+    return render(request, "schedules.html", context)
+
+def handleStoreRoute(request):
+    """
+    Show the store page.
+    """
+    products = Product.objects.all()
+
+    context = {
+        "activelink": 3,
+        "products":products,
+    }
+    return render(request, "store.html", context)

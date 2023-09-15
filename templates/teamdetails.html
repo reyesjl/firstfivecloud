@@ -1,4 +1,4 @@
-{% extends 'preview_base.html' %}
+{% extends 'preview_base2.html' %}
 
 <!-- load static -->
 {% load static %}
@@ -9,51 +9,31 @@
 {% endblock %}
 
 {% block content %}
-<div class="navigation">
-  <div class="brand">
-    <h1 class="title"><span id="left"><em>FIRSTFIVE</em></span> RUGBY</h1>
-  </div>
-
-  <ul class="menu">
-    <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Home</a></li>
-    <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'preview' %}>Players</a></li>
-    <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
-    <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'preview' %}>Schedules</a></li>
-    <li><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'preview' %}>Store</a></li>
-    <li><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'preview' %}>Archives</a></li>
-  </ul>
+<div class="back-navigation">
+  <a href="{% url 'teams' %}">Back</a>
 </div>
-
 <div class="banner-image">
-  <img src="https://shorturl.at/krW01" />
+  <img src="{{ team.image_url }}" />
   <h1>{{ team.name }}</h1>
 </div>
 
 <div class="section fullheight">
   <div class="teamdetails content">
-    <div class="description">
+    <div class="details">
       <h4>Register & View Schedule</h4>
-      <ul>
-        <li><a class="fixtures-link" href="{{ team.register_url }}">Register to Play Here</a></li>
-        <li><a class="fixtures-link" href="{% url 'teamfixtures' team.id %}">See Game Fixtures Here</a></li>
-      </ul>
+      
+      <div class="detail-buttons">
+        <button><a class="button-link" href="{{ team.register_url }}">Register to Play Here</a></button>
+        <button><a class="button-link" href="{% url 'teamfixtures' team.id %}">See Game Fixtures Here</a></button>
+      </div>
 
       <h4>Club History</h4>
       <p>{{ team.history }}</p>
 
       <h4>Contact details</h4>
       <p>{{ team.coach }}</p>
-      <p>{{ team.contact_email }}</p>
-      
+      <p><a class="page-link" href="mailto:{{ team.contact_email }}">{{ team.contact_email }}</a></p>
     </div>
   </div>
 </div>
-
-<div class="footer">
-  <p>
-    <a href = "mailto: letusknow@firstfiverugby.com">letusknow@firstfiverugby.com</a>
-  </p>
-  <p>First Five Rugby LLC</p>
-</div>
-
 {% endblock %}

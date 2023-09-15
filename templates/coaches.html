@@ -1,0 +1,28 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/preview.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner-image">
+  <h1>Coaching Services</h1>
+</div>
+<div class="section pitch">
+  <h2 class="section-title">Coaching Certifications</h2>
+  <p class="section-desc">Rugby starts with teams, and teams start with a coach. Access resources on this page to get certfied at all levels and find coaching material and inspiration</p>
+
+  <p>Below is a link to list of courses including L1, L2 Coaching, L1, L2 Reffereeing can be found
+<a href="https://usa.rugby/courses">Here.</a></p>
+</div>
+
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/filter.js' %}"></script>
+{% endblock %}
