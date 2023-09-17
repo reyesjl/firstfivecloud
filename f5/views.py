@@ -122,3 +122,15 @@ def handleStoreRoute(request):
         "products":products,
     }
     return render(request, "store.html", context)
+
+def handleFetchProductDetailsRoute(request, id):
+    """
+    Display a product on its own.
+    """
+    product = get_object_or_404(Product, id=id)
+    context = {
+        "activelink": 3,
+        "product": product
+    }
+
+    return render(request, "productdetails.html", context)

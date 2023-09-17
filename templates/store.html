@@ -11,17 +11,20 @@
 </div>
 
 <div class="section pitch">
-  <h1 class="section-title">Catalog</h1>
-  <p class="section-desc">Find your team needs. Find gear for you or shop fan merch for the family.</p>
   <div class="products">
     {%for product in products %}
       <div class="product-meta">
         <div class="product-image">
-          <a href="#"><img src="{{ product.image_url }}" /></a>
+          <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
         </div>
         <div class="product-details">
             <p>{{ product.name }}</p>
+
+            {% if product.is_active %}
             <p>${{product.price}}</p>
+            {% else %}
+            <p class="sold">sold out</p>
+            {% endif %}
         </div>
       </div>
     {% empty %}
