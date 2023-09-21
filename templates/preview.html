@@ -24,6 +24,52 @@
   </div>
 </div>
 
+<div class="section">
+  <h1>Watch Rugby</h1>
+  <!-- Watch rugby container -->
+  <div class="watch-rugby">
+    <div class="watch-local">
+      <div class="watch-card">
+        <h4>College Divisions</h4>
+        <p>University; DI, DII, DIII rugby programs.</p>
+      </div> 
+    </div>
+
+    <div class="watch-pro">
+      <div class="watch-card">
+        <h4>Club Teams</h4>
+        <p>Adult league; DI, DII, DIII rugby programs.</p>
+      </div>     
+      <div class="watch-card">
+        <h4>Major League Rugby</h4>
+        <p>The professional rugby scene of North America.</p>
+      </div> 
+    </div>
+    
+  </div>
+  <p>Find more rugby here.</p>
+</div>
+
+<div class="section">
+  <h1>Support Rugby</h1>
+  <p>Represent your College Team or Local Division Club.</p>
+  <div class="store-strip">
+    {% for product in featured_products %}
+    <div class="product">
+      <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
+      <p>{{ product.name|slice:":10" }}...</p>
+      <p>{{ product.price }}</p>
+    </div>
+    {% empty %}
+    <p>No featured products.</p>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="section">
+  <h1>Community Events</h1>
+</div>
+
 {% endblock %}
 
 {% block customjs %}

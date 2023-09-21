@@ -28,6 +28,12 @@
         <p class="tag-link">STOCK: {{ product.inventory }}</p>
       </div>
 
+      <div class="product-categories">
+        {% for category in product.category.all %}
+        <p class="category">{{ category.name }}</p>
+        {% endfor %}
+      </div>
+
       <h4>Read More</h4>
       <p class="product-description">{{ product.description }}</p>
 

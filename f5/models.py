@@ -50,9 +50,7 @@ class Product(models.Model):
   name = models.CharField(max_length=200)
   description = models.TextField()
   image_url = models.CharField(default="https://place-hold.it/500", max_length=200)
-  category = models.ForeignKey(
-        Category, on_delete=models.CASCADE, related_name="products"
-    )
+  category = models.ManyToManyField(Category) 
   price = models.DecimalField(max_digits=10, decimal_places=2)
   inventory = models.IntegerField(default=0)
   sku = models.CharField(max_length=200, default=generate_sku, unique=True)

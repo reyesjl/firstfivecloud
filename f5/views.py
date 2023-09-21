@@ -43,8 +43,10 @@ def handlePreviewRoute(request):
     """
     Displays a preview route for devs to see new content. 
     """
+    featured_products = Product.objects.filter(category__name='featured', is_active=True)
     context = {
         "activelink": 0,
+        "featured_products": featured_products,
     }
     return render(request, "preview.html", context)
 
