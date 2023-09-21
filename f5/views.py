@@ -1,6 +1,7 @@
+from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
-from .models import Team, Fixture, Product
+from .models import Team, Fixture, Product, Event
 from django.http import JsonResponse
 import os, requests
 from dotenv import load_dotenv
@@ -44,9 +45,14 @@ def handlePreviewRoute(request):
     Displays a preview route for devs to see new content. 
     """
     featured_products = Product.objects.filter(category__name='featured', is_active=True)
+    
+    upcoming_events = Event.objects.all()
+    next_three_events = upcoming_events[:3]
+
     context = {
         "activelink": 0,
         "featured_products": featured_products,
+        "events": next_three_events,
     }
     return render(request, "preview.html", context)
 

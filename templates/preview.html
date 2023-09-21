@@ -25,7 +25,10 @@
 </div>
 
 <div class="section">
-  <h1>Watch Rugby</h1>
+  <div class="section-header">
+    <h1 class="section-title">Watch Rugby</h1>
+    <p class="section-body">Find college division teams, or enjoy your local club levels.</p>
+  </div>
   <!-- Watch rugby container -->
   <div class="watch-rugby">
     <div class="watch-local">
@@ -45,14 +48,15 @@
         <p>The professional rugby scene of North America.</p>
       </div> 
     </div>
-    
   </div>
   <p>Find more rugby here.</p>
 </div>
 
 <div class="section">
-  <h1>Support Rugby</h1>
-  <p>Represent your College Team or Local Division Club.</p>
+  <div class="section-header">
+    <h1 class="section-title">Support Rugby</h1>
+    <p class="section-body">Represent your college club, your local division team, or your city's pro team.</p>
+  </div>
   <div class="store-strip">
     {% for product in featured_products %}
     <div class="product">
@@ -67,7 +71,28 @@
 </div>
 
 <div class="section">
-  <h1>Community Events</h1>
+  <h1 class="section-title">Community Events</h1>
+  <p class="section-body">Discover local events, watch parties, touch rugby tournaments, and more.</p>
+  <div class="event-strip">
+  {% for event in events %}
+    <div class="event">
+      <div class="event-title">
+        <h4>{{event.title}}</h4>
+      </div>
+      <div class="event-body">
+        <p><strong>Description:</strong></p>
+        <p>{{event.description|slice:":90"}}...</p>
+        <p><strong>Date & Time:</strong></p>
+        <p>{{event.location|slice:":20"}}...</p>
+        <p>{{event.date}} @ {{event.time}}</p>
+      </div>
+    </div>
+  {% empty %}
+    <p>No events to show here yet.</p>
+  {% endfor %}
+  </div>
+
+  <p>See more events here.</p>
 </div>
 
 {% endblock %}

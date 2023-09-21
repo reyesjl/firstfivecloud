@@ -3,8 +3,9 @@ import uuid
 
 class Team(models.Model):
   """
-    Team model
+  Team model
   """
+  id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=100)
   history = models.TextField()
   coach = models.CharField(max_length=100)
@@ -21,8 +22,9 @@ class Team(models.Model):
   
 class Fixture(models.Model):
   """
-    Record of macth history.
+  Record of macth history.
   """
+  id = models.AutoField(primary_key=True)
   date_played = models.DateField()
   team_1 = models.ForeignKey(Team, related_name="team_1_matches", on_delete=models.CASCADE)
   team_2 = models.ForeignKey(Team, related_name="team_2_matches", on_delete=models.CASCADE)
@@ -40,13 +42,14 @@ class Category(models.Model):
   
 class Product(models.Model):
   """
-    Record of a product from the store.
+  Record of a product from the store.
   """
 
   # Generate product number
   def generate_sku():
     return str(uuid.uuid4())[:8]  # Adjust as needed
 
+  id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=200)
   description = models.TextField()
   image_url = models.CharField(default="https://place-hold.it/500", max_length=200)
@@ -59,3 +62,17 @@ class Product(models.Model):
   
   def __str__(self):
     return self.name
+  
+class Event(models.Model):
+  """
+  Record of an event users can attend.
+  """
+  id = models.AutoField(primary_key=True)
+  title = models.CharField(max_length=50)
+  description = models.TextField()
+  location = models.CharField(max_length=100)
+  date = models.DateField()
+  time = models.TimeField()
+
+  def __str__(self):
+    return self.title
