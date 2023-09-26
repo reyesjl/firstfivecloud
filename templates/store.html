@@ -10,27 +10,25 @@
   <h1 class="title">Store</h1>
 </div>
 
-<div class="section pitch">
+<div class="section">
   <div class="products">
-    {%for product in products %}
-      <div class="product-meta">
-        <div class="product-image">
-          <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
-        </div>
-        <div class="product-details">
-            <p>{{ product.name }}</p>
-
-            {% if product.is_active %}
-            <p>${{product.price}}</p>
-            {% else %}
-            <p class="sold">sold out</p>
-            {% endif %}
+      {%for product in products %}
+      <div class="product-card">
+        <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
+        
+        <div class="product-content">
+        <p class="product-name">{{ product.name }}</p>
+        {% if product.is_active %}
+          <p class="product-price">${{product.price}}</p>
+        {% else %}
+          <p class="sold">sold out</p>
+        {% endif %}
         </div>
       </div>
-    {% empty %}
+      {% empty %}
         <em>No Products Found.</em>
-    {% endfor %}
-      </div>
+      {% endfor %}
+      
   </div>
 </div>
 
