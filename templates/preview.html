@@ -9,19 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="section jumbotron">
-  <div class="banner">
-    <div class="advertisement">
-      <button>Advertisment</button>
-    </div>
-    <div class="banner-title">
-      <h2 class="callout">News & Updates</h2>
-      <p class="subtitle">Online rugby platform for information, apparel, and training.</p>
-    </div>
-    <div class="dealDay"> 
-      <button>Daily Deal!</button>
-    </div>
-  </div>
+<div class="home-banner">
 </div>
 
 <div class="section">
@@ -29,6 +17,7 @@
     <h1 class="section-title">Watch Rugby</h1>
     <p class="section-body">Find college division teams, or enjoy your local club levels.</p>
   </div>
+  
   <!-- Watch rugby container -->
   <div class="watch-rugby">
     <div class="watch-local">
@@ -54,14 +43,14 @@
 
 <div class="section">
   <div class="section-header">
-    <h1 class="section-title">Support Rugby</h1>
+    <h1 class="section-title">Shop Rugby</h1>
     <p class="section-body">Represent your college club, your local division team, or your city's pro team.</p>
   </div>
   <div class="store-strip">
     {% for product in featured_products %}
     <div class="product">
       <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
-      <p>{{ product.name|slice:":10" }}...</p>
+      <p>{{ product.name|slice:":20" }}...</p>
       <p>{{ product.price }}</p>
     </div>
     {% empty %}
