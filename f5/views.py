@@ -123,11 +123,19 @@ def handleStoreRoute(request):
     """
     Show the store page.
     """
-    products = Product.objects.all()
+    featured_products = Product.objects.filter(category__name="featured", is_active=True)
+    team_products = Product.objects.filter(category__name="team", is_active=True)
+    rare_products = Product.objects.filter(category__name="rare", is_active=True)
+    common_products = Product.objects.filter(category__name="common", is_active=True)
+    archived_products = Product.objects.filter(category__name="jersey", is_active=False)
 
     context = {
         "activelink": 3,
-        "products":products,
+        "featured_products": featured_products,
+        "team_products": team_products,
+        "rare_products": rare_products,
+        "common_products": common_products,
+        "archived_products": archived_products,
     }
     return render(request, "store.html", context)
 

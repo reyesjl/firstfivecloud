@@ -10,9 +10,19 @@
   <h1 class="title">Store</h1>
 </div>
 
+<div class="tab_bar">
+  <a><h4 id="featured" class="tab_title active">featured</h4></a>
+  <h4 id="common" class="tab_title">common</h4>
+  <h4 id="team" class="tab_title">team</h4>
+  <h4 id="rare" class="tab_title">rare</h4>
+  <h4 id="archives" class="tab_title">archives</h4>
+</div>
+
 <div class="section">
-  <div class="products">
-      {%for product in products %}
+  <div class="products"> 
+
+    <div class="product_list featured_products active"> <!-- FEATURED PRODUCTS -->
+      {% for product in featured_products %}
       <div class="product-card">
         <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
         
@@ -28,12 +38,89 @@
       {% empty %}
         <em>No Products Found.</em>
       {% endfor %}
-      
-  </div>
+    </div> <!-- END OF COMMON PRODUCTS -->
+
+    <div class="product_list common_products"> <!-- COMMON PRODUCTS -->
+      {% for product in common_products %}
+      <div class="product-card">
+        <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
+        
+        <div class="product-content">
+        <p class="product-name">{{ product.name }}</p>
+        {% if product.is_active %}
+          <p class="product-price">${{product.price}}</p>
+        {% else %}
+          <p class="sold">sold out</p>
+        {% endif %}
+        </div>
+      </div>
+      {% empty %}
+        <em>No Products Found.</em>
+      {% endfor %}
+    </div> <!-- END OF COMMON PRODUCTS -->
+
+    <div class="product_list team_products"> <!-- TEAM PRODUCTS -->
+      {% for product in team_products %}
+      <div class="product-card">
+        <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
+        
+        <div class="product-content">
+        <p class="product-name">{{ product.name }}</p>
+        {% if product.is_active %}
+          <p class="product-price">${{product.price}}</p>
+        {% else %}
+          <p class="sold">sold out</p>
+        {% endif %}
+        </div>
+      </div>
+      {% empty %}
+        <em>No Products Found.</em>
+      {% endfor %}
+    </div> <!-- END OF COMMON PRODUCTS -->
+
+    <div class="product_list rare_products"> <!-- RARE PRODUCTS -->
+      {% for product in rare_products %}
+      <div class="product-card">
+        <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
+        
+        <div class="product-content">
+        <p class="product-name">{{ product.name }}</p>
+        {% if product.is_active %}
+          <p class="product-price">${{product.price}}</p>
+        {% else %}
+          <p class="sold">sold out</p>
+        {% endif %}
+        </div>
+      </div>
+      {% empty %}
+        <em>No Products Found.</em>
+      {% endfor %}
+    </div> <!-- END OF COMMON PRODUCTS -->
+
+    <div class="product_list archived_products"> <!-- ARCHIVED PRODUCTS -->
+      {% for product in archived_products %}
+      <div class="product-card">
+        <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
+        
+        <div class="product-content">
+        <p class="product-name">{{ product.name }}</p>
+        {% if product.is_active %}
+          <p class="product-price">${{product.price}}</p>
+        {% else %}
+          <p class="sold">sold out</p>
+        {% endif %}
+        </div>
+      </div>
+      {% empty %}
+        <em>No Products Found.</em>
+      {% endfor %}
+    </div> <!-- END OF COMMON PRODUCTS -->
+  
+  </div> <!-- END OF ALL PRODUCTS -->
 </div>
 
 {% endblock %}
 
 {% block customjs %}
-  <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/store.js' %}"></script>
 {% endblock %}
