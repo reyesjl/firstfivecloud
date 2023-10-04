@@ -60,8 +60,10 @@ def handlePlayersRoute(request):
     """
     Show the players page.
     """
+    player_deal_products = Product.objects.filter(category__name='player_deal', is_active=True)
     context = {
         "activelink": 1,
+        "player_deal_products": player_deal_products,
     }
     return render(request, "players.html", context)
 

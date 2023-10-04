@@ -58,6 +58,7 @@ class Product(models.Model):
   inventory = models.IntegerField(default=0)
   sku = models.CharField(max_length=200, default=generate_sku, unique=True)
   is_active = models.BooleanField(default=True)
+  team_only = models.BooleanField(default=False)
   size = models.CharField(default="M", max_length=10)
   
   def __str__(self):

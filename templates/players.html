@@ -9,15 +9,64 @@
 <div class="banner">
   <h1 class="title">Player Services</h1>
 </div>
-<div class="section pitch">
-  <h2 class="section-title">Upcoming services</h2>
-  <p class="section-desc">Players are our priority and we aim to provide high quality programs.</p>
-  <ul>
-    <li>Player Pathways</li>
-    <li>Strength & Conditioning</li>
-    <li>Skills & Training</li>
-    <li>Enitor Program</li>
+
+<div id="top" class="jump_list">
+  <ul class="list">
+    <li class="item">1. <a href="#player_pathways">Player Pathways</a></li>
+    <li class="item">2. <a href="#skill_camps">Skill Camps</a></li>
+    <li class="item">3. <a href="#player_deals">Player Deals</a></li>
   </ul>
+</div>
+
+<div id="player_pathways" class="section bg-black">
+  <div class="player_pathways">
+    <div class="media">
+      <video controls loop playsinline>
+        <source src={% static 'images/Where Eagles Dream.mp4' %} type="video/mp4">
+      </video>
+    </div>
+    <div class="text">
+      <h2 class="section_title">Player Pathways</h2>
+      <p>Looking to play rugby in North America. Want to make career connections on-and-off the pitch? We have the player resources you need at every level of the game.</p>
+
+      <p>Follow the pathway that works for you.</p>
+    </div>
+  </div>
+</div>
+
+<div id="skill_camps" class="skill_card">
+  <div class="skill_content text">
+    <h4 class="skill_title">Skill Camps</h4>
+    <p>Join our Skill Camps and enhance your rugby skills. Whether you're a newbie or a seasoned player, our expert coaches provide tailored training to boost your performance. From mastering passes to scrum excellence, our camps cover it all.</p>
+
+    <p class="button_wrapper">
+    <button class="skill_button">Click Here</button>
+    </p>
+  </div>
+</div>
+
+<div id="player_deals" class="section bg-black">
+  <div class="player_deals">
+    <div class="media">
+      <div class="store_strip">
+        {% for product in player_deal_products %}
+        <div class="product">
+          <p>{{ product.name|slice:":20" }}...</p>
+          <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
+          <p>{{ product.price }}</p>
+        </div>
+        {% empty %}
+        <p>No player deal products.</p>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="text">
+      <h2 class="section_title">Player Deals</h2>
+      <p>Explore our Player Deals section for special offers. From gear to travel, we've tailored discounts to enhance your rugby experience. Don't miss out on these rewarding opportunities. Elevate your rugby journey with exclusive benefits.</p>
+      
+      <p></p>
+    </div>
+  </div>
 </div>
 {% endblock %}
 

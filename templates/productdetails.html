@@ -10,12 +10,11 @@
 
 {% block content %}
 <div class="banner-image">
-  <img class="product-image" src="{{ product.image_url }}" />
   <h1 class="product-title">{{ product.name }}</h1>
+  <img class="product-image" src="{{ product.image_url }}" />
   <p class="sku">SKU {{ product.sku }}</p>
 </div>
 
-<div class="section fullheight">
   <div class="product-details content">
     <div class="details">
       <h3>Product Details</h3>
@@ -33,7 +32,6 @@
 
       <h4>Read More</h4>
       <p class="product-description">{{ product.description }}</p>
-
       <h4>Market Price</h4>
       <p>This feature will display a graph to show sale prices over time for this item or items very similar to this.</p>
       <h4>Ownership History</h4>
@@ -41,11 +39,14 @@
 
       <h4>Sales</h4>
       {% if product.is_active %}
-      <button class="purchase-button">Purchase</button>
+        {% if product.team_only %}
+          <button class="purchase-button">Team Order Only</button>
+        {% else %}
+          <button class="purchase-button">Purchase</button>
+        {% endif %}
       {% else %}
-      <p class="sold">Item Unavailable for Purchase.</p>
+        <p class="sold">Item Unavailable for Purchase.</p>
       {% endif %}
     </div>
   </div>
-</div>
 {% endblock %}
