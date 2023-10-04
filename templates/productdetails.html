@@ -17,6 +17,13 @@
 
   <div class="product-details content">
     <div class="details">
+      <h4>Read More</h4>
+      <p class="product-description">{{ product.description }}</p>
+      <h4>Market Price</h4>
+      <p>This feature will display a graph to show sale prices over time for this item or items very similar to this.</p>
+      <h4>Ownership History</h4>
+      <p>This feature will show each previous owner with associated transfer dates.</p>
+
       <h3>Product Details</h3>
       <div class="product-actions">
         <p class="tag-link">COST: ${{ product.price }}</p>
@@ -29,13 +36,6 @@
         <p class="category">{{ category.name }}</p>
         {% endfor %}
       </div>
-
-      <h4>Read More</h4>
-      <p class="product-description">{{ product.description }}</p>
-      <h4>Market Price</h4>
-      <p>This feature will display a graph to show sale prices over time for this item or items very similar to this.</p>
-      <h4>Ownership History</h4>
-      <p>This feature will show each previous owner with associated transfer dates.</p>
 
       <h4>Sales</h4>
       {% if product.is_active %}
