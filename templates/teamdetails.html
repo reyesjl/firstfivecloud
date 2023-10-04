@@ -9,12 +9,9 @@
 {% endblock %}
 
 {% block content %}
-<div class="back-navigation">
-  <a href="{% url 'teams' %}">Back</a>
-</div>
 <div class="banner-image">
-  <img src="{{ team.image_url }}" />
   <h1>{{ team.name }}</h1>
+  <img src="{{ team.image_url }}" />
 </div>
 
 <div class="section fullheight">
