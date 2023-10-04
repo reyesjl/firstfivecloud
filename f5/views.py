@@ -152,3 +152,12 @@ def handleFetchProductDetailsRoute(request, id):
     }
 
     return render(request, "productdetails.html", context)
+
+def handleCampsRoute(request):
+    """
+    Display upcoming camp information.
+    """
+    context = {
+        "activelink": 1,
+    }
+    return render(request, "camps.html", context)

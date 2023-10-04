@@ -25,6 +25,8 @@ urlpatterns = [
     path("store/<int:id>/details", views.handleFetchProductDetailsRoute, name="productdetails"),
     # Coaches Page route
     path("coaches/", views.handleCoachesRoute, name="coaches"),
+    # Camps page route
+    path("camps/", views.handleCampsRoute, name="camps"),
     # Success route
     path("success/", views.handleSuccessRoute, name="success"),
 ]
