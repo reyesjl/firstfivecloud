@@ -68,6 +68,13 @@ class Event(models.Model):
   """
   Record of an event users can attend.
   """
+
+  CATEGORY_CHOICES = (
+        ('pathways', 'Pathways'),
+        ('festival', 'Festival'),
+        ('camp', 'Camp'),
+    )
+  
   id = models.AutoField(primary_key=True)
   title = models.CharField(max_length=50)
   description = models.TextField()
@@ -75,6 +82,8 @@ class Event(models.Model):
   date = models.DateField()
   time = models.TimeField()
   register_link = models.CharField(default="https://firstfiverugby.com/camps", max_length=100)
+  logo_url = models.CharField(default="https://i.imgur.com/chO9gOg.png", max_length=100)
+  category = models.CharField(default="camp", max_length=20, choices=CATEGORY_CHOICES)
 
   def __str__(self):
     return self.title

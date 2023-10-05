@@ -9,50 +9,19 @@ from dotenv import load_dotenv
 # Load env file terminology
 load_dotenv()
 
-def handleHomeRoute(request):
-    """
-    Displays firstfiverugby homepage with navigation to our services.
-    """
-    context = {
-        "activelink": "home",
-    }
-    return render(request, "home.html", context)
-
-def handleAboutRoute(request):
-    """
-    Displays firtfiverugby about us page.
-    """
-    context = {
-        "activelink": 1,
-    }
-    return render(request, "about.html", context)
-
-def handleSuccessRoute(request):
-    """
-    Show success message for the user.
-    """
-    context = {
-        "activelink": "success",
-    }
-    return render(request, "success.html", context)
-
-"""
-**** SINCE PREVIEW UPDATES 9/12/2023 ****
-"""
-
 def handlePreviewRoute(request):
     """
     Displays a preview route for devs to see new content. 
     """
     featured_products = Product.objects.filter(category__name='featured', is_active=True)
-    
-    upcoming_events = Event.objects.all()
-    next_three_events = upcoming_events[:3]
+
+    camp_events = Event.objects.filter(category="festival").order_by('date') 
+    events = camp_events[:5]
 
     context = {
         "activelink": 0,
         "featured_products": featured_products,
-        "events": next_three_events,
+        "events": events,
     }
     return render(request, "preview.html", context)
 
@@ -157,8 +126,12 @@ def handleCampsRoute(request):
     """
     Display upcoming camp information.
     """
+    camp_events = Event.objects.filter(category="festival").order_by('date')
+    pathway_events = Event.objects.filter(category="pathways").order_by('date')
     context = {
         "activelink": 1,
+        "camp_events": camp_events,
+        "pathway_events": pathway_events,
     }
     return render(request, "camps.html", context)
 
@@ -177,7 +150,7 @@ def handleToursRoute(request):
     Render the tours page.
     """
     context = {
-        "activelink": 2
+        "activelink": 5
     }
     return render(request, "tours.html", context)
 

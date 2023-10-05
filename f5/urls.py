@@ -3,12 +3,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # Root url
-    path("", views.handleHomeRoute, name="home"),
-    # Testing route for admin
-    path("preview/", views.handlePreviewRoute, name="preview"),
-    # About match
-    path("about/", views.handleAboutRoute, name="about"),
+    path("", views.handlePreviewRoute, name="preview"),
     # Teams page route
     path("teams/", views.handleTeamsRoute, name="teams"),
     # Team Detail route
@@ -33,6 +28,4 @@ urlpatterns = [
     path("tours/", views.handleToursRoute, name="tours"),
     # Partners Page Roue
     path("partners/", views.handlePartnersRoute, name="partners"),
-    # Success route
-    path("success/", views.handleSuccessRoute, name="success"),
 ]
