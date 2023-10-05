@@ -161,3 +161,31 @@ def handleCampsRoute(request):
         "activelink": 1,
     }
     return render(request, "camps.html", context)
+
+def handleCampDetailsRoute(request):
+    """
+    Return camp details page.
+    """
+    context = {
+        "activelink": 1,
+    }
+
+    return render(request, "campdetails.html", context)
+
+def handleToursRoute(request):
+    """
+    Render the tours page.
+    """
+    context = {
+        "activelink": 2
+    }
+    return render(request, "tours.html", context)
+
+def handlePartnersRoute(request):
+    """
+    Render the partners page.
+    """
+    context = {
+        "activelink": 0,
+    }
+    return render(request, "partners.html", context)
