@@ -18,7 +18,6 @@
       </div>
       <div class="footer-menu-navbar">
         <ul class="footer-menu-list">
-          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Home</a></li>
           <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'players' %}>Players</a></li>
           <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
           <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'store' %}>Store</a></li>
@@ -34,9 +33,10 @@
       </div>
       <div class="footer-menu-navbar">
         <ul class="footer-menu-list">
-          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Partners</a></li>
-          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Terms & Conditions</a></li>
-          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Contact Us</a></li>
+          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'tours' %}">Team Tours</a></li>
+          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'partners' %}">Partners</a></li>
+          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'partners' %}">Terms & Conditions</a></li>
+          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'partners' %}">Contact Us</a></li>
         </ul>
       </div>
     </div>
