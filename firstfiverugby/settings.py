@@ -8,7 +8,7 @@ load_dotenv()
 # base dir and secrets
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET")
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["www.firstfiverugby.com", "firstfiverugby.com"]
 CSRF_TRUSTED_ORIGINS = ["https://www.firstfiverugby.com", "https://firstfiverugby.com"]
 

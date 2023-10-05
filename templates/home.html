@@ -12,6 +12,29 @@
 <div class="home-banner">
 </div>
 
+<!-- Community Events -->
+<div class="section">
+  <h1 class="section_title">Community Events</h1>
+  <p class="section_body">Dicover local rugby events. Register for an upcoming camp or festival event.</p>
+  <div class="event_strip">
+  {% for event in events %}
+    <div class="event">
+      <div class="event_logo">
+        <img src="{{ event.logo_url }}" />
+      </div>
+      
+      <div class="event_meta">
+        <p class="event_title"><a href="{% url 'campdetails' event.id %}">{{ event.title }}</a></p>
+        <p class="event_date">{{ event.date }} @ {{ event.time }}</p>
+      </div>
+    
+    </div>
+  {% empty %}
+    <p>No events to show here yet.</p>
+  {% endfor %}
+  </div>
+</div>
+
 <!-- Watch rugby container -->
 <div class="section blackbg">
   <div class="watch_rugby">
@@ -68,31 +91,6 @@
     {% endfor %}
   </div>
 </div>
-
-<div class="section">
-  <h1 class="section_title">Community Events</h1>
-  <p class="section_body">Discover local events, watch parties, touch rugby tournaments, and more.</p>
-  <div class="event_strip">
-  {% for event in events %}
-    <div class="event">
-      <div class="event_logo">
-        <img src="{{ event.logo_url }}" />
-      </div>
-      
-      <div class="event_meta">
-        <p class="event_title"><a href="{% url 'campdetails' event.id %}">{{ event.title }}</a></p>
-        <p class="event_date">{{ event.date }} @ {{ event.time }}</p>
-      </div>
-    
-    </div>
-  {% empty %}
-    <p>No events to show here yet.</p>
-  {% endfor %}
-  </div>
-
-  <p>See more events here.</p>
-</div>
-
 {% endblock %}
 
 {% block customjs %}

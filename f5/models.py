@@ -85,6 +85,7 @@ class Event(models.Model):
   register_link = models.CharField(default="https://firstfiverugby.com/camps", max_length=100)
   logo_url = models.CharField(default="https://i.imgur.com/chO9gOg.png", max_length=100)
   category = models.CharField(default="camp", max_length=20, choices=CATEGORY_CHOICES)
+  is_active = models.BooleanField(default=False)
 
   def __str__(self):
     return f"{self.title}, {self.date}, {self.hosted_by}"
