@@ -37,9 +37,7 @@
       <thead>
           <tr>
               <th>Club Name</th>
-              <th>Coach</th>
               <th>Division</th>
-              <th>Schedule</th>
               <th>Zipcode</th>
           </tr>
         </thead>
@@ -47,9 +45,7 @@
           {% for team in teams %}
             <tr>
                 <td><a href="{% url 'teamdetails' team.id %}">{{ team.name }}</a></td>
-                <td>{{ team.coach }}</td>
                 <td>{{ team.division }}</td>
-                <td><a href="{% url 'teamfixtures' team.id %}">view</a></td>
                 <td>{{ team.zipcode }}</td>
             </tr>
           {% endfor %}
