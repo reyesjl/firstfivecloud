@@ -1,0 +1,27 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/partners.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner">
+  <h1 class="title">Partners</h1>
+</div>
+{% endblock %}
+
+<div class="section">
+  <div class="partner_list">
+    <h2>Globetrotter Insurance</h2>
+    <h2>World Rugby Shop</h2>
+    <h2>Canterbury Rugby</h2>
+  </div>
+</div>
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
