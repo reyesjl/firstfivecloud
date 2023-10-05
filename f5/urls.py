@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("", views.handlePreviewRoute, name="preview"),
+    path("", views.handleHomeRoute, name="home"),
     # Teams page route
     path("teams/", views.handleTeamsRoute, name="teams"),
     # Team Detail route
@@ -22,8 +22,10 @@ urlpatterns = [
     path("coaches/", views.handleCoachesRoute, name="coaches"),
     # Camps page route
     path("camps/", views.handleCampsRoute, name="camps"),
-    # Camp details route
-    path("campdetails/", views.handleCampDetailsRoute, name="campdetails"),
+    # Camp details by id
+    path("camps/<int:id>", views.handleCampDetailsRoute, name="campdetails"),
+    # Success page
+    path("camps/<int:id>/success", views.handleCampSuccessRoute, name="campsuccess"),
     # Tours Page Route
     path("tours/", views.handleToursRoute, name="tours"),
     # Partners Page Roue

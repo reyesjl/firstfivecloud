@@ -1,133 +1,98 @@
-{% extends 'base.html' %}
+{% extends 'preview_base.html' %}
 
 <!-- load static -->
 {% load static %}
 
 <!-- stylehseet for this page -->
 {% block customcss %}
-  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/preview.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="container">
-  <div class="jumbotron">
-    <div class="left">
-      <h1>Jersey Auction</h1>
-      <a href="{% url 'auction' %}">
-        <img src="{% static 'images/hurricanes_jersey_click.png' %}">
-      </a>
-    </div>
+<div class="home-banner">
+</div>
 
-    <div class="middle">
-      <a href="{% url 'home' %}">
-        <img src="{% static 'images/logo_final.png' %}">
-      </a>
+<!-- Watch rugby container -->
+<div class="section blackbg">
+  <div class="watch_rugby">
+    <div class="watch_title">
+      <h1 class="section_title">Watch Rugby</h1>
+      <p class="section_description">See all levels of the game, from grassroots to college and beyond. Buy Tickets here!</p>
     </div>
-    
-    <div class="right">
-      <h1>Deal of The Day</h1>
-      <a href="https://www.ebay.com/usr/firstfiverugby">
-        <img src="{% static 'images/sa_womens_jersey_click.png' %}">
-      </a>
+    <div class="watch_cards">
+      <div class="watch_card">
+        <div class="watch_card_media">
+          <a href="#"><img src="https://i.imgur.com/fOwJzlX.jpg" /></a>
+        </div>
+        <div class="watch_card_description">
+          <h4>College Conferences</h4>
+          <p>School Boy / Girl; DI. DII. DIII.</p>
+        </div>
+      </div> 
+      <div class="watch_card">
+        <div class="watch_card_media">
+          <a href="#"><img src="https://i.imgur.com/oZAE5qy.jpg" /></a>
+        </div>
+        <div class="watch_card_description">
+          <h4>Club Divisions</h4>
+          <p>Adult leagues & club level; DI. DII. DIII.</p>
+        </div>
+      </div>     
+      <div class="watch_card">
+        <div class="watch_card_media">
+          <a href="#"><img src="https://i.imgur.com/KLJ5zE2.jpg" /></a>
+        </div>
+        <div class="watch_card_description">
+          <h4>Major League Rugby</h4>
+          <p>The professional rugby competition of North America.</p>
+        </div>
+      </div> 
     </div>
   </div>
 </div>
 
-<div class="break-banner">
-  <h2>Our Services. <span class="subtitle">Explore our newest offers.</span></h2>
+<div class="section">
+  <div class="section-header">
+    <h1 class="section_title">Shop Rugby</h1>
+    <p class="section-body">Represent your college club, your local division team, or your city's pro team.</p>
+  </div>
+  <div class="store-strip">
+    {% for product in featured_products %}
+    <div class="product">
+      <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
+      <p>{{ product.name|slice:":20" }}...</p>
+      <p>{{ product.price }}</p>
+    </div>
+    {% empty %}
+    <p>No featured products.</p>
+    {% endfor %}
+  </div>
 </div>
 
-  <div class="gallery top-gal">
-    <div class="card">
-        <div class="card-content">
-           <div class="card-blob">
-            <a href="{% url 'camps' %}">
-              <img src="{% static 'images/camp.png'%}" alt="Coach instructing players">
-              <h3>Summer Camps</h3>
-              <p>Elevate skills.</p>
-            </a>
-           </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-content">
-           <div class="card-blob">
-            <a href="{% url 'caps' %}">
-              <img src="{% static 'images/sam_underhill.png'%}" alt="Sam Underhill with Rugby Cap">
-              <h3>Honor Caps</h3>
-              <p>Embrace Tradition.</p>
-              </a>
-            </a>
-           </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-content">
-           <div class="card-blob">
-            <a href="{% url 'tours' %}">
-              <img src="{% static 'images/bus.png'%}" alt="bus touring ireland country side">
-              <h3>Ireland Tours</h3>
-              <p>Experience culture.</p>
-              </a>
-           </div>
-        </div>
-    </div>
-  </div>
-
-  <div class="gallery low-gal">
-    <div class="card">
-        <div class="card-content">
-           <div class="card-blob">
-            <a href="{% url 'teams' %}">
-              <img src="{% static 'images/wellington_secondary.png'%}" alt="wellington girls example photo">
-              <h3>Sponsored Teams</h3>
-              <p>Community.</p>
-              </a>
-           </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-content">
-           <div class="card-blob">
-            <a href="{% url 'catalog' %}">
-              <img src="{% static 'images/canterbury.png'%}" alt="canterbury example photo">
-              <h3>CCC Team Sales</h3>
-              <p>Direct orders.</p>
-              </a>
-           </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-content">
-           <div class="card-blob">
-            <a href="{% url 'schedules' %}">
-              <img src="{% static 'images/api.png'%}" alt="apisai naikatini">
-              <h3>Best Schedules</h3>
-              <p>Stay sharp.</p>
-              </a>
-           </div>
-        </div>
-    </div>
-  </div>  
-
-  <div class="sponsors-section">
+<div class="section">
+  <h1 class="section_title">Community Events</h1>
+  <p class="section_body">Discover local events, watch parties, touch rugby tournaments, and more.</p>
+  <div class="event_strip">
+  {% for event in events %}
+    <div class="event">
+      <div class="event_logo">
+        <img src="{{ event.logo_url }}" />
+      </div>
+      
+      <div class="event_meta">
+        <p class="event_title"><a href="{% url 'campdetails' event.id %}">{{ event.title }}</a></p>
+        <p class="event_date">{{ event.date }} @ {{ event.time }}</p>
+      </div>
     
-    <div class="sponsor-title">
-      <h2>Partners. <span class="subtitle">Team is Everything.</span></h2>
     </div>
-
-    <div class="sponsor-gallery">
-      <div class="sponsor">
-        <img height="100px" src="{% static 'images/wrs-logo.jpg' %}" />
-        <h3><a href="https://www.worldrugbyshop.com/">World Rugby Shop</a></h3>
-      </div>
-      <div class="sponsor">
-        <img height="100px" src="{% static 'images/globetrotter_logo.jpg' %}" />
-        <h3><a href="https://www.globetrotter.ch/">Globetrotter Insurance</a></h3>
-      </div>
-    </div>
-  
+  {% empty %}
+    <p>No events to show here yet.</p>
+  {% endfor %}
   </div>
+
+  <p>See more events here.</p>
+</div>
+
 {% endblock %}
 
 {% block customjs %}

@@ -1,7 +1,8 @@
 from django.utils import timezone
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
-from .models import Team, Fixture, Product, Event
+from .models import Team, Fixture, Product, Event, EventTicket
+from .forms import EventTicketForm
 from django.http import JsonResponse
 import os, requests
 from dotenv import load_dotenv
@@ -9,9 +10,9 @@ from dotenv import load_dotenv
 # Load env file terminology
 load_dotenv()
 
-def handlePreviewRoute(request):
+def handleHomeRoute(request):
     """
-    Displays a preview route for devs to see new content. 
+    Displays home route.
     """
     featured_products = Product.objects.filter(category__name='featured', is_active=True)
 
@@ -23,7 +24,7 @@ def handlePreviewRoute(request):
         "featured_products": featured_products,
         "events": events,
     }
-    return render(request, "preview.html", context)
+    return render(request, "home.html", context)
 
 def handlePlayersRoute(request):
     """
@@ -135,14 +136,27 @@ def handleCampsRoute(request):
     }
     return render(request, "camps.html", context)
 
-def handleCampDetailsRoute(request):
+def handleCampDetailsRoute(request, id):
     """
-    Return camp details page.
+    Display the details for a specific camp
     """
-    context = {
-        "activelink": 1,
-    }
+    camp = get_object_or_404(Event, id=id)
 
+    if request.method == 'POST':
+        # django forms does the magic here for me
+        form = EventTicketForm(request.POST)
+        if form.is_valid():
+            ticket = form.save(commit=False) # save for now, but I need to add the camp in there
+            ticket.camp = camp  # Link the ticket to the specific camp
+            ticket.save()
+            return redirect('campsuccess', id=id)
+    else:
+        form = EventTicketForm()
+
+    context = {
+        'event': camp, 
+        'form': form,
+    }
     return render(request, "campdetails.html", context)
 
 def handleToursRoute(request):
@@ -162,3 +176,16 @@ def handlePartnersRoute(request):
         "activelink": 0,
     }
     return render(request, "partners.html", context)
+
+def handleCampSuccessRoute(request, id):
+    """
+    Show success message to the user for camp registration.
+    """
+    camp = get_object_or_404(Event, id=id)
+    attendees = EventTicket.objects.filter(camp=camp).count
+    context = {
+        "activelink": 0,
+        "event": camp,
+        "attendees": attendees,
+    }
+    return render(request, "campsuccess.html", context)

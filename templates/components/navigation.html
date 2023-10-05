@@ -4,7 +4,7 @@
 
 <div class="navigation">
   <ul class="menu">
-    <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'preview' %}">Home</a></li>
+    <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'home' %}">Home</a></li>
     <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'players' %}>Players</a></li>
     <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
     <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'store' %}>Store</a></li>

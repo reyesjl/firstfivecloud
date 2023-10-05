@@ -12,7 +12,7 @@
     {% for event in camp_events %}
       <div class="camp_event">
         <div class="camp_logo">
-            <a href="{{event.register_link}}">
+            <a href="{% url 'campdetails' event.id %}">
               <img src="{{event.logo_url}}" />
             </a>
         </div>
@@ -30,7 +30,7 @@
       {% for event in pathway_events %}
         <div class="camp_event">
           <div class="camp_logo">
-              <a href="{{event.register_link}}">
+              <a href="{% url 'campdetails' event.id %}">
                 <img src="{{event.logo_url}}" />
               </a>
           </div>
