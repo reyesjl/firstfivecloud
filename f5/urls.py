@@ -9,9 +9,9 @@ urlpatterns = [
     path("preview/", views.handlePreviewRoute, name="preview"),
     # About match
     path("about/", views.handleAboutRoute, name="about"),
-    # Teams route
+    # Teams page route
     path("teams/", views.handleTeamsRoute, name="teams"),
-    # Team Page route
+    # Team Detail route
     path("teams/<int:id>/details/", views.handleFetchTeamDetailsRoute, name="teamdetails"),
     # Team Fixture route
     path("teams/<int:id>/fixtures/", views.handleFetchTeamFixturesRoute, name="teamfixtures"),
@@ -27,6 +27,12 @@ urlpatterns = [
     path("coaches/", views.handleCoachesRoute, name="coaches"),
     # Camps page route
     path("camps/", views.handleCampsRoute, name="camps"),
+    # Camp details route
+    path("campdetails/", views.handleCampDetailsRoute, name="campdetails"),
+    # Tours Page Route
+    path("tours/", views.handleToursRoute, name="tours"),
+    # Partners Page Roue
+    path("partners/", views.handlePartnersRoute, name="partners"),
     # Success route
     path("success/", views.handleSuccessRoute, name="success"),
 ]
