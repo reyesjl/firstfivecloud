@@ -74,6 +74,7 @@ class Event(models.Model):
   location = models.CharField(max_length=100)
   date = models.DateField()
   time = models.TimeField()
+  register_link = models.CharField(default="https://firstfiverugby.com/camps", max_length=100)
 
   def __str__(self):
     return self.title
