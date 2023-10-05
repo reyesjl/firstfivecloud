@@ -1,0 +1,66 @@
+{% extends 'preview_base.html' %}
+{% load static %}
+
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/campdetails.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="camps">
+        <div class="camps_logo">
+            <img src="https://i.imgur.com/uNG1375.png" />
+        </div>
+        <h2>Talent ID Camps</h2> 
+        <p id="age_statement">* age requirement: between 18 & 25 years of age. please reach out if you turn 25 during the dates listed below.</p>
+        <ol>
+            <li>
+                <strong>Mount St. Marys</strong>
+                <ul>
+                    <li>Date: Monday, November 13th</li>
+                    <li>Time: 7:30-9:30 p.m.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>University of Mary Washington</strong>
+                <ul>
+                    <li>Date: Either Tuesday or Wednesday, November 14th or 15th (TBD)</li>
+                    <li>Time: 7:30-9:30 p.m.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>West Potomac High School</strong>
+                <ul>
+                    <li>Date: Thursday, November 16th</li>
+                    <li>Time: 7:30-9:30 p.m.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>Selections</h2>
+        <ul>
+            <li>Selections will be made on November 17th.</li>
+        </ul>
+
+        <h2>Games</h2>
+        <ul>
+            <li>Players will be selected for the following games:</li>
+            <ol>
+                <li>December 2nd</li>
+                <li>December 9th</li>
+                <li>December 16th</li>
+            </ol>
+        </ul>
+
+        <h2>Registration & Extras</h2>
+        <ul>
+            <li>To attend any of the camps, please sign up using this <a href="https://forms.gle/Yg3NS6rvM9LVFYoT6">Google Form</a>.</li>
+            <li>If selected, there is no cost to participate in the ID camps and games.</li>
+        </ul>
+    </div>
+</div>
+{% endblock%}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
