@@ -38,9 +38,9 @@
       <!-- Price Button Type -->
       {% if product.is_active %}
         {% if product.team_only %}
-          <button class="purchase-button">Team Order Only</button>
+          <a href="{{product.stripe_url}}" class="purchase-button">Team Order Only</a>
         {% else %}
-          <button class="purchase-button">Purchase</button>
+          <a href="{{product.stripe_url}}" class="purchase-button">Purchase</a>
         {% endif %}
       {% else %}
         <p class="sold">Item Unavailable for Purchase.</p>
