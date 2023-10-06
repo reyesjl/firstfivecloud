@@ -1,0 +1,26 @@
+{% extends 'preview_base.html' %}
+{% load static %}
+
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/schedules.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner">
+  <h1 class="title">Schedules</h1>
+</div>
+<div class="section pitch">
+  <h2 class="section-title">Available soon</h2>
+  <p class="section-desc">Find out about MLR matches. See every college division game. Catch your favorite local club opener.</p>
+  <ul>
+    <li>Major League Rugby</li>
+    <li>College Rugby</li>
+    <li>Youth Club Rugby</li>
+    <li>Adult Club Rugby</li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

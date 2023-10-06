@@ -1,0 +1,132 @@
+{% extends 'base.html'%}
+{% load static %}
+
+<!-- Insert css file for this template -->
+{% block customcss %}
+<link href="{% static 'css/tours.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="tour-banner">
+    <div class="tour-title">
+      <h1>Ireland Team Tours. <span class="subtitle">Embrace the Culture.</span></h1>
+      <div class="globe-link">
+        <p>Sponsored by <a href="{% url 'globetrotter' %}">Globetrotter Insurance : Travel with the Experts.</a></p>
+        <img height="50px" src="{% static 'images/globetrotter_logo.jpg' %}" />
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="skyline">
+    <img src="{% static 'images/ireland-skyline.png' %}" />
+  </div>
+
+  <div class="highlights-section">
+
+    <div class="highlights-content">
+
+      <div class="points">
+      <h3>Tour highlights. <span class="subtitle">Your journey in a snapshot.</span></h3>
+        <ul class="point-list">
+          <li>6-8 day tours</li>
+          <li>Centered around Pro 14 and AIL club games</li>
+          <li>2 games for the tour team to play</li>
+          <li>Educational/historical event every day</li>
+          <li>Team building challenge course</li>
+          <li>Players and coaches receive custom Canterbury 1/4 zip and polo</li>
+          <li>Includes bus, games, tips, lodging, banquet, match tickets, training sessions, breakfast</li>
+          <li>Meals typically are $12-15</li>
+          <li>Total tour price per player <strong>$1700-$2300</strong></li>
+        </ul>
+      </div>
+    </div>
+
+      <div class="stays">
+        <div class="image">
+          <img src="{% static "images/bus-wait.jpg" %}" />
+        </div>
+        
+        <div class="cities">
+          <h3>Stays. <span class="subtitle">Overnight options.</span></h3>
+          <ul>
+            <li>Galway City Center</li>
+            <li>Clifden</li>
+            <li>Cork City Center</li>
+            <li>Kilkenny</li>
+            <li>Kerry</li>
+            <li>Dublin</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlights-content planning">
+    <div class="points">
+      <h3>Planning. <span class="subtitle">Before the Tour.</span></h3>
+        <ul class="point-list">
+          <li>Negotiating airfare</li>
+          <li>Negotiating trip insurance</li>
+          <li>Reserving rooms</li>
+          <li>Setting up games</li>
+          <li>Setting up training sessions</li>
+          <li>Tour clearances with USA Rugby and IRFU</li>
+          <li>Bus/coach reservations</li>
+          <li>Tour itinerary and schedule</li>
+          <li>Tour kit and design</li>
+        </ul>
+    </div>
+
+    <div class="points">
+      <h3>During Tour. <span class="subtitle">Let us handle everything.</span></h3>
+        <ul class="point-list">
+          <li>Handling unexpected issues</li>
+          <li>Managing transportation logistics</li>
+          <li>Coordinating game schedules</li>
+          <li>Ensuring player safety and well-being</li>
+          <li>Addressing medical needs</li>
+          <li>Monitoring tour schedule adherence</li>
+        </ul>
+    </div>
+  </div>
+
+ <div class="skyline teampic">
+    <img src="{% static 'images/teampic.jpg' %}" />
+  </div>
+
+  <div class="stays">
+    <div class="cities">
+      <h3>Experience All. <span class="subtitle">Tour Stops / Games / Activities</span></h3>
+      <ul>
+        <li>Munster Pro 14 game with behind the scenes tour</li>
+        <li>Connacht Pro 14 games with behind the scenes tour</li>
+        <li>Past tours included games against Shannon, NUIG, UCC Pres Cork, Cork Con, Rockwell College, St. Michael's, Connemara Blacks, Rockwell College, and Old Wesley</li>
+        <li>Historical Sites visited can include: Blarney Castle, Connemara Region, Connemara National Park, Cliffs of Moher, the Burren, Diamond Hill, Kylemore Abbey</li>
+        <li>Luxury motor coaches with bathroom, WiFi, etc., BEST bus drivers who are familiar with local history</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tours-form">
+    <h2>Get free quote below.</h2>
+    <form method="post" action="{% url 'tours' %}">
+      {% csrf_token %}
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name"><br>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email"><br>
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" name="phone"><br>
+
+      <button type="submit" class="button">Submit</button>
+    </form>
+  </div>
+
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

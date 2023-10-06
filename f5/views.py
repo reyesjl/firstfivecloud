@@ -1,29 +1,191 @@
-from django.shortcuts import render
+from django.utils import timezone
+from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import Q
+from .models import Team, Fixture, Product, Event, EventTicket
+from .forms import EventTicketForm
+from django.http import JsonResponse
+import os, requests
+from dotenv import load_dotenv
 
-
-def handleLandingPage(request):
-    """
-    Displays firstfiverugby landing page. Countdown.
-    """
-    context = {"activelink": "home"}
-    return render(request, "landing.html", context)
-
+# Load env file terminology
+load_dotenv()
 
 def handleHomeRoute(request):
     """
-    Displays firstfiverugby homepage with navigation to our services.
+    Displays home route.
+    """
+    featured_products = Product.objects.filter(category__name='featured', is_active=True)
+
+    camp_events = Event.objects.filter(category="festival").order_by('date') 
+    events = camp_events[:5]
+
+    context = {
+        "activelink": 0,
+        "featured_products": featured_products,
+        "events": events,
+    }
+    return render(request, "home.html", context)
+
+def handlePlayersRoute(request):
+    """
+    Show the players page.
+    """
+    player_deal_products = Product.objects.filter(category__name='player_deal', is_active=True)
+    context = {
+        "activelink": 1,
+        "player_deal_products": player_deal_products,
+    }
+    return render(request, "players.html", context)
+
+def handleCoachesRoute(request):
+    """
+    Show coaches page.
     """
     context = {
-        "activelink": "home",
+        "activelink": 4
     }
-    return render(request, "index.html", context)
+    return render(request, "coaches.html", context)
 
-
-def handleAboutRoute(request):
+def handleTeamsRoute(request):
     """
-    Displays firtfiverugby about us page.
+    Show a temporary static teams page.
+    """
+    teams = Team.objects.all()
+    context = {
+        "activelink": 2,
+        "teams":teams,
+    }
+    return render(request, "teams.html", context)
+
+def handleFetchTeamDetailsRoute(request, id):
+    """
+    Fetch the details of a specific team by ID.
+    """
+    team = get_object_or_404(Team, id=id)
+    context = {
+        "activelink": 2,
+        "team":team,
+    }
+    return render(request, 'teamdetails.html', context)
+
+def handleFetchTeamFixturesRoute(request, id):
+    """
+    Fetch team fixtures by ID.
+    """
+    team = get_object_or_404(Team, id=id)
+    fixtures = Fixture.objects.filter(Q(team_1=team) | Q(team_2=team)).order_by('date_played')
+
+    context = {
+        "activelink": 2,
+        "team": team,
+        "fixtures": fixtures,
+    }
+    return render(request, 'teamfixtures.html', context)
+
+def handleSchedulesRoute(request):
+    """
+    Show the schedules page.
     """
     context = {
-        "activelink": "about",
+        "activelink": 5,
     }
-    return render(request, "about.html", context)
+    return render(request, "schedules.html", context)
+
+def handleStoreRoute(request):
+    """
+    Show the store page.
+    """
+    featured_products = Product.objects.filter(category__name="featured", is_active=True)
+    team_products = Product.objects.filter(category__name="team", is_active=True)
+    rare_products = Product.objects.filter(category__name="rare", is_active=True)
+    common_products = Product.objects.filter(category__name="common", is_active=True)
+    archived_products = Product.objects.filter(category__name="jersey", is_active=False)
+
+    context = {
+        "activelink": 3,
+        "featured_products": featured_products,
+        "team_products": team_products,
+        "rare_products": rare_products,
+        "common_products": common_products,
+        "archived_products": archived_products,
+    }
+    return render(request, "store.html", context)
+
+def handleFetchProductDetailsRoute(request, id):
+    """
+    Display a product on its own.
+    """
+    product = get_object_or_404(Product, id=id)
+    context = {
+        "activelink": 3,
+        "product": product
+    }
+
+    return render(request, "productdetails.html", context)
+
+def handleCampsRoute(request):
+    """
+    Display upcoming camp information.
+    """
+    camp_events = Event.objects.filter(category="festival").order_by('date')
+    pathway_events = Event.objects.filter(category="pathways").order_by('date')
+    context = {
+        "activelink": 1,
+        "camp_events": camp_events,
+        "pathway_events": pathway_events,
+    }
+    return render(request, "camps.html", context)
+
+def handleCampDetailsRoute(request, id):
+    """
+    Display the details for a specific camp
+    """
+    camp = get_object_or_404(Event, id=id)
+
+    if request.method == 'POST':
+        # django forms does the magic here for me
+        form = EventTicketForm(request.POST)
+        if form.is_valid():
+            ticket = form.save(commit=False) # save for now, but I need to add the camp in there
+            ticket.camp = camp  # Link the ticket to the specific camp
+            ticket.save()
+            return redirect('campsuccess', id=id)
+    else:
+        form = EventTicketForm()
+
+    context = {
+        'event': camp, 
+        'form': form,
+    }
+    return render(request, "campdetails.html", context)
+
+def handleToursRoute(request):
+    """
+    Render the tours page.
+    """
+    context = {
+        "activelink": 5
+    }
+    return render(request, "tours.html", context)
+
+def handlePartnersRoute(request):
+    """
+    Render the partners page.
+    """
+    context = {
+        "activelink": 0,
+    }
+    return render(request, "partners.html", context)
+
+def handleCampSuccessRoute(request, id):
+    """
+    Show success message to the user for camp registration.
+    """
+    camp = get_object_or_404(Event, id=id)
+    attendees = EventTicket.objects.filter(camp=camp).count
+    context = {
+        "activelink": 0,
+        "event": camp,
+        "attendees": attendees,
+    }
+    return render(request, "campsuccess.html", context)

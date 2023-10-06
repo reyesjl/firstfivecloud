@@ -1,0 +1,29 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- If you delete this meta tag, Tim Brown comes out of the swamp to yell at you. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>firstfiverugby</title>
+  
+  <!-- static files -->
+  {% load static %}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,600;0,700;1,100;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- CSS for individual page requirements -->
+  {% block customcss %}{% endblock %}
+</head>
+<body>
+  {% block content %}{% endblock %}
+  {% include 'components/footigation.html' %}
+  
+  <!-- JS scripts for individual page requirements -->
+  {% block customjs %}<script src="{% static 'js/index.js' %}"></script>{% endblock %}
+</body>
+</html>

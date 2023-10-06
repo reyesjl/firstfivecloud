@@ -1,0 +1,56 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/preview.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section fullheight">
+  <div class="teams content">
+    <div class="description">
+      <h3>{{ team.name }}</h3>
+      <p><em>{{ team.division }}</em> division</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="teamfixtures">
+  <p class="clubs">Fixtures Table</p>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+          <tr>
+              <th>Home</th>
+              <th>Away</th>
+              <th>Score</th>
+              <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for fixture in fixtures %}
+              <tr>
+                <td>{{ fixture.team_1.name }}</td>
+                <td>{{ fixture.team_2.name }}</td>
+                <td>{{ fixture.score_team_1 }} : {{fixture.score_team_2}}</td>
+                <td>{{ fixture.date_played }}</td>
+              </tr>
+
+              {% empty %}
+              <tr>
+                <td>Table is empty.</td>
+                <td>no team.</td>
+                <td>no points.</td>
+                <td>no day.</td>
+              </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</div>
+</div>
+{% endblock %}

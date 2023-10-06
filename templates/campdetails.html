@@ -1,0 +1,52 @@
+{% extends 'preview_base.html' %}
+{% load static %}
+
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/campdetails.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="camp">
+        {% if event %}
+        <div class="camp_logo">
+            <img src="{{event.logo_url}}" />
+        </div>
+        <h2>{{event.title}}</h2> 
+        <ol>
+            <li>
+                <strong>{{ event.location }}</strong>
+                <ul>
+                    <li>Hosted by: {{ event.hosted_by }}</li>
+                    <li>Date: {{ event.date }}</li>
+                    <li>Time: {{ event.time }}</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>Description</h2>
+        <ul>
+            <li>{{event.description}}</li>
+        </ul>
+
+        <h2>Registration & Extras</h2>
+        <ul>
+            <li>To attend any of the camps, please sign up using this form.</li>
+        </ul>
+        {% if event.is_active %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+        {% else %}
+        <p class="inactive_camp">Registration is not yet open for this event.</p>
+        {% endif %}
+    {% endif %}
+    </div>
+</div>
+{% endblock%}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,44 @@
+<div class="footer">
+    <div class="container">
+    
+    <div class="footer_email">
+      <div class="footer-title">
+        <h4>Join Our Newsletter!</h4> 
+      </div>
+      <p>Get notification about new arrivals and re-stocks.</p>
+      <form>
+        <input type="email" name="email" placeholder="enter your email" />
+        <button>Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer_menu">
+      <div class="footer-title">
+        <h4>Menu</h4> 
+      </div>
+      <div class="footer-menu-navbar">
+        <ul class="footer-menu-list">
+          <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'players' %}>Players</a></li>
+          <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
+          <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'store' %}>Store</a></li>
+          <li><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'coaches' %}>Coaches</a></li>
+          <li><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'schedules' %}>Schedules</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer_help">
+      <div class="footer-title">
+        <h4>Extra Links</h4> 
+      </div>
+      <div class="footer-menu-navbar">
+        <ul class="footer-menu-list">
+          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'tours' %}">Team Tours</a></li>
+          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'partners' %}">Partners</a></li>
+          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'partners' %}">Terms & Conditions</a></li>
+          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'partners' %}">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

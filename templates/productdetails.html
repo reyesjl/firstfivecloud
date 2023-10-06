@@ -1,0 +1,51 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/productdetails.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner-image">
+  <h1 class="product-title">{{ product.name }}</h1>
+  <img class="product-image" src="{{ product.image_url }}" />
+  <p class="sku">SKU {{ product.sku }}</p>
+</div>
+
+  <div class="product-details content">
+    <div class="details">
+      <h4>Product Information</h4>
+      <p class="product-description">{{ product.description }}</p>
+
+      <!-- Product Metadata -->
+      <h4>Metadata</h4>
+      <div class="product-actions">
+        <p class="tag-link">COST: ${{ product.price }}</p>
+        <p class="tag-link">SIZE: {{ product.size }}</p>
+        <p class="tag-link">STOCK: {{ product.inventory }}</p>
+      </div>
+
+      <!-- Product Category -->
+      <div class="product-categories">
+        {% for category in product.category.all %}
+        <p class="category">{{ category.name }}</p>
+        {% endfor %}
+      </div>
+
+      <!-- Price Button Type -->
+      {% if product.is_active %}
+        {% if product.team_only %}
+          <button class="purchase-button">Team Order Only</button>
+        {% else %}
+          <button class="purchase-button">Purchase</button>
+        {% endif %}
+      {% else %}
+        <p class="sold">Item Unavailable for Purchase.</p>
+      {% endif %}
+    
+    </div>
+  </div>
+{% endblock %}

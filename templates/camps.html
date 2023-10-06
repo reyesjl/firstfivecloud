@@ -1,0 +1,48 @@
+{% extends 'preview_base.html' %}
+{% load static %}
+
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/camps.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section camp_category">
+  <h2 class="category_title" id="middle_camps">Middle School Rugby Festivals</h2>
+  <div class="camps">
+    {% for event in camp_events %}
+      <div class="camp_event">
+        <div class="camp_logo">
+            <a href="{% url 'campdetails' event.id %}">
+              <img src="{{event.logo_url}}" />
+            </a>
+        </div>
+        <h3 class="event_title">{{event.title}}</h3>
+      </div>
+    {% empty %}
+      <p>No events found.</p>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="section camp_category">
+  <h2 class="category_title" id="pathway_camps">Pathway Academy Camps</h2>
+    <div class="camps">
+      {% for event in pathway_events %}
+        <div class="camp_event">
+          <div class="camp_logo">
+              <a href="{% url 'campdetails' event.id %}">
+                <img src="{{event.logo_url}}" />
+              </a>
+          </div>
+          <h3 class="event_title">{{event.title}}</h3>
+        </div>
+      {% empty %}
+        <p>No events found.</p>
+      {% endfor %}
+    </div>
+</div>
+{% endblock%}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

@@ -8,7 +8,7 @@ load_dotenv()
 # base dir and secrets
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET")
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["www.firstfiverugby.com", "firstfiverugby.com"]
 CSRF_TRUSTED_ORIGINS = ["https://www.firstfiverugby.com", "https://firstfiverugby.com"]
 
@@ -24,10 +24,6 @@ INSTALLED_APPS = [
     "django_extensions",
     "django_libsass",
     "f5",
-    "members",
-    "catalog",
-    "camps",
-    "tours",
 ]
 
 # routing middleware
@@ -46,7 +42,7 @@ ROOT_URLCONF = "firstfiverugby.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "f5", "templates")],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
