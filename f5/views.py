@@ -4,7 +4,7 @@ from django.db.models import Q
 from .models import Team, Fixture, Product, Event, EventTicket
 from .forms import EventTicketForm
 from django.http import JsonResponse
-import os, requests
+import os, requests, random
 from dotenv import load_dotenv
 
 # Load env file terminology
@@ -141,7 +141,7 @@ def handleCampDetailsRoute(request, id):
     Display the details for a specific camp
     """
     camp = get_object_or_404(Event, id=id)
-
+    random_teams = ''
     if request.method == 'POST':
         # django forms does the magic here for me
         form = EventTicketForm(request.POST)
@@ -153,9 +153,19 @@ def handleCampDetailsRoute(request, id):
     else:
         form = EventTicketForm()
 
+        total_teams = Team.objects.count()
+        # Check if there are at least 3 teams in the table
+        if total_teams >= 3:
+            # Generate 3 random unique indices within the range of total_teams
+            random_indices = random.sample(range(total_teams), 3)
+
+            # Fetch the teams using the random indices
+            random_teams = Team.objects.all()[random_indices[0]:random_indices[0] + 3]
+
     context = {
         'event': camp, 
         'form': form,
+        'random_teams': random_teams,
     }
     return render(request, "campdetails.html", context)
 
