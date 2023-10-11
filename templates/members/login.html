@@ -1,0 +1,16 @@
+{% extends 'preview_base.html' %}
+{% load static %}
+
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner">
+  <h1 class="title">Login</h1>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

@@ -1,9 +1,7 @@
-from django.utils import timezone
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 from .models import Team, Fixture, Product, Event, EventTicket
 from .forms import EventTicketForm
-from django.http import JsonResponse
 import os, requests, random
 from dotenv import load_dotenv
 

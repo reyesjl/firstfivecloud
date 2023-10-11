@@ -8,7 +8,7 @@ load_dotenv()
 # base dir and secrets
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET")
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["www.firstfiverugby.com", "firstfiverugby.com"]
 CSRF_TRUSTED_ORIGINS = ["https://www.firstfiverugby.com", "https://firstfiverugby.com"]
 
@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "django_libsass",
     "f5",
+    "members",
 ]
 
 # routing middleware

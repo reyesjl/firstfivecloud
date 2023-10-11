@@ -12,3 +12,16 @@
     <li><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'tours' %}>Tours</a></li>
   </ul>
 </div>
+
+<div class="account_bar">
+  <div class="menu_container">
+    <div class="profile_image">
+      <a class="profile_link" href="{% url 'login' %}">Accounts</a>
+    </div>
+
+    <div class="profile_menu">
+      <a class="profile_link" href="{% url 'signup' %}">Signup</a>
+      <a class="profile_link" href="{% url 'login' %}">Login</a>
+    </div>
+  </div>
+</div>

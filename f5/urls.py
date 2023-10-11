@@ -1,6 +1,5 @@
-from django.urls import path
-
 from . import views
+from django.urls import path
 
 urlpatterns = [
     path("", views.handleHomeRoute, name="home"),
@@ -30,4 +29,5 @@ urlpatterns = [
     path("tours/", views.handleToursRoute, name="tours"),
     # Partners Page Roue
     path("partners/", views.handlePartnersRoute, name="partners"),
+    
 ]
