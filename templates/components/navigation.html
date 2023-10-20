@@ -14,11 +14,12 @@
 <div class="navlist hidden">
   <div class="navitems">
     <span><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'home' %}">Home</a><i class="fa-solid fa-arrow-right"></i></span>
+    <span><a {% if activelink == 0 %} class="active" {%endif %} href={% url 'home' %}>About Us</a><i class="fa-solid fa-arrow-right"></i></span>
+    <span><a {% if activelink == 0 %} class="active" {%endif %} href={% url 'research' %}>Research</a><i class="fa-solid fa-arrow-right"></i></span>
     <span><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'players' %}>Players</a><i class="fa-solid fa-arrow-right"></i></span>
     <span><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a><i class="fa-solid fa-arrow-right"></i></span>
     <span><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'store' %}>Store</a><i class="fa-solid fa-barcode"></i></span>
     <span><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'coaches' %}>Coaches</a><i class="fa-solid fa-arrow-right"></i></span>
     <span><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'tours' %}>Tours</a><i class="fa-solid fa-globe"></i></span>
-    <span><a {% if activelink == 6 %} class="active" {%endif %} href={% url 'home' %}>About Us</a><i class="fa-solid fa-arrow-right"></i></span>
   </div>
 </div>

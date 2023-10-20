@@ -6,15 +6,26 @@
 {% endblock %}
 
 {% block content %}
-<div class="banner">
-  <h1 class="title">Player Services</h1>
+<div id="player_banner" class="banner">
+  <div class="section top">
+    <div class="row">
+      <div class="feature">
+        <div class="context">
+          <span>Nurturing a player ecosystem for success and growth.</span>
+        </div>
+        <div class="pair_links">
+            <button class="button">See Training Plans</button>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Community Events -->
 <div class="section back_gray">
   <div class="row">
     <div class="wide_split">
-      <p class="section_title text_red">UPCOMING LIVE RUGBY EVENTS</p>
+      <p class="section_title text_red">Upcoming live events</p>
       <a class="link" href="{% url 'camps' %}">view all events</a>
     </div>
     <div class="event_feed">
