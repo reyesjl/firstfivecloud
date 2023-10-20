@@ -16,11 +16,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,600;0,700;1,100;1,600;1,700&display=swap" rel="stylesheet">
 
-  <!-- CSS for individual page requirements -->
+  <!-- Default stylesheets -->
   <link rel="stylesheet" href="{% static 'css/general.css' %}">
   <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
   <link rel="stylesheet" href="{% static 'css/navigation.css' %}">
 
+  <!-- Custom stylesheets -->
   {% block customcss %}{% endblock %}
 </head>
 <body>
@@ -29,6 +30,8 @@
   {% include 'components/footigation.html' %}
   
   <!-- JS scripts for individual page requirements -->
-  {% block customjs %}<script src="{% static 'js/index.js' %}"></script>{% endblock %}
+  <script src="https://kit.fontawesome.com/e7f487f1d6.js" crossorigin="anonymous"></script>
+  <script src="{% static 'js/index.js' %}"></script>
+  {% block customjs %}{% endblock %}
 </body>
 </html>

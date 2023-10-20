@@ -1,27 +1,24 @@
-<div class="account_bar">
-  <div class="menu_container">
-    <div class="profile_image">
-      <a class="profile_link" href="{% url 'login' %}">Account</a>
-    </div>
-
-    <div class="profile_menu">
-      <a class="profile_link" href="{% url 'signup' %}">Signup</a>
-      <a class="profile_link" href="{% url 'login' %}">Login</a>
+<div class="navbar">
+  <div class="row">
+    <div class="navmenu">
+      <div class="brand">
+        <span id="firstfive">FIRSTFIVE</span><span id="rugby">RUGBY</span>
+      </div>
+      <div class="options">
+        <span class="options_button">Menu</span>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="brand">
-  <h1 class="title"><span><em>FIRSTFIVE</em></span> RUGBY</h1>
-</div>
-
-<div class="navigation">
-  <ul class="menu">
-    <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'home' %}">Home</a></li>
-    <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'players' %}>Players</a></li>
-    <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
-    <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'store' %}>Store</a></li>
-    <li><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'coaches' %}>Coaches</a></li>
-    <li><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'tours' %}>Tours</a></li>
-  </ul>
+<div class="navlist hidden">
+  <div class="navitems">
+    <span><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'home' %}">Home</a><i class="fa-solid fa-arrow-right"></i></span>
+    <span><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'players' %}>Players</a><i class="fa-solid fa-arrow-right"></i></span>
+    <span><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a><i class="fa-solid fa-arrow-right"></i></span>
+    <span><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'store' %}>Store</a><i class="fa-solid fa-barcode"></i></span>
+    <span><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'coaches' %}>Coaches</a><i class="fa-solid fa-arrow-right"></i></span>
+    <span><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'tours' %}>Tours</a><i class="fa-solid fa-globe"></i></span>
+    <span><a {% if activelink == 6 %} class="active" {%endif %} href={% url 'home' %}>About Us</a><i class="fa-solid fa-arrow-right"></i></span>
+  </div>
 </div>

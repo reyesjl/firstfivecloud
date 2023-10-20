@@ -6,42 +6,56 @@
 {% endblock %}
 
 {% block content %}
-<div class="section camp_category">
-  <h2 class="category_title" id="middle_camps">Middle School Rugby Festivals</h2>
-  <div class="camps">
-    {% for event in camp_events %}
-      <div class="camp_event">
-        <div class="camp_logo">
-            <a href="{% url 'campdetails' event.id %}">
-              <img src="{{event.logo_url}}" />
-            </a>
-        </div>
-        <h3 class="event_title">{{event.title}}</h3>
-        <p>{{event.date}}</p>
+<div class="section">
+  <div class="row">
+    <div class="wide_split">
+      <p class="section_title text_red">MIDDLE SCHOOL FESTIVALS</p>
+    </div>
+    <div class="event_feed">
+      {% for event in camp_events %}
+      <div class="event">
+        <a href="{% url 'campdetails' event.id %}">
+          <div class="event_details">
+            <span class="event_image">
+              <img src="{{ event.logo_url }}" alt="rugby jersey">
+            </span>
+
+            <span class="event_type">{{ event.title }}</span>
+            <span class="event_host">{{ event.hosted_by }}</span>
+            <span class="event_date">{{ event.date|date:"F j, Y" }}</span>
+            <span class="event_time">{{ event.time|time:"h:i A" }} EST</span>
+          </div>
+        </a>
       </div>
-    {% empty %}
-      <p>No events found.</p>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
 </div>
 
-<div class="section camp_category">
-  <h2 class="category_title" id="pathway_camps">Pathway Academy Camps</h2>
-    <div class="camps">
+<div class="section padded">
+  <div class="row">
+    <div class="wide_split">
+      <p class="section_title text_red">PLAYER PATHWAYS</p>
+    </div>
+    <div class="event_feed">
       {% for event in pathway_events %}
-        <div class="camp_event">
-          <div class="camp_logo">
-              <a href="{% url 'campdetails' event.id %}">
-                <img src="{{event.logo_url}}" />
-              </a>
+      <div class="event">
+        <a href="{% url 'campdetails' event.id %}">
+          <div class="event_details">
+            <span class="event_image">
+              <img src="{{ event.logo_url }}" alt="rugby jersey">
+            </span>
+
+            <span class="event_type">{{ event.title }}</span>
+            <span class="event_host">{{ event.hosted_by }}</span>
+            <span class="event_date">{{ event.date|date:"F j, Y" }}</span>
+            <span class="event_time">{{ event.time|time:"h:i A" }} EST</span>
           </div>
-          <h3 class="event_title">{{event.title}}</h3>
-          <p>{{event.date}}</p>
-        </div>
-      {% empty %}
-        <p>No events found.</p>
+        </a>
+      </div>
       {% endfor %}
     </div>
+  </div>
 </div>
 {% endblock %}
 

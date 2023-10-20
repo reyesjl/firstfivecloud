@@ -10,113 +10,25 @@
   <h1 class="title">Store</h1>
 </div>
 
-<div class="tab_bar">
-  <h4 id="featured" class="tab_title active">featured</h4>
-  <h4 id="common" class="tab_title">common</h4>
-  <h4 id="team" class="tab_title">team</h4>
-  <h4 id="rare" class="tab_title">rare</h4>
-  <h4 id="archives" class="tab_title">archives</h4>
-</div>
-
 <div class="section">
-  <div class="products"> 
+  <div class="catalog">
 
-    <div class="product_list featured_products active"> <!-- FEATURED PRODUCTS -->
-      {% for product in featured_products %}
-      <div class="product-card">
-        <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
-        
-        <div class="product-content">
-        <p class="product-name">{{ product.name }}</p>
-        {% if product.is_active %}
-          <p class="product-price">${{product.price}}</p>
-        {% else %}
-          <p class="sold">sold out</p>
-        {% endif %}
-        </div>
+    {% for product in products %}
+    <div class="product">
+      <div class="product_image">
+        <a href="{{ product.metadata.payment_link }}">
+          <img src="{{ product.images.0 }}" />
+        </a>
       </div>
-      {% empty %}
-        <em>No Products Found.</em>
-      {% endfor %}
-    </div> <!-- END OF COMMON PRODUCTS -->
+      
+      <div class="product_details">
+        <span class="product_name">{{ product.name }}</span>
+        <span class="product_price"></span>
+      </div>
+    </div>
+    {% endfor %}
 
-    <div class="product_list common_products"> <!-- COMMON PRODUCTS -->
-      {% for product in common_products %}
-      <div class="product-card">
-        <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
-        
-        <div class="product-content">
-        <p class="product-name">{{ product.name }}</p>
-        {% if product.is_active %}
-          <p class="product-price">${{product.price}}</p>
-        {% else %}
-          <p class="sold">sold out</p>
-        {% endif %}
-        </div>
-      </div>
-      {% empty %}
-        <em>No Products Found.</em>
-      {% endfor %}
-    </div> <!-- END OF COMMON PRODUCTS -->
-
-    <div class="product_list team_products"> <!-- TEAM PRODUCTS -->
-      {% for product in team_products %}
-      <div class="product-card">
-        <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
-        
-        <div class="product-content">
-        <p class="product-name">{{ product.name }}</p>
-        {% if product.is_active %}
-          <p class="product-price">${{product.price}}</p>
-        {% else %}
-          <p class="sold">sold out</p>
-        {% endif %}
-        </div>
-      </div>
-      {% empty %}
-        <em>No Products Found.</em>
-      {% endfor %}
-    </div> <!-- END OF COMMON PRODUCTS -->
-
-    <div class="product_list rare_products"> <!-- RARE PRODUCTS -->
-      {% for product in rare_products %}
-      <div class="product-card">
-        <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
-        
-        <div class="product-content">
-        <p class="product-name">{{ product.name }}</p>
-        {% if product.is_active %}
-          <p class="product-price">${{product.price}}</p>
-        {% else %}
-          <p class="sold">sold out</p>
-        {% endif %}
-        </div>
-      </div>
-      {% empty %}
-        <em>No Products Found.</em>
-      {% endfor %}
-    </div> <!-- END OF COMMON PRODUCTS -->
-
-    <div class="product_list archived_products"> <!-- ARCHIVED PRODUCTS -->
-      {% for product in archived_products %}
-      <div class="product-card">
-        <a href="{% url 'productdetails' product.id %}"><img src="{{ product.image_url }}" /></a>
-        
-        <div class="product-content">
-        <p class="product-name">{{ product.name }}</p>
-        {% if product.is_active %}
-          <p class="product-price">${{product.price}}</p>
-        {% else %}
-          <p class="sold">sold out</p>
-        {% endif %}
-        </div>
-      </div>
-      {% empty %}
-        <em>No Products Found.</em>
-      {% endfor %}
-    </div> <!-- END OF COMMON PRODUCTS -->
-  
-  </div> <!-- END OF ALL PRODUCTS -->
+  </div>
 </div>
 
 {% endblock %}

@@ -10,53 +10,33 @@
 
 {% block content %}
 <div class="banner">
-  <h1 class="title">Sponsored Teams</h1>
+  <div class="row">
+  </div>
 </div>
 
 <div class="section">
-  <div class="teamslist">
-  <div class="description">
-    <p>See all team events and live scores. Make it easy for players to register and find your club. Watch the competition.</p>
-  </div>
-  <div class="filter-container">
-    <h4 class="clubs">Filter By Name or Zipcode</h4>
-    <div class="fields">
-      <div class="field">
-        <label for="club-name-filter">Club Name:</label>
-        <input type="text" id="club-name-filter" placeholder="type club name">
-      </div>
-      <div class="field">
-        <label for="club-zipcode-filter">Zipcode:</label>
-        <input type="text" id="zipcode-filter" placeholder="type club zipcode">
-      </div>
-    </div>
+  <div class="row">
+    <p class="section_title">SELECT CATEGORY</p>
   </div>
 
-  <div class="table-container">
-    <table class="table" cellpadding=10 cellspacing=0>
-      <thead>
-          <tr>
-              <th>Club Name</th>
-              <th>Division</th>
-              <th>Zipcode</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for team in teams %}
-            <tr>
-                <td><a href="{% url 'teamdetails' team.id %}">{{ team.name }}</a></td>
-                <td>{{ team.division }}</td>
-                <td>{{ team.zipcode }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-    </table>
+  <div class="row">
+    <ul class="category_list">
+      <li><a class="link" href="#club">Club Rugby</a></li>
+      <li><a class="link" href="#college">College Rugby</a></li>
+      <li><a class="link disabled_link" href="#aar">All American Rugby</a></li>
+      <li><a class="link" href="#mlr">Major League Rugby</a></li>
+    </ul>
   </div>
 </div>
+
+<div class="section padded">
+  <div class="row">
+    <p class="section_title">ADD YOUR CLUB</p>
+    <p>Take your club to the next level.</p>
+  </div>
 </div>
 {% endblock %}
 
 {% block customjs %}
   <script src="{% static 'js/index.js' %}"></script>
-  <script src="{% static 'js/filter.js' %}"></script>
 {% endblock %}

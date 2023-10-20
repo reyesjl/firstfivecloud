@@ -1,0 +1,43 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/research.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section top backtan">
+  <div class="row long">
+    <div class="feature">
+      <div class="left">
+        <span>Pioneering research on the path to better rugby.</span>
+      </div>
+      <div class="right">
+        <span class="description">We believe our research will eventually lead to better overall rugby in North America, a system that can help players make game-level decisions. Building a beneficial hub is our mission.</span>
+        <div class="pair_links">
+          <a href="{% url "research" %}"><button class="button">View research index</button></a>
+          <a class="link" href="#">Learn about Safety</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="row long">
+    <div class="cover_image">
+      <img src="https://i.imgur.com/bRiOtkk.jpg" />
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

@@ -4,6 +4,7 @@ from .models import Team, Fixture, Product, Event, EventTicket
 from .forms import EventTicketForm
 import os, requests, random
 from dotenv import load_dotenv
+import stripe
 
 # Load env file terminology
 load_dotenv()
@@ -14,8 +15,8 @@ def handleHomeRoute(request):
     """
     featured_products = Product.objects.filter(category__name='featured', is_active=True)
 
-    camp_events = Event.objects.filter(category="festival").order_by('date') 
-    events = camp_events[:5]
+    camp_events = Event.objects.all().order_by('date') 
+    events = camp_events[:10]
 
     context = {
         "activelink": 0,
@@ -24,14 +25,36 @@ def handleHomeRoute(request):
     }
     return render(request, "home.html", context)
 
+def handleResearchRoute(request):
+    """
+    Display research page.
+    """
+
+    context = {
+        "activelink": 0,
+    }
+    return render(request, "research.html", context)
+
+def handleAboutRoute(request):
+    """
+    Display about page.
+    """
+    context = {
+        "activelink": 6,
+    }
+    return render(request, "about.html", context)
+
 def handlePlayersRoute(request):
     """
     Show the players page.
     """
+    camp_events = Event.objects.all().order_by('date') 
+    events = camp_events[:5]
     player_deal_products = Product.objects.filter(category__name='player_deal', is_active=True)
     context = {
         "activelink": 1,
         "player_deal_products": player_deal_products,
+        "events": events,
     }
     return render(request, "players.html", context)
 
@@ -93,20 +116,17 @@ def handleStoreRoute(request):
     """
     Show the store page.
     """
-    featured_products = Product.objects.filter(category__name="featured", is_active=True)
-    team_products = Product.objects.filter(category__name="team", is_active=True)
-    rare_products = Product.objects.filter(category__name="rare", is_active=True)
-    common_products = Product.objects.filter(category__name="common", is_active=True)
-    archived_products = Product.objects.filter(category__name="jersey", is_active=False)
+
+    stripe.api_key = "sk_test_51Ny5LQI2LlT0b19fVnX2tj76wVyxmcJLxBIZgOcTZD5BKoDy5PPHuZkjjdeknHp5wQjo2tA8Paj3GgjDFNypyTJh00gI5FLlPb"
+    
+    # Retrieve a list of all products
+    products = stripe.Product.list(limit=100)
 
     context = {
         "activelink": 3,
-        "featured_products": featured_products,
-        "team_products": team_products,
-        "rare_products": rare_products,
-        "common_products": common_products,
-        "archived_products": archived_products,
+        "products": products,
     }
+
     return render(request, "store.html", context)
 
 def handleFetchProductDetailsRoute(request, id):

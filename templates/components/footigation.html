@@ -18,11 +18,11 @@
       </div>
       <div class="footer-menu-navbar">
         <ul class="footer-menu-list">
+          <li><a {% if activelink == 6 %} class="active" {%endif %} href={% url 'home' %}>About Us</a></li>
           <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'players' %}>Players</a></li>
           <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
           <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'store' %}>Store</a></li>
           <li><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'coaches' %}>Coaches</a></li>
-          <li><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'schedules' %}>Schedules</a></li>
         </ul>
       </div>
     </div>

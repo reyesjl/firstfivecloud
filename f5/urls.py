@@ -3,6 +3,8 @@ from django.urls import path
 
 urlpatterns = [
     path("", views.handleHomeRoute, name="home"),
+    # Research page route
+    path("research/", views.handleResearchRoute, name="research"),
     # Teams page route
     path("teams/", views.handleTeamsRoute, name="teams"),
     # Team Detail route
