@@ -54,7 +54,7 @@
             <h2>Find Rugby Near You</h2>
             <ul class="local_links">
                 {% for team in random_teams %}
-                    <li><a href="{% url 'teamdetails' team.id %}">{{team.name}}</a></li>
+                    <li><a href="{% url 'teams' %}">{{team.name}}</a></li>
                 {% endfor %}
                 <li><a href="https://firstfiverugby.com/teams">See All Clubs.</a></li>
             </ul>
