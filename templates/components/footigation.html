@@ -1,44 +1,38 @@
-<div class="footer">
-    <div class="container">
-    
-    <div class="footer_email">
-      <div class="footer-title">
-        <h4>Join Our Newsletter!</h4> 
-      </div>
-      <p>Get notification about new arrivals and re-stocks.</p>
-      <form>
-        <input type="email" name="email" placeholder="enter your email" />
-        <button>Subscribe</button>
-      </form>
-    </div>
+  
+<div class="section blackbg top">
+  <div class="row long">
+    <hr >
+    <span class="footer_title"><strong><em>FIRSTFIVE</em></strong> RUGBY</span>
+  </div>
 
-    <div class="footer_menu">
-      <div class="footer-title">
-        <h4>Menu</h4> 
+  <div class="row long">
+    <div class="footer_split">
+      <div class="footer_menu">
+        <span class="menu_title">Research</span>
+        <span><a href="{% url 'research' %}">Overview</a></span>
+        <span><a href="{% url 'research' %}">Index</a></span>
       </div>
-      <div class="footer-menu-navbar">
-        <ul class="footer-menu-list">
-          <li><a {% if activelink == 6 %} class="active" {%endif %} href={% url 'home' %}>About Us</a></li>
-          <li><a {% if activelink == 1 %} class="active" {%endif %} href={% url 'players' %}>Players</a></li>
-          <li><a {% if activelink == 2 %} class="active" {%endif %} href={% url 'teams' %}>Teams</a></li>
-          <li><a {% if activelink == 3 %} class="active" {%endif %} href={% url 'store' %}>Store</a></li>
-          <li><a {% if activelink == 4 %} class="active" {%endif %} href={% url 'coaches' %}>Coaches</a></li>
-        </ul>
+      <div class="footer_menu">
+        <span class="menu_title">Teams</span>
+        <span><a href="{% url 'teams' %}">Overview</a></span>
+        <span><a href="{% url 'tours' %}">Tours</a></span>
+        <span><a href="#">Pricing</a></span>
+        <span><a href="{% url 'matches' %}">Matches</a></span>
       </div>
-    </div>
-    
-    <div class="footer_help">
-      <div class="footer-title">
-        <h4>Extra Links</h4> 
+      <div class="footer_menu">
+        <span class="menu_title">Players</span>
+        <span><a href="{% url 'players' %}">Overview</a></span>
+        <span><a href="{% url 'players' %}">Training</a></span>
+        <span><a href="{% url 'store' %}">Store</a></span>
       </div>
-      <div class="footer-menu-navbar">
-        <ul class="footer-menu-list">
-          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'tours' %}">Team Tours</a></li>
-          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'partners' %}">Partners</a></li>
-          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'partners' %}">Terms & Conditions</a></li>
-          <li><a {% if activelink == 0 %} class="active" {%endif %} href="{% url 'partners' %}">Contact Us</a></li>
-        </ul>
+      <div class="footer_menu">
+        <span class="menu_title">Company</span>
+        <span><a href="#">About</a></span>
+        <span><a href="#">Blog</a></span>
+        <span><a href="#">Roadmap</a></span>
+        <span><a href="#">Player stories</a></span>
       </div>
     </div>
   </div>
+  
 </div>
