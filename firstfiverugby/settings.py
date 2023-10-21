@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "django_libsass",
     "f5",
     "members",
+    'teams',
 ]
 
 # routing middleware

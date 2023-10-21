@@ -1,0 +1,71 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/teams.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section blackbg top"> 
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
+      <p class="section_title">All Matches</p>
+    </div>
+  </div>
+
+  <div class="row long">
+    <div class="match_list">
+      {% for match in paginated_matches %}
+        <div class="match">
+            <div class="match_date">
+              <span><strong>{{ match.date|date:"l, " }}</strong><br />{{ match.date|date:"d F" }}</span>
+            </div>
+
+            <div class="match_crests">
+              <span class="crest"><img src="{{match.team1.crest}}" /></span>
+              <span class="crest"><img src="{{match.team2.crest}}" /></span>
+            </div>
+
+            <div class="match_teams">
+              <span>{{ match.team1.name }}</span>
+              <span>{{ match.team2.name }}</span>
+            </div>
+
+            <div class="match_scores">
+              <span>{{ match.team1_score }}</span>
+              <span>{{ match.team2_score }}</span>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="pagination">
+        <span class="step-links">
+            {% if paginated_matches.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ paginated_matches.previous_page_number }}">back</a>
+            {% endif %}
+
+            <span class="current-page">
+                Page {{ paginated_matches.number }} of {{ paginated_matches.paginator.num_pages }}
+            </span>
+
+            {% if paginated_matches.has_next %}
+                <a href="?page={{ paginated_matches.next_page_number }}">next</a>
+                <a href="?page={{ paginated_matches.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+        </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

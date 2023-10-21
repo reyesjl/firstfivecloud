@@ -1,0 +1,93 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/teams.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="banner">
+  <div class="section top">
+    <div class="row">
+      <div class="feature">
+        <div class="context">
+          <span>Transforming teams and coaches through the web.</span>
+        </div>
+        <div class="pair_links">
+            <button class="button">Explore Hosting Options</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section blackbg"> 
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
+      <p class="section_title">Recent matches</p>
+      <a class="link" href="{% url 'matches' %}">view all matches</a>
+    </div>
+  </div>
+
+  <div class="row long">
+    <div class="match_list">
+      {% for date, matches in grouped_matches.items %}
+      <span class="date"><strong>{{ date|date:"l, " }}</strong>{{ date|date:"d F Y" }}</span>
+        {% for match in matches %}
+         <div class="match">
+
+            <div class="match_date">
+              <span><strong>{{ date|date:"l, " }}</strong><br />{{ date|date:"d F" }}</span>
+            </div>
+
+            <div class="match_crests">
+              <span class="crest"><img src="{{match.team1.crest}}" /></span>
+              <span class="crest"><img src="{{match.team2.crest}}" /></span>
+            </div>
+
+            <div class="match_teams">
+              <span>{{ match.team1.name }}</span>
+              <span>{{ match.team2.name }}</span>
+            </div>
+
+            <div class="match_scores">
+              <span>{{ match.team1_score }}</span>
+              <span>{{ match.team2_score }}</span>
+            </div>
+        </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="row">
+    <p class="section_title">Select category</p>
+  </div>
+
+  <div class="row">
+    <ul class="category_list">
+      <li><a class="link" href="#club">Club Rugby</a></li>
+      <li><a class="link" href="#college">College Rugby</a></li>
+      <li><a class="link disabled_link" href="#aar">All American Rugby</a></li>
+      <li><a class="link" href="#mlr">Major League Rugby</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="section padded">
+  <div class="row">
+    <p class="section_title">Add your club</p>
+    <p>Take your club to the next level.</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

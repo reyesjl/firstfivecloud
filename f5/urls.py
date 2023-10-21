@@ -5,12 +5,6 @@ urlpatterns = [
     path("", views.handleHomeRoute, name="home"),
     # Research page route
     path("research/", views.handleResearchRoute, name="research"),
-    # Teams page route
-    path("teams/", views.handleTeamsRoute, name="teams"),
-    # Team Detail route
-    path("teams/<int:id>/details/", views.handleFetchTeamDetailsRoute, name="teamdetails"),
-    # Team Fixture route
-    path("teams/<int:id>/fixtures/", views.handleFetchTeamFixturesRoute, name="teamfixtures"),
     # Players Page route
     path("players/", views.handlePlayersRoute, name="players"),
     # Schedules Page route

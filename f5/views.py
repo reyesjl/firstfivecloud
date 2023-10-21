@@ -67,42 +67,6 @@ def handleCoachesRoute(request):
     }
     return render(request, "coaches.html", context)
 
-def handleTeamsRoute(request):
-    """
-    Show a temporary static teams page.
-    """
-    teams = Team.objects.all()
-    context = {
-        "activelink": 2,
-        "teams":teams,
-    }
-    return render(request, "teams.html", context)
-
-def handleFetchTeamDetailsRoute(request, id):
-    """
-    Fetch the details of a specific team by ID.
-    """
-    team = get_object_or_404(Team, id=id)
-    context = {
-        "activelink": 2,
-        "team":team,
-    }
-    return render(request, 'teamdetails.html', context)
-
-def handleFetchTeamFixturesRoute(request, id):
-    """
-    Fetch team fixtures by ID.
-    """
-    team = get_object_or_404(Team, id=id)
-    fixtures = Fixture.objects.filter(Q(team_1=team) | Q(team_2=team)).order_by('date_played')
-
-    context = {
-        "activelink": 2,
-        "team": team,
-        "fixtures": fixtures,
-    }
-    return render(request, 'teamfixtures.html', context)
-
 def handleSchedulesRoute(request):
     """
     Show the schedules page.
