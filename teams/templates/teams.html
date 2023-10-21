@@ -17,7 +17,7 @@
           <span>Transforming teams and coaches through the web.</span>
         </div>
         <div class="pair_links">
-            <button class="button">Explore Hosting Options</button>
+            <a href="{% url 'teams' %}"><button class="button">Explore Hosting Options</button></a>
           </div>
       </div>
     </div>
@@ -65,25 +65,13 @@
   </div>
 </div>
 
-<div class="section">
-  <div class="row">
-    <p class="section_title">Select category</p>
-  </div>
-
-  <div class="row">
-    <ul class="category_list">
-      <li><a class="link" href="#club">Club Rugby</a></li>
-      <li><a class="link" href="#college">College Rugby</a></li>
-      <li><a class="link disabled_link" href="#aar">All American Rugby</a></li>
-      <li><a class="link" href="#mlr">Major League Rugby</a></li>
-    </ul>
-  </div>
-</div>
-
-<div class="section padded">
-  <div class="row">
-    <p class="section_title">Add your club</p>
-    <p>Take your club to the next level.</p>
+<div class="section"> 
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
+      <p class="section_title">Choose category</p>
+      <a class="link" href="{% url 'teams' %}">view all teams</a>
+    </div>
   </div>
 </div>
 {% endblock %}
