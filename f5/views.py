@@ -25,16 +25,6 @@ def handleHomeRoute(request):
     }
     return render(request, "home.html", context)
 
-def handleResearchRoute(request):
-    """
-    Display research page.
-    """
-
-    context = {
-        "activelink": 0,
-    }
-    return render(request, "research.html", context)
-
 def handleAboutRoute(request):
     """
     Display about page.
@@ -44,6 +34,32 @@ def handleAboutRoute(request):
     }
     return render(request, "about.html", context)
 
+def handleResearchRoute(request):
+    """
+    Display research page.
+    """
+
+    context = {
+        "activelink": 7,
+    }
+    return render(request, "research.html", context)
+
+def handlePartnersRoute(request):
+    """
+    Render the partners page.
+    """
+    context = {
+        "activelink": 0,
+    }
+    return render(request, "partners.html", context)
+
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# MOVE TO PLAYERS APP WHEN READY 
 def handlePlayersRoute(request):
     """
     Show the players page.
@@ -58,6 +74,7 @@ def handlePlayersRoute(request):
     }
     return render(request, "players.html", context)
 
+# MOVE TO COACHES APP ?????
 def handleCoachesRoute(request):
     """
     Show coaches page.
@@ -67,6 +84,7 @@ def handleCoachesRoute(request):
     }
     return render(request, "coaches.html", context)
 
+# MOVE TO TEAMS APP
 def handleSchedulesRoute(request):
     """
     Show the schedules page.
@@ -76,6 +94,8 @@ def handleSchedulesRoute(request):
     }
     return render(request, "schedules.html", context)
 
+
+# MOVE TO STORE APP
 def handleStoreRoute(request):
     """
     Show the store page.
@@ -93,6 +113,7 @@ def handleStoreRoute(request):
 
     return render(request, "store.html", context)
 
+# MOVE TO STORE
 def handleFetchProductDetailsRoute(request, id):
     """
     Display a product on its own.
@@ -105,6 +126,7 @@ def handleFetchProductDetailsRoute(request, id):
 
     return render(request, "productdetails.html", context)
 
+# MOVE WHERE HMMM ?
 def handleCampsRoute(request):
     """
     Display upcoming camp information.
@@ -151,6 +173,7 @@ def handleCampDetailsRoute(request, id):
     }
     return render(request, "campdetails.html", context)
 
+# MOVE TO EVENTS ?
 def handleToursRoute(request):
     """
     Render the tours page.
@@ -159,15 +182,6 @@ def handleToursRoute(request):
         "activelink": 5
     }
     return render(request, "tours.html", context)
-
-def handlePartnersRoute(request):
-    """
-    Render the partners page.
-    """
-    context = {
-        "activelink": 0,
-    }
-    return render(request, "partners.html", context)
 
 def handleCampSuccessRoute(request, id):
     """
