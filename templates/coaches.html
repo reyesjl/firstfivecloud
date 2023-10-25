@@ -5,7 +5,8 @@
 
 <!-- stylehseet for this page -->
 {% block customcss %}
-  <link rel="stylesheet" href="{% static 'css/coaches.css' %}">
+  <link rel="stylesheet" href="{% static 'css/coaches.css' %}"> 
+  <link rel="stylesheet" href="{% static 'css/campdetails.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -16,74 +17,54 @@
         <div class="context">
           <span>Transforming teams and coaches through the web.</span>
         </div>
-        <div class="pair_links">
-          <button class="button">See Rugby Camps</button>
-        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="top" class="jump_list">
-  <ul class="list">
-    <li class="item">1. <a href="#certs">Certifications</a></li>
-    <li class="item">3. <a href="#create_club">Create a Club</a></li>
-    <li class="item">4. <a href="#training_plans">Training Plans</a></li>
-  </ul>
-</div>
+<div class="section blackbg">
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
+      <div>
+        <p class="section_title">Certifications</p>
+      </div>
 
-<div id="certs" class="section">
-  <h2 class="section_title">Certifications</h2>
-  <div class="coaching_services">
-    <div class="course_card">
-      <div class="card_image">
-      </div>
-      <div class="card_title">
-        <h4>World Rugby Level 1 Coach (In-Person)</h4>
-      </div>
-      <div class="card_content">
-        <div class="card_action">
-          <a href="https://usa.rugby/courses">Access Course</a>
+      <div class="details">
+        <div class="detail_item">
+            <span><strong>Level 100 Coaching</strong></span>
+            
+            <span><p>Designed for individuals coaching rugby involving tackling, World Rugby Level 1 Coach is suitable for those aged 17 and above. This 8-hour in-person course focuses on player welfare, technical skills, and effective coaching techniques. It also includes online courses on World Rugby's Passport website to complete before certification.</p></span>
         </div>
-        <div class="card_desc">
-          <p>Designed for individuals coaching rugby involving tackling, World Rugby Level 1 Coach is suitable for those aged 17 and above. This 8-hour in-person course focuses on player welfare, technical skills, and effective coaching techniques. It also includes online courses on World Rugby's Passport website to complete before certification.</p>
+
+
+        <div class="detail_item">
+            <span><strong>Level 200 Coaching</strong></span>
+            <span><p>Intended for Level 1 Coaches with a year of experience, World Rugby Level 2 Coach is ideal for coaching adult players aged 18 or older. This 2-day, 16-hour in-person course explores advanced coaching skills, including athlete development and program building. It involves pre-coursework, an in-person clinic, and post-coursework, often taking a year or more to complete.</p></span>
+        </div>
+
+        <div class="detail_item">
+            <span><strong>Level 300 Coaching</strong></span>
+            <span><p>Designed for aspiring or professional rugby coaches, World Rugby Level 3 Coach is a comprehensive year-long program. It includes multiple online sessions, a 3-day in-person camp, and an in-person assessment. This course is by application, with applications opening in the summer and an annual intake beginning in August.</p></span>
         </div>
       </div>
     </div>
 
-    <div class="course_card">
-      <div class="card_image">
-      </div>
-      <div class="card_title">
-        <h4>World Rugby Level 2 Coach (In-Person)</h4>
-      </div>
-      <div class="card_content">
-        <div class="card_action">
-          <a href="https://usa.rugby/courses">Access Course</a>
-        </div>
-        <div class="card_desc">
-          <p>Intended for Level 1 Coaches with a year of experience, World Rugby Level 2 Coach is ideal for coaching adult players aged 18 or older. This 2-day, 16-hour in-person course explores advanced coaching skills, including athlete development and program building. It involves pre-coursework, an in-person clinic, and post-coursework, often taking a year or more to complete.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="course_card">
-      <div class="card_image">
-      </div>
-      <div class="card_title">
-        <h4>World Rugby Level 3 Coach (In-Person)</h4>
-      </div>
-      <div class="card_content">
-        <div class="card_action">
-          <a href="https://usa.rugby/courses">Access Course</a>
-        </div>
-        <div class="card_desc">
-          <p>Designed for aspiring or professional rugby coaches, World Rugby Level 3 Coach is a comprehensive year-long program. It includes multiple online sessions, a 3-day in-person camp, and an in-person assessment. This course is by application, with applications opening in the summer and an annual intake beginning in August.</p>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
+
+<div class="section blackbg"> 
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
+      <p class="section_title">Coming soon.</p>
+    </div>
+  </div>
+  <div class="row long">
+    <p>"Thank you for your patience. If you have feedback, please <a href="mailto:letusknow@firstfiverugby.com">letusknow</a>." - FFR Software Team</p>
+  </div>
+</div>
+
 
 {% endblock %}
 

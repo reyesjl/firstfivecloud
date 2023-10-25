@@ -13,15 +13,20 @@
         <div class="context">
           <span>Join us in shaping the future of rugby apparel.</span>
         </div>
-        <div class="pair_links">
-            <button class="button">View Jersey Archives</button>
-          </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="section">
+<div class="section"> 
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
+      <p class="section_title">Featured</p>
+    </div>
+  </div>
+
+  <div class="row long">
   <div class="catalog">
 
     {% for product in products %}
@@ -38,8 +43,9 @@
       </div>
     </div>
     {% endfor %}
-
   </div>
+  </div>
+  
 </div>
 
 {% endblock %}

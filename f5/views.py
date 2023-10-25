@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.db.models import Q
+from django.utils import timezone
 from .models import Team, Fixture, Product, Event, EventTicket
 from .forms import EventTicketForm
 import os, requests, random
@@ -15,7 +15,11 @@ def handleHomeRoute(request):
     """
     featured_products = Product.objects.filter(category__name='featured', is_active=True)
 
-    camp_events = Event.objects.all().order_by('date') 
+     # Filter events with dates that have not yet passed
+    current_date = timezone.now()
+    camp_events = Event.objects.filter(date__gte=current_date).order_by('date') 
+
+    # Select the first 10 upcoming events
     events = camp_events[:10]
 
     context = {
@@ -131,8 +135,9 @@ def handleCampsRoute(request):
     """
     Display upcoming camp information.
     """
-    camp_events = Event.objects.filter(category="festival").order_by('date')
-    pathway_events = Event.objects.filter(category="pathways").order_by('date')
+    current_date = timezone.now()
+    camp_events = Event.objects.filter(category="festival", date__gte=current_date).order_by('date')
+    pathway_events = Event.objects.filter(category="pathways", date__gte=current_date).order_by('date')
     context = {
         "activelink": 1,
         "camp_events": camp_events,

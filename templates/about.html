@@ -1,0 +1,55 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/research.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section top backtan">
+  <div class="row long">
+    <div class="feature">
+      <div class="left">
+        <span>Explore our company's story and mission.</span>
+      </div>
+      <div class="right">
+        <span class="description">Passionate about rugby, we're dedicated to building a holistic community platform for the sport we love. Drawing from our shared background in North American rugby, we aim to elevate every aspect of the game and set new standards across all rugby sectors.</span>
+        <div class="pair_links">
+          <a href="{% url "research" %}"><button class="button">View our roadmap</button></a>
+          <a class="link" href="#">Give us feedback</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="row long">
+    <div class="cover_image">
+      <img src="https://i.imgur.com/yYCk4Zf.jpg" />
+    </div>
+  </div>
+</div>
+
+<div class="section"> 
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
+      <p class="section_title">Coming soon.</p>
+    </div>
+  </div>
+  <div class="row long">
+    <p>"Thank you for your patience. If you have feedback, please <a href="mailto:letusknow@firstfiverugby.com">letusknow</a>." - FFR Software Team</p>
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
