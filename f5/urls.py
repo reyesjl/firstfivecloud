@@ -3,6 +3,7 @@ from django.urls import path
 
 urlpatterns = [
     path("", views.handleHomeRoute, name="home"),
+    path("about/", views.handleAboutRoute, name="about"),
     # Research page route
     path("research/", views.handleResearchRoute, name="research"),
     # Players Page route
