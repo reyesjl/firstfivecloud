@@ -7,7 +7,7 @@ def handleTeamsRoute(request):
     Return the teams page.
     """
      # Retrieve the 6 most recent matches from the 'Division 1 College' league
-    recent_matches = Match.objects.filter(team1__league='Division 1 College', team2__league='Division 1 College').order_by('-date')[:6]
+    recent_matches = Match.objects.order_by('-date')[:6]
 
     # Group the matches by date
     grouped_matches = {}
@@ -23,9 +23,35 @@ def handleTeamsRoute(request):
     }
     return render(request, "teams.html", context)
 
+def handleTeamsInLeagueRoute(request, league_name):
+    """
+    Return teams in a league and their matches.
+    """
+    # Retrieve the teams associated with the specified league_name
+    teams = Team.objects.filter(league=league_name)
+
+    # Retrieve the 6 most recent matches from the 'Division 1 College' league
+    recent_matches = Match.objects.filter(team1__league='All-American Rugby Cup', team2__league='All-American Rugby Cup').order_by('-date')[:6]
+
+    # Group the matches by date
+    grouped_matches = {}
+    for match in recent_matches:
+        date = match.date
+        if date not in grouped_matches:
+            grouped_matches[date] = []
+        grouped_matches[date].append(match)
+
+    context = {
+        "activelink": 2,
+        "teams": teams,
+        "grouped_matches": grouped_matches,
+        "league": league_name,
+    }
+    return render(request, "teams-in-league.html", context)
+
 def handleMatchesRoute(request):
     # Retrieve recent matches and order them by date
-    recent_matches = Match.objects.filter(team1__league='Division 1 College', team2__league='Division 1 College').order_by('-date')
+    recent_matches = Match.objects.order_by('-date')
 
     # Group the matches by date
     grouped_matches = {}

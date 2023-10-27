@@ -1,42 +1,39 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.contrib import messages
+from django.shortcuts import redirect, render
+
+User = get_user_model()
 
 def handleSignupUser(request):
-  """
-  Sign up user to platform.
-  """
-  context = {
-    'activelink': 2,
-  }
-  return render(request, 'members/signup.html', context)
+    """
+    Sign up user to platform.
+    """
+    # Your code for signup
+    return render('signup.html')
 
 def handleLoginUser(request):
-  """
-  Log a user into the system.
-  """
-  context = {
-    "activelink": 2,
-  }
-
-  if request.method == "POST":
-    username = request.POST['username']  
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-      login(request, user)
-      messages.success(request, ('User is authenticated.'))
-      return redirect('home')
+    """
+    Log a user into the system.
+    """
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'User is authenticated.')
+            return redirect('home')
+        else:
+            messages.error(request, 'User is NOT authenticated.')  # Use error instead of success for error messages
+            return redirect('login')
     else:
-      messages.success(request, ('User is NOT authenticated.'))
-      return redirect('login')
-  else:
-    return render(request, 'members/login.html', context)
-  
+        # Your code for login
+        return render('login.html')
+
 def handleLogoutUser(request):
-  """
-  Log a user out of the system.
-  """
-  logout(request)
-  messages.success(request, ('User has been authenticated.'))
-  return redirect('members/logout.html')
+    """
+    Log a user out of the system.
+    """
+    logout(request)
+    messages.success(request, 'User has been logged out.')
+    return redirect('logout.html')

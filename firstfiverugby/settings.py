@@ -71,7 +71,7 @@ DATABASES = {
 }
 
 # authentication
-AUTH_USER_MODEL = "auth.User"
+AUTH_USER_MODEL = "members.FirstfiveUser"
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",

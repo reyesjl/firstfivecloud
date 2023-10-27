@@ -27,25 +27,24 @@
   </div>
 
   <div class="row long">
-  <div class="catalog">
+    <div class="catalog">
 
-    {% for product in products %}
-    <div class="product">
-      <div class="product_image">
-        <a href="{{ product.metadata.payment_link }}">
-          <img src="{{ product.images.0 }}" />
-        </a>
+      {% for product in products %}
+      <div class="product">
+        <div class="product_image">
+          <a href="{{ product.metadata.payment_link }}">
+            <img src="{{ product.images.0 }}" />
+          </a>
+        </div>
+        
+        <div class="product_details">
+          <span class="product_name">{{ product.name }}</span>
+          <span class="product_price"></span>
+        </div>
       </div>
-      
-      <div class="product_details">
-        <span class="product_name">{{ product.name }}</span>
-        <span class="product_price"></span>
-      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-  </div>
-  
+  </div> 
 </div>
 
 {% endblock %}

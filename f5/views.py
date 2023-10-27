@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-from .models import Team, Fixture, Product, Event, EventTicket
+from .models import Event, EventTicket
 from .forms import EventTicketForm
-import os, requests, random
+import random
 from dotenv import load_dotenv
 import stripe
 
@@ -13,8 +13,6 @@ def handleHomeRoute(request):
     """
     Displays home route.
     """
-    featured_products = Product.objects.filter(category__name='featured', is_active=True)
-
      # Filter events with dates that have not yet passed
     current_date = timezone.now()
     camp_events = Event.objects.filter(date__gte=current_date).order_by('date') 
@@ -24,7 +22,6 @@ def handleHomeRoute(request):
 
     context = {
         "activelink": 0,
-        "featured_products": featured_products,
         "events": events,
     }
     return render(request, "home.html", context)
@@ -68,12 +65,13 @@ def handlePlayersRoute(request):
     """
     Show the players page.
     """
-    camp_events = Event.objects.all().order_by('date') 
+    
+    current_date = timezone.now()
+    camp_events = Event.objects.filter(date__gte=current_date).order_by('date') 
     events = camp_events[:5]
-    player_deal_products = Product.objects.filter(category__name='player_deal', is_active=True)
+
     context = {
         "activelink": 1,
-        "player_deal_products": player_deal_products,
         "events": events,
     }
     return render(request, "players.html", context)
@@ -117,19 +115,6 @@ def handleStoreRoute(request):
 
     return render(request, "store.html", context)
 
-# MOVE TO STORE
-def handleFetchProductDetailsRoute(request, id):
-    """
-    Display a product on its own.
-    """
-    product = get_object_or_404(Product, id=id)
-    context = {
-        "activelink": 3,
-        "product": product
-    }
-
-    return render(request, "productdetails.html", context)
-
 # MOVE WHERE HMMM ?
 def handleCampsRoute(request):
     """
@@ -150,7 +135,6 @@ def handleCampDetailsRoute(request, id):
     Display the details for a specific camp
     """
     camp = get_object_or_404(Event, id=id)
-    random_teams = ''
     if request.method == 'POST':
         # django forms does the magic here for me
         form = EventTicketForm(request.POST)
@@ -162,19 +146,9 @@ def handleCampDetailsRoute(request, id):
     else:
         form = EventTicketForm()
 
-        total_teams = Team.objects.count()
-        # Check if there are at least 3 teams in the table
-        if total_teams >= 3:
-            # Generate 3 random unique indices within the range of total_teams
-            random_indices = random.sample(range(total_teams), 3)
-
-            # Fetch the teams using the random indices
-            random_teams = Team.objects.all()[random_indices[0]:random_indices[0] + 3]
-
     context = {
         'event': camp, 
         'form': form,
-        'random_teams': random_teams,
     }
     return render(request, "campdetails.html", context)
 

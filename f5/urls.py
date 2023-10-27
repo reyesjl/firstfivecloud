@@ -12,8 +12,6 @@ urlpatterns = [
     path("schedules/", views.handleSchedulesRoute, name="schedules"),
     # Store Page route
     path("store/", views.handleStoreRoute, name="store"),
-    # Product detail page
-    path("store/<int:id>/details", views.handleFetchProductDetailsRoute, name="productdetails"),
     # Coaches Page route
     path("coaches/", views.handleCoachesRoute, name="coaches"),
     # Camps page route

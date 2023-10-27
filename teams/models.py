@@ -1,5 +1,14 @@
 from django.db import models
 
+class League(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    year_founded = models.IntegerField(blank=True, null=True)
+    founders = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
 class Team(models.Model):
     name = models.CharField(max_length=100)
     crest = models.CharField(max_length=200, blank=True)
@@ -10,7 +19,7 @@ class Team(models.Model):
     rank = models.CharField(max_length=100, blank=True)
     state = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=100, blank=True)
-    league = models.CharField(max_length=100, blank=True)
+    league = models.ForeignKey(League, on_delete=models.CASCADE, related_name='teams', blank=True, null=True)
 
     def __str__(self):
         location_info = f"{self.city}, {self.state}" if self.city and self.state else "Location Unknown"
@@ -32,6 +41,10 @@ class Match(models.Model):
 
     def __str__(self):
         return f"{self.date} - {self.team1} {self.team1_score} vs {self.team2_score} {self.team2}"
+    
+    class Meta:
+        verbose_name = "Match"       # Singular name for the model
+        verbose_name_plural = "Matches"  # Plural name for the model
 
 class MatchEvent(models.Model):
     EVENT_TYPES = (
