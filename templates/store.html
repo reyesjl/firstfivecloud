@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<div id="tour_banner" class="banner">
+<div id="store_banner" class="banner">
   <div class="section top">
     <div class="row">
       <div class="feature">
@@ -18,33 +18,16 @@
   </div>
 </div>
 
-<div class="section"> 
+<div class="section blackbg"> 
   <div class="row long">
     <hr>
     <div class="wide_split">
-      <p class="section_title">Featured</p>
+      <p class="section_title">Coming soon.</p>
     </div>
   </div>
-
   <div class="row long">
-    <div class="catalog">
-
-      {% for product in products %}
-      <div class="product">
-        <div class="product_image">
-          <a href="{{ product.metadata.payment_link }}">
-            <img src="{{ product.images.0 }}" />
-          </a>
-        </div>
-        
-        <div class="product_details">
-          <span class="product_name">{{ product.name }}</span>
-          <span class="product_price"></span>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div> 
+    <p>"Thank you for your patience. If you have feedback, please <a class="link" href="mailto:letusknow@firstfiverugby.com">letusknow</a>." - FFR Software Team</p>
+  </div>
 </div>
 
 {% endblock %}
