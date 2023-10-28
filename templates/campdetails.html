@@ -62,29 +62,29 @@
 </div>
 
 <div class="section blackbg">
-    <div class="row long">
-        <hr>
-        <div class="wide_split">
-            <p class="section_title">Register here</p>
-        </div>
-        {% if event.is_active %}
-                {% if event.external_registration %}
-                    <ul>
-                        <li>Click <a href="{{ event.register_link }}">here</a> to register.</li>
-                    </ul>
-                {% else %}
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit">Submit</button>
-                    </form>
-                {% endif %}
-            {% else %} <!-- EVENT NOT ACTIVE -->
-                <ul>
-                    <li class="inactive_camp">Registration is not yet open for this event.</li>
-                </ul>
-            {% endif %}
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
+        <p class="section_title">Register here</p>
     </div>
+    {% if event.is_active %}
+      {% if event.external_registration %}
+        <ul>
+            <li>Click <a href="{{ event.register_link }}">here</a> to register.</li>
+        </ul>
+      {% else %}
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Submit</button>
+        </form>
+      {% endif %}
+    {% else %} <!-- EVENT NOT ACTIVE -->
+      <ul>
+        <li class="inactive_camp">Registration is not yet open for this event.</li>
+      </ul>
+    {% endif %}
+  </div>
 </div>
 {% endblock%}
 
