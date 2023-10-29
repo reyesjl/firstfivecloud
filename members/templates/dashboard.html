@@ -1,0 +1,25 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/research.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section top blackbg">
+  <div class="row long">
+    <p class="section_title">Welcome back, {{user.username}}</p>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

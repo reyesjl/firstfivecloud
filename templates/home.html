@@ -11,6 +11,13 @@
 {% block content %}
 <div id="home_banner" class="banner">
   <div class="section top">
+    <div id="indicator">
+      <div class="blip"></div>
+      <div class="blip"></div>
+      <div class="blip"></div>
+      <div class="blip"></div>
+    </div>
+    
     <div class="row">
       <div class="feature">
         <div class="context">
@@ -99,5 +106,6 @@
 
 {% block customjs %}
   <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/banner_slider.js' %}"></script>
 {% endblock %}
 

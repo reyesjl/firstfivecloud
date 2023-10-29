@@ -23,5 +23,22 @@
     <span><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'coaches' %}>Coaches</a><i class="fa-solid fa-arrow-right"></i></span>
     <span><a {% if activelink == 6 %} class="active" {%endif %} href={% url 'tours' %}>Tours</a><i class="fa-solid fa-globe"></i></span>
     <span><a {% if activelink == 7 %} class="active" {%endif %} href={% url 'research' %}>Research</a><i class="fa-solid fa-arrow-right"></i></span>
+    
+    {% if user.is_authenticated %}
+      <span class="account_start">
+        <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'dashboard' user.username %}">{{ user.username }}</a>
+        <i class="fa-solid fa-user"></i>
+      </span>
+      <span>
+        <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'logout' %}">Logout</a>
+        <i class="fa-solid fa-sign-out"></i>
+      </span>
+    {% else %}
+      <span>
+        <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'login' %}">Account</a>
+        <i class="fa-solid fa-user"></i>
+      </span>
+    {% endif %}
+    </span>
   </div>
 </div>
