@@ -40,7 +40,7 @@ class Match(models.Model):
     team2_score = models.IntegerField(default=0)  # Score for team 2
 
     def __str__(self):
-        return f"{self.date} - {self.team1} {self.team1_score} vs {self.team2_score} {self.team2}"
+        return f"{self.date} - {self.team1.name} {self.team1_score} vs {self.team2_score} {self.team2.name}"
     
     class Meta:
         verbose_name = "Match"       # Singular name for the model
@@ -49,13 +49,76 @@ class Match(models.Model):
 class MatchEvent(models.Model):
     EVENT_TYPES = (
         ('try', 'Try Scored'),
-        ('card', 'Card Given'),
-        ('conversion', 'Conversion'),
+        ('yellow_card', 'Yellow Card Given'),
+        ('red_card', 'Red Card Given'),
+        ('try_conversion', 'Try Conversion'),
+        ('penalty_conversion', 'Penalty Conversion'),
+        ('penalty_try', 'Penalty Try')
     )
-    event_type = models.CharField(max_length=10, choices=EVENT_TYPES)
+    event_type = models.CharField(max_length=18, choices=EVENT_TYPES)
     minute = models.PositiveSmallIntegerField()
     player = models.CharField(max_length=100)
     match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name='events')
 
     def __str__(self):
         return f"{self.event_type} at {self.minute}' by {self.player}"
+    
+class Player(models.Model):
+    # Define choices for rugby positions
+    RUGBY_POSITIONS = (
+        ('PR', 'Prop'),
+        ('HK', 'Hooker'),
+        ('LK', 'Locke'),
+        ('FL', 'Flanker'),
+        ('N8', 'Number Eight'),
+        ('SH', 'Half-Back'),
+        ('FH', 'Fly-Half'),
+        ('CE', 'Center'),
+        ('WI', 'Wing'),
+        ('FB', 'Full-Back'),
+    )
+
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    date_of_birth = models.DateField()
+    position = models.CharField(max_length=13, choices=RUGBY_POSITIONS)
+    height = models.PositiveIntegerField()  # Height in centimeters
+    weight = models.PositiveIntegerField()  # Weight in kilograms
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='players', null=True, blank=True)
+
+    # Additional attributes for player ratings
+    speed = models.PositiveSmallIntegerField(null=True, blank=True)
+    strength = models.PositiveSmallIntegerField(null=True, blank=True)
+    agility = models.PositiveSmallIntegerField(null=True, blank=True)
+    endurance = models.PositiveSmallIntegerField(null=True, blank=True)
+    tackling = models.PositiveSmallIntegerField(null=True, blank=True)
+    passing = models.PositiveSmallIntegerField(null=True, blank=True)
+    kicking = models.PositiveSmallIntegerField(null=True, blank=True)
+
+    # Additional attributes
+    bronco_time = models.CharField(max_length=5, null=True, blank=True)
+    sprint_10m = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
+    sprint_40m = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True)
+    broad_jump = models.PositiveIntegerField(null=True, blank=True)
+    chin_ups = models.PositiveSmallIntegerField(null=True, blank=True)
+    back_squat = models.PositiveIntegerField(null=True, blank=True)
+    trap_bar_deadlift = models.PositiveIntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} ({self.position})"
+
+    class Meta:
+        verbose_name = "Rugby Player"
+        verbose_name_plural = "Rugby Players"
+
+class Roster(models.Model):
+    team = models.OneToOneField(Team, on_delete=models.CASCADE, related_name='roster')
+    starting_23 = models.ManyToManyField(Player, related_name='roster_starting_23', blank=True)
+    reserves = models.ManyToManyField(Player, related_name='roster_reserves', blank=True)
+
+    def __str__(self):
+        return f"Roster for {self.team.name}"
+
+    class Meta:
+        verbose_name = "Roster"
+        verbose_name_plural = "Rosters"

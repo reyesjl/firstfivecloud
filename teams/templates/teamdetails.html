@@ -1,0 +1,90 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/teamdetails.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="team_banner" 
+  class="banner"
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.5)), url('{{ team.banner_image }}');">
+  <div class="section top">
+    <div class="row">
+      <div class="feature">
+        <div class="context">
+          <span>{{team.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section blackbg">
+  <div class="row long">
+    <hr>
+    <p class="section_title">Roster & reserve</p>
+    <div class="roster_split">
+      <div class="roster_table">
+        <p>23 PLAYER ROSTER<p>
+        <table>
+          <thead>
+              <tr>
+                  <th>Player Name</th>
+                  <th>Position</th>
+                  <th>Height (cm)</th>
+                  <th>Weight (kg)</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for player in roster %}
+                  <tr>
+                      <td>{{ player.first_name }} {{ player.last_name }}</td>
+                      <td>{{ player.position }}</td>
+                      <td>{{ player.height }}</td>
+                      <td>{{ player.weight }}</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="roster_table">
+        <p>PLAYER RESERVE<p>
+        <table>
+          <thead>
+              <tr>
+                  <th>Player Name</th>
+                  <th>Position</th>
+                  <th>Height (cm)</th>
+                  <th>Weight (kg)</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for player in reserves %}
+                  <tr>
+                      <td>{{ player.first_name }} {{ player.last_name }}</td>
+                      <td>{{ player.position }}</td>
+                      <td>{{ player.height }}</td>
+                      <td>{{ player.weight }}</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div> <!-- END OF ROSTERS -->
+  </div>
+</div>
+
+<div class="section blackbg">
+  <div class="row long">
+    <hr>
+    <p class="section_title">Buy team merch</p>
+    
+  </div>
+</div>
+{% endblock %}

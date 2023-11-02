@@ -1,0 +1,61 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/store.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="store_banner" class="banner">
+  <div class="section top">
+    <div class="row">
+      <div class="feature">
+        <div class="context">
+          <span>Join us in shaping the future of rugby apparel.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section blackbg">
+  <div class="row long">
+    <hr>
+    <div class="two_column">
+      <div class="left">
+        <p class="section_title">Rugby honor caps</p>
+        <div class="points">
+          <p>A true testament to the rich tradition and global significance of rugby. These caps are not just accessories; they embody the cultural heritage of the sport. Crafted with meticulous attention to detail, we offer the opportunity to personalize each cap with your team's brand, trim, base colors, and lettering.</p>
+        </div>
+        
+        <br/>
+          <p><a class="link" href="{% url "store" %}">Order custom caps</a></p>
+        <p><a class="link" href="{% url "store" %}">Nova WRFC's 40th hall of fame</a></p>
+      </div>
+      <div class="right">
+        <img src="https://i.imgur.com/d1tuXJm.jpg" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section blackbg"> 
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
+      <p class="section_title">Vintage jersey archives</p>
+      <a class="link" href="{% url 'teams' %}">view all jerseys</a>
+    </div>
+  </div>
+  <div class="row long">
+    
+  </div>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
