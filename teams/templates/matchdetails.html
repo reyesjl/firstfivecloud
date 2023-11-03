@@ -1,0 +1,68 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/matchdetails.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="match_details" class="banner">
+  <!-- Display match details at the top -->
+  <div class="section top">
+    <div class="row long">
+      <div class="feature">
+        <div class="context">
+          <span>Match Details: {{ match.date|date:"l, d F Y" }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section blackbg">
+
+  <div id="Details" class="tabcontent">
+      <!-- Display match details here -->
+      <div class="match_details">
+        <p>Match Date: {{ match.date|date:"l, d F Y" }}</p>
+        <p>Team 1: {{ match.team1.name }}</p>
+        <p>Team 2: {{ match.team2.name }}</p>
+        <!-- Add other match details as needed -->
+      </div>
+    </div>
+
+    
+    <div id="Events" class="tabcontent">
+      <!-- Display game events in a table below -->
+      <div class="game_events">
+        <table>
+          <thead>
+            <tr>
+              <th>Event Type</th>
+              <th>Event Minute</th>
+              <th>Player</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in match_events %}
+              <tr>
+                <td>{{ event.event_type }}</td>
+                <td>{{ event.minute }}</td>
+                <td>{{ event.player.first_name }} {{ event.player.last_name }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/teamtabs.js' %}"></script>
+{% endblock %}

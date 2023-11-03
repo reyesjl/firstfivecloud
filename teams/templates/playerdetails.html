@@ -1,0 +1,59 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/teamdetails.css' %}">
+{% endblock %}
+
+{% block content %}
+ <div class="section top">
+        <div class="row long">
+            <hr>
+            <p class="section_title">Basic Information</p>
+            <p><strong>Name:</strong> {{ player.first_name }} {{ player.last_name }}</p>
+            <p><strong>Club:</strong> <a class="link" href="{% url 'team' player.team.id %}">{{ player.team.name }} RFC</a></p>
+            <p><strong>Date of Birth:</strong> {{ player.date_of_birth }}</p>
+            <p><strong>Position:</strong> {{ player.get_position_display }}</p>
+            <p><strong>Height:</strong> {{ player.height }} cm</p>
+            <p><strong>Weight:</strong> {{ player.weight }} kg</p>
+        </div>
+    </div>
+
+    <!-- Section 2: Player Ratings -->
+    <div class="section">
+        <div class="row long">
+            <hr>
+            <p class="section_title">Player Ratings</p>
+            <p><strong>Speed:</strong> {{ player.speed }}</p>
+            <p><strong>Strength:</strong> {{ player.strength }}</p>
+            <p><strong>Agility:</strong> {{ player.agility }}</p>
+            <p><strong>Endurance:</strong> {{ player.endurance }}</p>
+            <p><strong>Tackling:</strong> {{ player.tackling }}</p>
+            <p><strong>Passing:</strong> {{ player.passing }}</p>
+            <p><strong>Kicking:</strong> {{ player.kicking }}</p>
+        </div>
+    </div>
+
+    <!-- Section 3: Additional Attributes -->
+    <div class="section">
+        <div class="row long">
+            <hr>
+            <p class="section_title">Additional Attributes</p>
+            <p><strong>Bronco Time:</strong> {{ player.bronco_time }}</p>
+            <p><strong>Sprint 10m:</strong> {{ player.sprint_10m }}</p>
+            <p><strong>Sprint 40m:</strong> {{ player.sprint_40m }}</p>
+            <p><strong>Broad Jump:</strong> {{ player.broad_jump }}</p>
+            <p><strong>Chin-ups:</strong> {{ player.chin_ups }}</p>
+            <p><strong>Back Squat:</strong> {{ player.back_squat }}</p>
+            <p><strong>Trap Bar Deadlift:</strong> {{ player.trap_bar_deadlift }}</p>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

@@ -8,6 +8,7 @@ django-compressor==4.4
 django-extensions==3.2.3
 django-libsass==0.9
 ebaysdk==2.2.0
+Faker==19.13.0
 gunicorn==20.1.0
 idna==3.4
 libsass==0.22.0
@@ -15,10 +16,12 @@ lxml==4.9.3
 Pillow==9.5.0
 psycopg2==2.9.6
 pyinotify==0.9.6
+python-dateutil==2.8.2
 python-dotenv==1.0.0
 rcssmin==1.1.1
 requests==2.31.0
 rjsmin==1.2.1
+six==1.16.0
 sqlparse==0.4.4
 stripe==6.7.0
 typing_extensions==4.6.3

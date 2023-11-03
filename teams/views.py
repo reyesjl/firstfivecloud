@@ -1,13 +1,18 @@
+from django.db.models import Q
+from django.db.models.functions import Coalesce
 from django.shortcuts import get_object_or_404, render
-from .models import Team, Match, MatchEvent, League, Roster
+
+from f5 import models
+import teams
+from .models import Team, Match, MatchEvent, League, Roster, Player
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 def handleTeamsRoute(request):
     """
     Return the teams page.
     """
-     # Retrieve the 6 most recent matches from the 'Division 1 College' league
     recent_matches = Match.objects.order_by('-date')[:6]
+    leagues = League.objects.all()
 
     # Group the matches by date
     grouped_matches = {}
@@ -20,14 +25,13 @@ def handleTeamsRoute(request):
     context = {
         "activelink": 2,
         "grouped_matches": grouped_matches,
+        "leagues": leagues,
     }
     return render(request, "teams.html", context)
 
-def handleTeamDetailsRoute(request, team_name):
-    # Retrieve the team with the specified name or handle a 404 error if it doesn't exist
-    team = get_object_or_404(Team, name=team_name)
+def handleTeamRoute(request, team_id):
+    team = get_object_or_404(Team, id=team_id)
 
-    # Retrieve the roster for the team using the Roster model
     try:
         roster = Roster.objects.get(team=team)
         starting_23 = roster.starting_23.all()
@@ -37,16 +41,30 @@ def handleTeamDetailsRoute(request, team_name):
         starting_23 = []
         reserves = []
 
+    recent_matches = Match.objects.filter(
+        (Q(team1=team) & Q(team1__league=team.league)) | (Q(team2=team) & Q(team2__league=team.league))
+    ).order_by('-date')
+
+
+    # Group the matches by date
+    grouped_matches = {}
+    for match in recent_matches:
+        date = match.date
+        if date not in grouped_matches:
+            grouped_matches[date] = []
+        grouped_matches[date].append(match)
+
     # You can customize the context to include more information as needed
     context = {
         'team': team,
         'roster': starting_23,
         'reserves': reserves,
-        'activelink': 9,  # Assuming this is the active link for team details
+        'grouped_matches': grouped_matches,
+        'activelink': 9,  
     }
 
     # Render a template to display the team's details and roster
-    return render(request, 'teamdetails.html', context)
+    return render(request, 'team.html', context)
 
 def handleMatchesRoute(request):
     # Retrieve recent matches and order them by date
@@ -89,32 +107,45 @@ def handleMatchesRoute(request):
     }
     return render(request, "matches.html", context)
 
-def handleAllAmericanProLeagueRoute(request):
+def handleMatchDetailsRoute(request, match_id):
     """
-    Return the league's homepage
+    Return details for a match.
     """
-    league_title = "All American Pro"  # Replace with the actual title of your league
-
-    # First, retrieve the league with the specified title
-    leagues = League.objects.filter(title=league_title)
-
-    # Check if the league exists
-    if leagues.exists():
-        # If there are multiple leagues with the same title, you can choose one based on your criteria.
-        # For example, you can choose the first one:
-        league = leagues.first()
-        
-        # Now, retrieve all the teams associated with the league
-        teams = Team.objects.filter(league=league)
-        
-        # Create a list of dictionaries containing team name and crest
-        team_data = [{'name': team.name, 'crest': team.crest} for team in teams]
-    else:
-        # Handle the case where the league doesn't exist
-        team_data = []  # Initialize an empty list
+    match = get_object_or_404(Match, id=match_id)
 
     context = {
-        "activelink": 8,
-        "standings": team_data,
+        'activelink': 3,
+        'match': match,
     }
-    return render(request, "all-american-pro.html", context)
+
+    return render(request, 'matchdetails.html', context)
+
+def handleLeagueRoute(request, league_id):
+    if league_id is not None:
+        league = League.objects.filter(id=league_id).first()
+        # Replace the following line with code to get the teams associated with the league
+        league_teams = league.teams.all()  # Replace with the appropriate way to get the teams
+    else:
+        league = None
+        league_teams = None
+    
+    context = {
+        "activelink": 3,
+        "league": league,
+        "teams": league_teams,
+    }
+    return render(request, 'league.html', context)
+
+
+def handlePlayerDetailsRoute(request, player_id):
+    if player_id is not None:
+        player = Player.objects.filter(id=player_id).first()  # Filter players by the given player ID
+    else:
+        player = None
+
+    context = {
+        'activelink': 3,
+        'player': player,
+    }
+
+    return render(request, 'playerdetails.html', context)

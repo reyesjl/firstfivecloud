@@ -23,11 +23,6 @@
     <span><a {% if activelink == 5 %} class="active" {%endif %} href={% url 'coaches' %}>Coaches</a><i class="fa-solid fa-arrow-right"></i></span>
     <span><a {% if activelink == 6 %} class="active" {%endif %} href={% url 'tours' %}>Tours</a><i class="fa-solid fa-globe"></i></span>
     <span><a {% if activelink == 7 %} class="active" {%endif %} href={% url 'research' %}>Research</a><i class="fa-solid fa-arrow-right"></i></span>
-
-
-    {% if user.is_staff %}
-      <span><a {% if activelink == 8 %} class="active" {%endif %} href={% url 'all-american-pro' %}>All-American Pro</a><i class="fa-solid fa-arrow-right"></i></span>
-    {% endif %}
     
     {% if user.is_authenticated %}
       <span class="account_start">

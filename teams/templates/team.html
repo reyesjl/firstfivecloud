@@ -1,0 +1,129 @@
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/teamdetails.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="team_banner" 
+  class="banner"
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.5)), url('{{ team.banner_image }}');">
+  <div class="section top">
+    <div class="row">
+      <div class="feature">
+        <div class="context">
+          <span>Welcome to, <br />{{team.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section blackbg">
+  <div class="row long">
+    <div class="tab">
+      <a class="button-link light tablinks active" onclick="openTab(event, 'Matches')">Matches</a>
+      <a class="button-link light tablinks" onclick="openTab(event, 'Roster')">Roster</a>
+      <a class="button-link light tablinks" onclick="openTab(event, 'Store')">Store</a>
+    </div>
+
+    <div id="Matches" class="tabcontent" style="display: block;">
+      <div class="match_list">
+      {% for date, matches in grouped_matches.items %}
+      <span class="date"><strong>{{ date|date:"l, " }}</strong>{{ date|date:"d F Y" }}</span>
+        {% for match in matches %}
+         <div class="match" data-href="{% url 'matchdetails' match.id %}">
+
+            <div class="match_date">
+              <span><strong>{{ date|date:"l, " }}</strong><br />{{ date|date:"d F" }}</span>
+            </div>
+
+            <div class="match_crests">
+              <span class="crest"><img src="{{match.team1.crest}}" /></span>
+              <span class="crest"><img src="{{match.team2.crest}}" /></span>
+            </div>
+
+             <div class="match_teams">
+              <span><a class="link" href="{% url 'team' match.team1.id %}">{{ match.team1.name }}</a></span>
+              <span><a class="link" href="{% url 'team' match.team2.id %}">{{ match.team2.name }}</a></span>
+            </div>
+
+            <div class="match_scores">
+              <span>{{ match.team1_score }}</span>
+              <span>{{ match.team2_score }}</span>
+            </div>
+        </div>
+        {% endfor %}
+      {% endfor %}
+      </div>
+    </div>
+
+    <div id="Roster" class="tabcontent">
+      <div class="roster_split">
+        <div class="roster_table">
+          <p>23 PLAYER ROSTER<p>
+          <table>
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Position</th>
+                    <th>Height (cm)</th>
+                    <th>Weight (kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in roster %}
+                    <tr data-href="{% url 'playerdetails' player.id %}">
+                        <td>{{ player.first_name }} {{ player.last_name }}</td>
+                        <td>{{ player.position }}</td>
+                        <td>{{ player.height }}</td>
+                        <td>{{ player.weight }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="roster_table">
+          <p>PLAYER RESERVE<p>
+          <table>
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Position</th>
+                    <th>Height (cm)</th>
+                    <th>Weight (kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in reserves %}
+                    <tr data-href="{% url 'playerdetails' player.id %}">
+                        <td>{{ player.first_name }} {{ player.last_name }}</td>
+                        <td>{{ player.position }}</td>
+                        <td>{{ player.height }}</td>
+                        <td>{{ player.weight }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div> <!-- END OF ROSTERS SPLIT -->
+    </div>
+
+    <div id="Store" class="tabcontent">
+      <h3>Store</h3>
+      <p>Items for sale fetaured here.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/teamtabs.js' %}"></script>
+{% endblock %}

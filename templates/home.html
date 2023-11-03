@@ -1,3 +1,4 @@
+<!-- Filename: home.html -->
 {% extends 'preview_base.html' %}
 
 <!-- load static -->
@@ -24,10 +25,8 @@
           <span id="context_text">Creating a rugby platform built to benefit the community.</span>
         </div>
         <div class="pair_links">
-          <a id="link_button" href="{% url "about" %}">
-            <button id="link_text" class="button">Learn about First Five</button>
-          </a>
-          </div>
+          <a id="link_button" class="button-link light" href="{% url "about" %}"><span id="link_text">Learn about First Five</span></a>
+        </div>
       </div>
     </div>
   </div>
@@ -39,7 +38,7 @@
     <hr>
     <div class="wide_split">
       <p class="section_title">Upcoming rugby events</p>
-      <a class="link" href="{% url 'camps' %}">view all events</a>
+      <a class="link light" href="{% url 'camps' %}">view all events</a>
     </div>
     <div class="event_feed">
       {% for event in events %}

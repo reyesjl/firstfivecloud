@@ -26,7 +26,7 @@
     <hr>
     <div class="wide_split">
       <p class="section_title">Recent matches</p>
-      <a class="link" href="{% url 'matches' %}">view all matches</a>
+      <a class="link light" href="{% url 'matches' %}">view all matches</a>
     </div>
   </div>
 
@@ -48,8 +48,8 @@
             </div>
 
             <div class="match_teams">
-              <span>{{ match.team1.name }}</span>
-              <span>{{ match.team2.name }}</span>
+              <span><a class="link" href="{% url 'team' match.team1.id %}">{{ match.team1.name }}</a></span>
+              <span><a class="link" href="{% url 'team' match.team2.id %}">{{ match.team2.name }}</a></span>
             </div>
 
             <div class="match_scores">
@@ -68,12 +68,14 @@
     <hr>
     <div class="wide_split">
       <p class="section_title">Choose category</p>
-      <a class="link" href="{% url 'teams' %}">view all leagues</a>
+      <a class="link light" href="{% url 'teams' %}">view all leagues</a>
     </div>
   </div>
   <div class="row long">
     <ul>
-      <li><a class="link" href="{% url 'all-american-pro' %}">Test League</a></li>
+       {% for league in leagues %}
+        <li><a class="link" href="{% url 'league' league.id %}">{{ league.title }}</a></li>
+        {% endfor %}
     </ul> 
   </div>
 </div>
@@ -83,11 +85,11 @@
     <hr>
     <div class="two_column">
       <div class="left">
-        <p class="section_title">Hosting a team page</p>
+        <p class="section_title">Host your team</p>
         <p class="section_review">Elevate your team's online presence and keep your audience engaged like never before. Deliver live updates from your schedule, capture every game event, and meticulously track player statistics. </p>
         
         <br/>
-        <p><a class="link" href="{% url "players" %}">Unlock your full potential</a></p>
+        <p><a class="button-link light" href="{% url "players" %}">See pricing plans</a></p>
       </div>
       <div class="right">
         <img src="https://i.imgur.com/qtu8Msv.png" />
@@ -104,11 +106,12 @@
     </div>
   </div>
   <div class="row long">
-    <p>"Thank you for your patience. If you have feedback, please <a class="link" href="mailto:letusknow@firstfiverugby.com">letusknow</a>." - FFR Software Team</p>
+    <p>"Thank you for your patience. If you have feedback, please <a class="link light" href="mailto:letusknow@firstfiverugby.com">letusknow</a>." - FFR Software Team</p>
   </div>
 </div>
 {% endblock %}
 
 {% block customjs %}
   <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/teams.js' %}"></script>
 {% endblock %}

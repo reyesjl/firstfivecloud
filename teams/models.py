@@ -46,23 +46,6 @@ class Match(models.Model):
         verbose_name = "Match"       # Singular name for the model
         verbose_name_plural = "Matches"  # Plural name for the model
 
-class MatchEvent(models.Model):
-    EVENT_TYPES = (
-        ('try', 'Try Scored'),
-        ('yellow_card', 'Yellow Card Given'),
-        ('red_card', 'Red Card Given'),
-        ('try_conversion', 'Try Conversion'),
-        ('penalty_conversion', 'Penalty Conversion'),
-        ('penalty_try', 'Penalty Try')
-    )
-    event_type = models.CharField(max_length=18, choices=EVENT_TYPES)
-    minute = models.PositiveSmallIntegerField()
-    player = models.CharField(max_length=100)
-    match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name='events')
-
-    def __str__(self):
-        return f"{self.event_type} at {self.minute}' by {self.player}"
-    
 class Player(models.Model):
     # Define choices for rugby positions
     RUGBY_POSITIONS = (
@@ -111,6 +94,24 @@ class Player(models.Model):
         verbose_name = "Rugby Player"
         verbose_name_plural = "Rugby Players"
 
+
+class MatchEvent(models.Model):
+    EVENT_TYPES = (
+        ('try', 'Try Scored'),
+        ('yellow_card', 'Yellow Card Given'),
+        ('red_card', 'Red Card Given'),
+        ('try_conversion', 'Try Conversion'),
+        ('penalty_conversion', 'Penalty Conversion'),
+        ('penalty_try', 'Penalty Try')
+    )
+    event_type = models.CharField(max_length=18, choices=EVENT_TYPES)
+    minute = models.PositiveSmallIntegerField()
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, blank=True, null=True)
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name='events')
+
+    def __str__(self):
+        return f"{self.event_type} at {self.minute}' by {self.player}"
+    
 class Roster(models.Model):
     team = models.OneToOneField(Team, on_delete=models.CASCADE, related_name='roster')
     starting_23 = models.ManyToManyField(Player, related_name='roster_starting_23', blank=True)
