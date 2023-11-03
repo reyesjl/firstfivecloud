@@ -25,6 +25,23 @@
   <div class="row long">
     <hr>
     <div class="wide_split">
+      <p class="section_title">Choose league</p>
+      <a class="link light" href="{% url 'teams' %}">view all leagues</a>
+    </div>
+  </div>
+  <div class="row long">
+    <ul>
+       {% for league in leagues %}
+        <li><a class="link" href="{% url 'league' league.id %}">{{ league.title }}</a></li>
+        {% endfor %}
+    </ul> 
+  </div>
+</div>
+
+<div class="section blackbg"> 
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
       <p class="section_title">Recent matches</p>
       <a class="link light" href="{% url 'matches' %}">view all matches</a>
     </div>
@@ -59,23 +76,6 @@
         {% endfor %}
       {% endfor %}
     </div>
-  </div>
-</div>
-
-<div class="section blackbg"> 
-  <div class="row long">
-    <hr>
-    <div class="wide_split">
-      <p class="section_title">Choose category</p>
-      <a class="link light" href="{% url 'teams' %}">view all leagues</a>
-    </div>
-  </div>
-  <div class="row long">
-    <ul>
-       {% for league in leagues %}
-        <li><a class="link" href="{% url 'league' league.id %}">{{ league.title }}</a></li>
-        {% endfor %}
-    </ul> 
   </div>
 </div>
 
