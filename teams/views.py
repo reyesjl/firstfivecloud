@@ -109,13 +109,17 @@ def handleMatchesRoute(request):
 
 def handleMatchDetailsRoute(request, match_id):
     """
-    Return details for a match.
+    Return details for a match, including game events.
     """
     match = get_object_or_404(Match, id=match_id)
+    
+    # Retrieve game events for the specified match
+    match_events = MatchEvent.objects.filter(match=match)
 
     context = {
         'activelink': 3,
         'match': match,
+        'match_events': match_events,  # Include the game events in the context
     }
 
     return render(request, 'matchdetails.html', context)

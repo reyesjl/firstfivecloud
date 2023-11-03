@@ -68,6 +68,7 @@
     <hr>
     <div class="wide_split">
       <p class="section_title">Standings</p>
+      <p>View team pages by clicking on a row below.</p>
     </div>
   </div>
 
@@ -77,20 +78,14 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Division</th>
             <th>Rank</th>
-            <th>Location</th>
-            <th>Founded In</th>
           </tr>
         </thead>
         <tbody>
           {% for team in teams %}
             <tr data-href="{% url 'team' team.id %}">
               <td>{{ team.name }}</td>
-              <td>{{ team.division }}</td>
               <td>{{ team.rank }}</td>
-              <td>{{ team.city }}, {{ team.state }}</td>
-              <td>{{ team.founded_in }}</td>
             </tr>
           {% endfor %}
         </tbody>

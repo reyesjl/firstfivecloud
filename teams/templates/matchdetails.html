@@ -14,8 +14,11 @@
   <div class="section top">
     <div class="row long">
       <div class="feature">
-        <div class="context">
-          <span>Match Details: {{ match.date|date:"l, d F Y" }}</span>
+        <div class="context match_details">
+          <span>{{match.team1.name}} VS </span>
+          <span>{{match.team2.name}}  </span>
+          <span class="date_played">{{ match.date|date:"l, d F Y" }}</span>
+          <span class="score">{{match.team1_score}} to {{match.team2_score}} </span>
         </div>
       </div>
     </div>
@@ -23,40 +26,28 @@
 </div>
 
 <div class="section blackbg">
-
-  <div id="Details" class="tabcontent">
-      <!-- Display match details here -->
-      <div class="match_details">
-        <p>Match Date: {{ match.date|date:"l, d F Y" }}</p>
-        <p>Team 1: {{ match.team1.name }}</p>
-        <p>Team 2: {{ match.team2.name }}</p>
-        <!-- Add other match details as needed -->
-      </div>
-    </div>
-
-    
-    <div id="Events" class="tabcontent">
-      <!-- Display game events in a table below -->
-      <div class="game_events">
-        <table>
-          <thead>
+  <div class="row long">
+    <hr>
+    <p class="section_title">Game events</p>
+    <div class="ticket_table">
+      <table>
+        <thead>
+          <tr>
+            <th>Player Name</th>
+            <th>Event Type</th>
+            <th>Minute</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in match_events %}
             <tr>
-              <th>Event Type</th>
-              <th>Event Minute</th>
-              <th>Player</th>
+              <td>{{ event.player.first_name }} {{ event.player.last_name }}</td>
+              <td>{{ event.event_type }}</td>
+              <td>{{ event.minute }}</td>
             </tr>
-          </thead>
-          <tbody>
-            {% for event in match_events %}
-              <tr>
-                <td>{{ event.event_type }}</td>
-                <td>{{ event.minute }}</td>
-                <td>{{ event.player.first_name }} {{ event.player.last_name }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

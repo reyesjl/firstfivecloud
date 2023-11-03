@@ -19,8 +19,9 @@
 
   <div class="row long">
     <div class="match_list">
-      {% for match in paginated_matches %}
-        <div class="match">
+      {% for match in paginated_matches%}
+         <div class="match" data-href="{% url 'matchdetails' match.id %}">
+
             <div class="match_date">
               <span><strong>{{ match.date|date:"l, " }}</strong><br />{{ match.date|date:"d F" }}</span>
             </div>
@@ -30,9 +31,9 @@
               <span class="crest"><img src="{{match.team2.crest}}" /></span>
             </div>
 
-            <div class="match_teams">
-              <span>{{ match.team1.name }}</span>
-              <span>{{ match.team2.name }}</span>
+             <div class="match_teams">
+              <span><a class="link" href="{% url 'team' match.team1.id %}">{{ match.team1.name }}</a></span>
+              <span><a class="link" href="{% url 'team' match.team2.id %}">{{ match.team2.name }}</a></span>
             </div>
 
             <div class="match_scores">
@@ -40,7 +41,7 @@
               <span>{{ match.team2_score }}</span>
             </div>
         </div>
-      {% endfor %}
+        {% endfor %}
     </div>
   </div>
 
@@ -68,4 +69,6 @@
 
 {% block customjs %}
   <script src="{% static 'js/index.js' %}"></script>
+  <script src="{% static 'js/matches.js' %}"></script>
+
 {% endblock %}
