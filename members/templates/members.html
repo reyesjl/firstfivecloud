@@ -5,15 +5,19 @@
 
 <!-- stylehseet for this page -->
 {% block customcss %}
-  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'css/members.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="section top blackbg">
   <div class="row long">
-    <p class="section_title">Welcome back, <br /> {{user.username}}</p>
-      <p>player dashboard<p>
-    </div>
+  <hr>
+  <p class="section_title">Members ({{member_count}})</p>
+    <ul class="members_list">
+      {% for user in users %}
+      <li><a class="link light" href="{% url 'profile' user.username %}">{{ user.username }}</a></li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
 

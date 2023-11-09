@@ -11,11 +11,28 @@
 {% block content %}
 <div class="section blackbg top"> 
   <div class="row long">
-    <hr>
     <div class="wide_split">
       <p class="section_title">All matches</p>
     </div>
   </div>
+
+  <div class="row long">
+    <div class="filter_and_sort">
+        <hr>
+        <span>Filter and sort</span>
+        <form method="get" action="{% url 'matches' %}">
+            {{ match_filter_form.league.label_tag }}<br>
+            {{ match_filter_form.league }}
+            {{ match_filter_form.team.label_tag }}<br>
+            {{ match_filter_form.team }}
+            {{ match_filter_form.date.label_tag }}<br>
+            {{ match_filter_form.date }}
+            <input type="submit" value="Apply Filters">
+        </form>
+    </div>
+</div>
+
+
 
   <div class="row long">
     <div class="match_list">

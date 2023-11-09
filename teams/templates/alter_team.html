@@ -1,0 +1,30 @@
+<!-- Filename: alter_team.html-->
+{% extends 'preview_base.html' %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- stylehseet for this page -->
+{% block customcss %}
+  <link rel="stylesheet" href="{% static 'css/teams.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="section blackbg top">
+  <div class="row long">
+    <hr>
+    <div class="wide_split">
+        <p class="section_title">Alter team details</p>
+    </div>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+      </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block customjs %}
+  <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

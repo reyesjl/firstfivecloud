@@ -11,8 +11,18 @@
 {% block content %}
 <div class="section top blackbg">
   <div class="row long">
-    <p class="section_title">Welcome back, <br /> {{user.username}}</p>
-      <p>player dashboard<p>
+    <div class="profile_top">
+      <div class="profile_image">
+        <img src="{{ profile.profile_photo }}" >
+      </div>
+
+      <div class="profile_username">
+        <span>@{{profile.username}}</span>
+      </div>
+
+      <div class="profile_bio">
+        <span>{{profile.bio}}</span>
+      </div>
     </div>
   </div>
 </div>

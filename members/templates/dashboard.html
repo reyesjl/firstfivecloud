@@ -11,9 +11,8 @@
 {% block content %}
 <div class="section top blackbg">
   <div class="row long">
-    <p class="section_title">Welcome back, {{user.username}}</p>
+    <p class="section_title">Welcome back, <br /> {{user.username}}</p>
     <p>account dashboard</p>
-    </div>
   </div>
 </div>
 
@@ -21,11 +20,12 @@
   <div class="row long">
     <hr>
     <div class="wide_split">
-      <p class="section_title">Customization coming soon</p>
+      <p class="section_title">Customization</p>
     </div>
   </div>
   <div class="row long">
-    <p>"Thank you for your patience. If you have feedback, please <a class="link" href="mailto:letusknow@firstfiverugby.com">letusknow</a>." - FFR Software Team</p>
+    <a class="link light" href="{% url 'alterprofile' user.id %}">Edit profile</a>
+    <a class="link light" href="{% url 'profile' user.username %}">View public profile</a>
   </div>
 </div>
 

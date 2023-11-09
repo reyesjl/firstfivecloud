@@ -26,8 +26,10 @@
     
     {% if user.is_authenticated %}
       <span class="account_start">
-        <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'dashboard' %}">{{ user.username }}</a>
-        <i class="fa-solid fa-user"></i>
+        <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'dashboard' %}">{{ user.username }}</a><i class="fa-solid fa-user"></i>
+      </span>
+      <span>
+        <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'alterprofile' user.id %}">Settings</a><i class="fa-solid fa-gear"></i>
       </span>
       <span>
         <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'logout' %}">Logout</a>

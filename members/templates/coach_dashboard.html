@@ -11,81 +11,43 @@
 {% block content %}
 <div class="section top blackbg">
   <div class="row long">
-    <p class="section_title">Welcome back, {{user.username}}</p>
+    <p class="section_title">Welcome back, <br /> {{user.username}}</p>
     <p>coach dashboard<p>
+      
+    <br />
+    <hr>
+    <div class="player_progress">
+      <div class="level">
+        <p>RANK <span>{{ user.level }}</span></p>
+      </div>
+      <div class="xp">
+        <meter value="{{ user.xp }}" min="1" max="{{ user.xp }}"></meter>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="section blackbg"> 
+<div class="section blackbg">
   <div class="row long">
     <hr>
-    <div class="wide_split">
-      <p class="section_title">Event registrations</p>
-    </div>
-  </div>
-  <div class="row long">
-    <div class="event_form">
-      <form method="post">
-        {% csrf_token %}
-        <div>
-          <select name="event" id="event-selector">
-              <option value="" disabled selected>Select an event</option>
-              {% for event in events %}
-                <option value="{{ event.id }}">{{ event.title }} ({{ event.date|date:"F j, Y" }})</option>
-              {% endfor %}
-          </select>
-        </div>
-        <div class="form_button">
-          <input class="button" type="submit" value="Show Event Tickets">
-        </div>
-      </form>
-    </div>
-    {% if selected_event %}
-    <p>Event: {{selected_event.title}} on {{selected_event.date}}</p>
-    {% endif %}
-  </div>
-  <div class="row long">
-    <div class="ticket_table">
-      <table>
-        <thead>
-          <tr>
-              <th>Event</th>
-              <th>Player Full Name</th>
-              <th>Player Age</th>
-              <th>Player Grade</th>
-              <th>Parent Full Name</th>
-              <th>Parent Email</th>
-              <th>Risk Checkbox</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for event_ticket in event_tickets %}
-            <tr>
-              <td>{{ event_ticket.camp.title }}</td>
-              <td>{{ event_ticket.player_full_name }}</td>
-              <td>{{ event_ticket.player_age }}</td>
-              <td>{{ event_ticket.player_grade }}</td>
-              <td>{{ event_ticket.parent_full_name }}</td>
-              <td>{{ event_ticket.parent_email }}</td>
-              <td>{{ event_ticket.risk_checkbox }}</td>
-            </tr>
-          {% endfor %}
-       </tbody>
-      </table>  
+    <span class="section_title">My teams</span>
+    <div class="section_content">
+      {% for team in coached_teams %}
+        <!-- Display team information and management options -->
+        <a class="link light" href="{% url 'alterteam' team.id %}">{{ team.name }}</a></li>
+      {% endfor %}
     </div>
   </div>
 </div>
 
-<div class="section blackbg"> 
+<div class="section blackbg">
   <div class="row long">
     <hr>
-    <div class="wide_split">
-      <p class="section_title">Customization coming soon</p>
-    </div>
-  </div>
-  <div class="row long">
-    <p>"Thank you for your patience. If you have feedback, please <a class="link" href="mailto:letusknow@firstfiverugby.com">letusknow</a>." - FFR Software Team</p>
+    <span class="section_title">My events</span>
+
+    <!-- Events Component -->
+    {% include 'components/event_feed.html' %}
+  
   </div>
 </div>
 
