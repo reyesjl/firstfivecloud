@@ -1,10 +1,7 @@
 from django.db.models import Q
-from django.db.models.functions import Coalesce
-from django.shortcuts import get_object_or_404, render
-
-from f5 import models
-import teams
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Team, Match, MatchEvent, League, Roster, Player
+from .forms import MatchFilterForm, TeamForm
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 def handleTeamsRoute(request):
@@ -66,13 +63,53 @@ def handleTeamRoute(request, team_id):
     # Render a template to display the team's details and roster
     return render(request, 'team.html', context)
 
+def handleEditTeamRoute(request, team_id):
+    team = get_object_or_404(Team, id=team_id)
+
+    if request.method == 'POST':
+        form = TeamForm(request.POST, instance=team)
+        if form.is_valid():
+            form.save()
+            return redirect('team',  team_id=team_id)
+    else:
+        form = TeamForm(instance=team)
+
+    context = {
+        'team': team,
+        'form': form,
+    }
+
+    return render(request, 'alter_team.html', context)
+
+
 def handleMatchesRoute(request):
     # Retrieve recent matches and order them by date
     recent_matches = Match.objects.order_by('-date')
 
-    # Group the matches by date
+    # Create a match filter form
+    match_filter_form = MatchFilterForm(request.GET)
+
+    # Filter matches based on the form data
+    if match_filter_form.is_valid():
+        matches = recent_matches
+        leagues = match_filter_form.cleaned_data.get('league')
+        teams = match_filter_form.cleaned_data.get('team')
+        date = match_filter_form.cleaned_data.get('date')
+
+        if leagues:
+            matches = matches.filter(Q(team1__league__in=leagues) | Q(team2__league__in=leagues))
+        if teams:
+            matches = matches.filter(Q(team1__in=teams) | Q(team2__in=teams))
+        if date:
+            matches = matches.filter(date=date)
+
+    else:
+        # If the form is not submitted or not valid, use all matches
+        matches = recent_matches
+
+    # Group the filtered matches by date
     grouped_matches = {}
-    for match in recent_matches:
+    for match in matches:
         date = match.date
         if date not in grouped_matches:
             grouped_matches[date] = []
@@ -104,6 +141,7 @@ def handleMatchesRoute(request):
         "activelink": 2,
         "paginated_matches": paginated_matches,
         "grouped_matches": grouped_matches,
+        "match_filter_form": match_filter_form,  # Pass the form to the template
     }
     return render(request, "matches.html", context)
 
