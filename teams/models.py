@@ -1,5 +1,7 @@
 from django.db import models
 
+from members.models import FirstfiveUser
+
 class League(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
@@ -20,6 +22,7 @@ class Team(models.Model):
     state = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=100, blank=True)
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name='teams', blank=True, null=True)
+    coach = models.ForeignKey(FirstfiveUser, on_delete=models.SET_NULL, null=True, blank=True, related_name='coached_teams')
 
     def __str__(self):
         location_info = f"{self.city}, {self.state}" if self.city and self.state else "Location Unknown"
