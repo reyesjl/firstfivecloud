@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.mail import send_mail
 from django.utils import timezone
 from .models import Event, EventTicket
 from .forms import EventTicketForm
@@ -142,6 +143,32 @@ def handleCampDetailsRoute(request, id):
             ticket = form.save(commit=False) # save for now, but I need to add the camp in there
             ticket.camp = camp  # Link the ticket to the specific camp
             ticket.save()
+            # Send a confirmation email
+            subject = 'Rugby Event'
+            message = f"""Hello {ticket.parent_full_name},
+
+            Your child, {ticket.player_full_name} has been registered for the following camp:
+            
+            Camp Details
+            Title: {ticket.camp.title}
+            Date: {ticket.camp.date}
+            Time: {ticket.camp.time}
+            Location: {ticket.camp.location}
+            Hosted By: {ticket.camp.hosted_by}
+            
+            First Five Rugby
+            www.firstfiverugby.com
+            letusknow@firstfiverugby.com
+            """
+            from_email = 'firstfiverugby@gmail.com'  # Replace with your email
+            recipient_list = [ticket.parent_email]
+            send_mail(
+                subject,
+                message,
+                from_email,
+                recipient_list,
+                fail_silently=False,
+            )
             return redirect('campsuccess', id=id)
     else:
         form = EventTicketForm()
