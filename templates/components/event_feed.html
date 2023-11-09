@@ -1,0 +1,22 @@
+{% if events != none %}
+<div class="event_feed">
+  {% for event in events %}
+  <div class="event">
+    <a href="{% url 'campdetails' event.id %}">
+      <div class="event_details">
+        <span class="event_image">
+          <img src="{{ event.logo_url }}" alt="rugby jersey">
+        </span>
+
+        <span class="event_type">{{ event.title }}</span>
+        <span class="event_host">{{ event.hosted_by }}</span>
+        <span class="event_date">{{ event.date|date:"F j, Y" }}</span>
+        <span class="event_time">{{ event.time|time:"h:i A" }} EST</span>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+  <p>No events to see here.</p>
+{% endif %}
