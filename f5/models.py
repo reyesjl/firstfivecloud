@@ -66,4 +66,5 @@ class EventTicket(models.Model):
 
   def __str__(self):
       return f"{self.player_full_name} - {self.camp.title}"
+
   

@@ -29,15 +29,22 @@
         <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'dashboard' %}">{{ user.username }}</a><i class="fa-solid fa-user"></i>
       </span>
       <span>
+        <a {% if activelink == 9 %} class="active" {% endif %} href="{% url 'members' %}">All Members</a>
+        <i class="fa-solid fa-user"></i>
+      </span>
+      <span>
         <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'alterprofile' user.id %}">Settings</a><i class="fa-solid fa-gear"></i>
       </span>
       <span>
-        <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'logout' %}">Logout</a>
+        <a {% if activelink == 10 %} class="active" {% endif %} href="{% url 'logout' %}">Logout</a>
         <i class="fa-solid fa-sign-out"></i>
       </span>
     {% else %}
+      <span class="account_start">
+        <a {% if activelink == 9 %} class="active" {% endif %} href="{% url 'members' %}">All Members</a>
+      </span>
       <span>
-        <a {% if activelink == 8 %} class="active" {% endif %} href="{% url 'login' %}">Account</a>
+        <a {% if activelink == 12 %} class="active" {% endif %} href="{% url 'login' %}">My Account</a>
         <i class="fa-solid fa-user"></i>
       </span>
     {% endif %}
