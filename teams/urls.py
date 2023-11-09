@@ -4,6 +4,7 @@ from django.urls import path
 urlpatterns = [
   # Teams page route
   path("", views.handleTeamsRoute, name="teams"),
+  path("aap/", views.handleAAPLeague, name="aap_league"),
   path("league/<int:league_id>", views.handleLeagueRoute, name="league"),
   path("team/<int:team_id>", views.handleTeamRoute, name="team"),
   path("team/edit/<int:team_id>", views.handleEditTeamRoute, name="alterteam"),

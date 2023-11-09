@@ -9,7 +9,7 @@ def handleTeamsRoute(request):
     Return the teams page.
     """
     recent_matches = Match.objects.order_by('-date')[:6]
-    leagues = League.objects.all()
+    leagues = League.objects.filter(is_active=True)
 
     # Group the matches by date
     grouped_matches = {}
@@ -166,7 +166,7 @@ def handleLeagueRoute(request, league_id):
     if league_id is not None:
         league = League.objects.filter(id=league_id).first()
         # Replace the following line with code to get the teams associated with the league
-        league_teams = league.teams.all()  # Replace with the appropriate way to get the teams
+        league_teams = league.teams.all().order_by('rank')  # Replace with the appropriate way to get the teams
     else:
         league = None
         league_teams = None
@@ -178,6 +178,16 @@ def handleLeagueRoute(request, league_id):
     }
     return render(request, 'league.html', context)
 
+def handleAAPLeague(request):
+    league = League.objects.filter(title='All American Pro').first()
+    league_teams = league.teams.all().order_by('rank')  # Replace with the appropriate way to get the teams
+
+    context = {
+        "activelink": 3,
+        "league": league,
+        "league_teams": league_teams,
+    }
+    return render(request, 'aap.html', context)
 
 def handlePlayerDetailsRoute(request, player_id):
     if player_id is not None:

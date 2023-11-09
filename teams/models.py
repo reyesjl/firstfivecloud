@@ -7,6 +7,8 @@ class League(models.Model):
     description = models.TextField(blank=True)
     year_founded = models.IntegerField(blank=True, null=True)
     founders = models.TextField(blank=True, null=True)
+    is_active = models.BooleanField(default=False)
+    sells_tickets = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -18,7 +20,7 @@ class Team(models.Model):
     description = models.TextField(blank=True)
     founded_in = models.PositiveIntegerField(null=True, blank=True)
     division = models.CharField(max_length=100, blank=True)
-    rank = models.CharField(max_length=100, blank=True)
+    rank = models.PositiveIntegerField(null=True, blank=True)
     state = models.CharField(max_length=100, blank=True)
     city = models.CharField(max_length=100, blank=True)
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name='teams', blank=True, null=True)

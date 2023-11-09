@@ -48,7 +48,7 @@
     <hr>
     <div class="wide_split">
       <p class="section_title">Standings</p>
-      <p>Click on a record below</p>
+      <p>View team pages by clicking on a row below.</p>
     </div>
   </div>
 
@@ -62,7 +62,7 @@
           </tr>
         </thead>
         <tbody>
-          {% for team in teams %}
+          {% for team in league_teams %}
             <tr data-href="{% url 'team' team.id %}">
               <td>{{ team.rank }}</td>
               <td>{{ team.name }}</td>
@@ -74,7 +74,6 @@
   </div>
 </div>
 
-{% if league.sells_tickets %}
 <div class="section blackbg">
   <div class="row long">
     <hr>
@@ -94,7 +93,6 @@
     </div>
   </div>
 </div>
-{% endif %}
 
 <div class="section blackbg"> 
   <div class="row long">

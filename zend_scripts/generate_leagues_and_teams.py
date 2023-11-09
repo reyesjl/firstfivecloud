@@ -13,79 +13,41 @@ rugby_league_names = [
 ]
 
 # Select a random league name
-selected_league_name = random.choice(rugby_league_names)
+selected_league_name = "All American Pro"
 
 # Check if the league already exists, or create it
 league, created = League.objects.get_or_create(title=selected_league_name)
 
 # Define a list of major cities on the East Coast as team names
 cities = [
-  "Alabama",
-  "Alaska",
-  "Arizona",
-  "Arkansas",
-  "California",
-  "Colorado",
-  "Connecticut",
-  "Delaware",
-  "Florida",
-  "Georgia",
-  "Hawaii",
-  "Idaho",
-  "Illinois",
-  "Indiana",
-  "Iowa",
-  "Kansas",
-  "Kentucky",
-  "Louisiana",
-  "Maine",
-  "Maryland",
-  "Massachusetts",
-  "Michigan",
-  "Minnesota",
-  "Mississippi",
-  "Missouri",
-  "Montana",
-  "Nebraska",
-  "Nevada",
-  "New Hampshire",
-  "New Jersey",
-  "New Mexico",
-  "New York",
-  "North Carolina",
-  "North Dakota",
-  "Ohio",
-  "Oklahoma",
-  "Oregon",
-  "Pennsylvania",
-  "Rhode Island",
-  "South Carolina",
-  "South Dakota",
-  "Tennessee",
-  "Texas",
-  "Utah",
-  "Vermont",
-  "Virginia",
-  "Washington",
-  "West Virginia",
-  "Wisconsin",
-  "Wyoming"
+  "Plainsmen",
+  "Blues",
+  "United",
+  "Steelers",
+  "Capitals",
+  "Admirals",
+  "Raptors",
+  "Mavericks",
+  "Harmonics",
+  "Phoenix",
+  "Hornets"
 ]
 
-# Shuffle the list and select the first 13 cities
+# Shuffle the list
 random.shuffle(cities)
-selected_cities = cities[:13]
 
-for city in selected_cities:
+for index, city in enumerate(cities, start=1):
   team_name = f"{city} RFC"
   team, created = Team.objects.get_or_create(
-      name=team_name,
-      league=league,
-      crest="https://placehold.co/100x100",
-      banner_image="https://placehold.co/1200x500",
+    name=team_name,
+    league=league,
+    crest="https://placehold.co/100x100",
+    banner_image="https://placehold.co/1200x500",
+    rank=index  # Pass the index directly as an integer
   )
   if created:
-      print(f"Team '{team_name}' created successfully!")
+      print(f"Team '{team_name}' created successfully with rank {index}!")
   else:
       print(f"Team '{team_name}' already exists.")
+
 
