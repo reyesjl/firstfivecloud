@@ -11,19 +11,9 @@
 {% block content %}
 <div class="section top blackbg">
   <div class="row long">
+    <hr>
     <p class="section_title">Welcome back, <br /> {{user.username}}</p>
     <p>coach dashboard<p>
-      
-    <br />
-    <hr>
-    <div class="player_progress">
-      <div class="level">
-        <p>RANK <span>{{ user.level }}</span></p>
-      </div>
-      <div class="xp">
-        <meter value="{{ user.xp }}" min="1" max="{{ user.xp }}"></meter>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -33,8 +23,11 @@
     <span class="section_title">My teams</span>
     <div class="section_content">
       {% for team in coached_teams %}
+
+      <p>
         <!-- Display team information and management options -->
-        <a class="link light" href="{% url 'alterteam' team.id %}">{{ team.name }}</a></li>
+        <a class="button-link light" href="{% url 'alterteam' team.id %}">{{ team.name }}</a></li>
+      </p>
       {% endfor %}
     </div>
   </div>
@@ -44,7 +37,8 @@
   <div class="row long">
     <hr>
     <span class="section_title">My events</span>
-
+    
+    <p><a class="link light" href="#">Create an event</a></p>
     <!-- Events Component -->
     {% include 'components/event_feed.html' %}
   

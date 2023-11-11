@@ -123,12 +123,12 @@ def handleDashboardRoute(request):
             "event_tickets": event_tickets,
         })
         
-        return render(request, 'coach_dashboard.html', context)
+        return render(request, 'dashboards/coach_dashboard.html', context)
     
     if is_player:
         # Handle player-specific logic here
         # Fetch player-related data and render 'player_dashboard.html'
-        return render(request, 'player_dashboard.html', context)
+        return render(request, 'dashboards/player_dashboard.html', context)
     
     if is_admin:
         events = Event.objects.all().order_by('-date')
@@ -147,10 +147,10 @@ def handleDashboardRoute(request):
         })
         # Handle admin-specific logic here
         # Fetch admin-related data and render 'admin_dashboard.html'
-        return render(request, 'admin_dashboard.html', context)
+        return render(request, 'dashboards/admin_dashboard.html', context)
 
     # Default dashboard for users with no specific role
-    return render(request, 'dashboard.html', context)
+    return render(request, 'dashboards/dashboard.html', context)
     
 def handleLoginUser(request):
     if request.method == "POST":
@@ -159,7 +159,7 @@ def handleLoginUser(request):
             user = form.get_user()
             login(request, user)
             messages.success(request, 'User is authenticated.')
-            return redirect('dashboard')  # Redirect to the home page after successful login
+            return redirect('home')  # Redirect to the home page after successful login
         else:
             messages.error(request, 'User is NOT authenticated.')
     else:

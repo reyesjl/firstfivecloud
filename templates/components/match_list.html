@@ -1,0 +1,28 @@
+<div class="match_list">
+      {% for date, matches in grouped_matches.items %}
+      <span class="date"><strong>{{ date|date:"l, " }}</strong>{{ date|date:"d F Y" }}</span>
+        {% for match in matches %}
+         <div class="match" data-href="{% url 'matchdetails' match.id %}">
+
+            <div class="match_date">
+              <span><strong>{{ date|date:"l, " }}</strong><br />{{ date|date:"d F" }}</span>
+            </div>
+
+            <div class="match_crests">
+              <span class="crest"><img src="{{match.team1.crest}}" /></span>
+              <span class="crest"><img src="{{match.team2.crest}}" /></span>
+            </div>
+
+             <div class="match_teams">
+              <span><a class="link" href="{% url 'team' match.team1.id %}">{{ match.team1.name }}</a></span>
+              <span><a class="link" href="{% url 'team' match.team2.id %}">{{ match.team2.name }}</a></span>
+            </div>
+
+            <div class="match_scores">
+              <span>{{ match.team1_score }}</span>
+              <span>{{ match.team2_score }}</span>
+            </div>
+        </div>
+        {% endfor %}
+      {% endfor %}
+    </div>

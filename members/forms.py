@@ -48,4 +48,4 @@ class FFRSignupForm(UserCreationForm):
 class AlterUserForm(forms.ModelForm):
     class Meta:
         model = FirstfiveUser
-        fields = ['profile_photo', 'bio']
+        fields = ['email', 'profile_photo', 'bio',]

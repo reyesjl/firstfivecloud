@@ -179,7 +179,7 @@ def handleLeagueRoute(request, league_id):
     return render(request, 'league.html', context)
 
 def handleAAPLeague(request):
-    league = League.objects.filter(title='All American Pro').first()
+    league = League.objects.filter(title='All American Rugby Cup').first()
     league_teams = league.teams.all().order_by('rank')  # Replace with the appropriate way to get the teams
 
     context = {

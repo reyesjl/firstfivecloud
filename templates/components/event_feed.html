@@ -3,7 +3,7 @@
   {% for event in events %}
   <div class="event">
     <a href="{% url 'campdetails' event.id %}">
-      <div class="event_details">
+      <div class= "event_details">
         <span class="event_image">
           <img src="{{ event.logo_url }}" alt="rugby jersey">
         </span>
@@ -18,5 +18,7 @@
   {% endfor %}
 </div>
 {% else %}
-  <p>No events to see here.</p>
+  <div class="event_feed">
+    <p>No events to see here.</p>
+  </div>
 {% endif %}

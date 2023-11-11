@@ -29,7 +29,7 @@ class Event(models.Model):
   is_active = models.BooleanField(default=False)
 
   def __str__(self):
-    return f"{self.title}, {self.date}, {self.hosted_by}"
+    return f"{self.title} - {self.date} - {self.hosted_by}"
   
 class EventTicket(models.Model):
   """
@@ -65,6 +65,6 @@ class EventTicket(models.Model):
   risk_checkbox = models.BooleanField()
 
   def __str__(self):
-      return f"{self.player_full_name} - {self.camp.title}"
+    return f"{self.player_full_name} - {self.camp.title} - {self.camp.date}"
 
   

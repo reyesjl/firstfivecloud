@@ -16,22 +16,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
 
-  <!-- CSS for individual page requirements -->
+  <!-- Include the general stylesheet -->
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+  <!-- Custom page stylesheet block -->
   {% block customcss %}{% endblock %}
 </head>
 <body>
-  <!-- Navigation bar -->
+  <!-- Include the navigation component -->
   {% include 'components/menu.html' %}
 
-  <!-- Page content inserted here -->
+  <!-- Page contents -->
   {% block content %}{% endblock %}
-
-   <!-- Navigation bar -->
+   <!-- Include the footer component -->
   {% include 'components/footer.html' %}
+  <!-- Inlude the general javascript -->
+  <script src="{% static 'js/index.js' %}"></script>
 
-  <!-- JS scripts for individual page requirements -->
-  {% block customjs %}<script src="{% static 'js/index.js' %}"></script>{% endblock %}
+  <!-- Custom page javascript block -->
+  {% block customjs %}{% endblock %}
 </body>
 </html>
 

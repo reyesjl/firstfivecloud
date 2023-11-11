@@ -14,8 +14,19 @@
     <p class="section_title">Welcome back, <br /> {{user.username}}</p>
       <p>player dashboard<p>
     </div>
+    <br />
+    <hr>
+    <div class="player_progress">
+      <div class="level">
+        <p>RANK <span>{{ user.level }}</span></p>
+      </div>
+      <div class="xp">
+        <meter value="{{ user.xp }}" min="1" max="{{ user.xp }}"></meter>
+      </div>
+    </div>
   </div>
 </div>
+
 
 {% endblock %}
 
