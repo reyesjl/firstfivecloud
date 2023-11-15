@@ -12,6 +12,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["www.firstfiverugby.com", "firstfiverugby.com"]
 CSRF_TRUSTED_ORIGINS = ["https://www.firstfiverugby.com", "https://firstfiverugby.com"]
 LOGIN_REDIRECT_URL = 'dashboard'
+
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -62,6 +63,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            "builtins": ["templatetags.custom_tags"],
             "libraries": { 
                 # fuck tags  -.-
                 "custom_tags": "templatetags.custom_tags", 
